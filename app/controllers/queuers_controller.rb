@@ -1,0 +1,2 @@
+class QueuersController < ApplicationController
+end
