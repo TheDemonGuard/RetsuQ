@@ -11,6 +11,7 @@ class CreateRestaurants < ActiveRecord::Migration[6.1]
       t.integer :capacity
       t.integer :total_wait_time
       t.integer :time_per_person
+      t.references :user_id, null: false, foreign_key: true
 
       t.timestamps
     end
