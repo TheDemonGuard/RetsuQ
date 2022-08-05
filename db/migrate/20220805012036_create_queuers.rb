@@ -4,8 +4,8 @@ class CreateQueuers < ActiveRecord::Migration[6.1]
       t.integer :size
       t.string :status
       t.integer :actual_wait_time
-      t.references :user_id, null: false, foreign_key: true
-      t.references :restaurant_id, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
+      t.references :restaurant, null: false, foreign_key: true
 
       t.timestamps
     end
