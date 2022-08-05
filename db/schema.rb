@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_05_012036) do
+ActiveRecord::Schema.define(version: 2022_08_05_023820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2022_08_05_012036) do
     t.string "price_range"
     t.integer "open_time"
     t.integer "close_time"
-    t.boolean "status"
+    t.string "status"
     t.integer "capacity"
     t.integer "total_wait_time"
     t.integer "time_per_person"
