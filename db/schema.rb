@@ -10,10 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_02_113122) do
+ActiveRecord::Schema.define(version: 2022_08_05_023820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "queuers", force: :cascade do |t|
+    t.integer "size"
+    t.string "status"
+    t.integer "actual_wait_time"
+    t.bigint "user_id", null: false
+    t.bigint "restaurant_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["restaurant_id"], name: "index_queuers_on_restaurant_id"
+    t.index ["user_id"], name: "index_queuers_on_user_id"
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "category"
+    t.string "price_range"
+    t.integer "open_time"
+    t.integer "close_time"
+    t.string "status"
+    t.integer "capacity"
+    t.integer "total_wait_time"
+    t.integer "time_per_person"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_restaurants_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +56,7 @@ ActiveRecord::Schema.define(version: 2022_08_02_113122) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "queuers", "restaurants"
+  add_foreign_key "queuers", "users"
+  add_foreign_key "restaurants", "users"
 end
