@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     resources :queuers, only: [ :new, :create, :edit, :update ]
   end
 
-  resources :queuers, only: [ :show, :index ]
+  resources :queuers, only: [ :show, :index, :destroy ]
 end
