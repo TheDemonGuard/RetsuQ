@@ -1,0 +1,28 @@
+<div class="row m-10" id="listings">
+    <% @restaurants.each do |restaurant| %>
+      <div class="listing-list-item col-12 col-sm-6 col-md-4 mr-6 mt-5">
+        <% if restaurant.photo.attached? %>
+          <%= cl_image_tag restaurants.photo.key, width: 300, fetch_format: :auto, crop: "scale", class: "listing-card-image" %>
+          <% else %>
+          <%= cl_image_tag "q2zwdzid3a3vo6m5786rtisfjxbb", width: 300, fetch_format: :auto, crop: "scale", class: "listing-card-image" %>
+        <% end %>
+
+        <div class="listing-card-body p-3 shadow">
+          <div class="card-title">
+            <h3><%= restaurant.name %></h3>
+          </div>
+          <div class="card-subtitle mb-2 text-muted">
+            <p><%= restaurant.category %></p>
+          </div>
+          <div class="card-text">
+            <p><%= restaurant.address %></p>
+          </div>
+          <div class="card-footer ">
+          <%= link_to restaurant_path(restaurant), class:"text-decoration-none" do %>
+            <div class="card-link align-middle">Check it out</div>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+</div>
