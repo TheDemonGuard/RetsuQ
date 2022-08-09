@@ -21,10 +21,22 @@ puts "DB is now clean!"
 
 puts "creating 50 users and restaurants..."
 
-50.times do
+addresses = [
+  '1-4-9 Meguro, Meguro, Tokyo',
+  '2-2-11 Shimomeguro, Meguro, Tokyo',
+  '2-12-19 Yutenji, Meguro, Tokyo',
+  '3-9-1 Meguro, Meguro, Tokyo',
+  '3-9-3 Meguro, Meguro, Tokyo',
+  '3-10-13 Meguro, Meguro, Tokyo',
+  '1-23-14 Meguro, Meguro, Tokyo 153-0063, Japan',
+  '2-11-8 Meguro, Meguro, Tokyo',
+  '4-14-5 Meguro, Meguro, Tokyo 153-0063, Japan'
+]
+
+15.times do
   Restaurant.create!(
     name: Faker::Restaurant.name,
-    address: Faker::Address.street_name,
+    address: addresses.sample,
     category: Faker::Restaurant.type,
     price_range: %w[$ $$ $$$ $$$$].sample,
     status: %w[open closed].sample,
@@ -41,4 +53,4 @@ puts "creating 50 users and restaurants..."
   )
 end
 
-puts "DONE! You now have 50 Users and 50 Restaurants in the DB..."
+puts "DONE! You now have 15 Users and 15 Restaurants in the DB..."
