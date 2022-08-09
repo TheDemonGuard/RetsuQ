@@ -4,7 +4,7 @@
         <% if restaurant.photo.attached? %>
           <%= cl_image_tag restaurants.photo.key, width: 300, fetch_format: :auto, crop: "scale", class: "listing-card-image" %>
           <% else %>
-          <%= cl_image_tag "q2zwdzid3a3vo6m5786rtisfjxbb", width: 300, fetch_format: :auto, crop: "scale", class: "listing-card-image" %>
+          <%# <%= cl_image_tag "q2zwdzid3a3vo6m5786rtisfjxbb", width: 300, fetch_format: :auto, crop: "scale", class: "listing-card-image" %> %>
         <% end %>
 
         <div class="listing-card-body p-3 shadow">
