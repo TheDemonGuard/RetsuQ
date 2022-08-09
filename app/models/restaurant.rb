@@ -1,8 +1,15 @@
 class Restaurant < ApplicationRecord
   belongs_to :user
   has_many :queuers
+
+  # cloudinary settings
   has_many_attached :photo
 
+  # geocoder settings
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address? # run geocode only if a change to the address has been made
+
+  # validations
   validates :name, presence: true
   validates :address, presence: true
   validates :category, presence: true
