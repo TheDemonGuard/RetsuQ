@@ -24,8 +24,9 @@ puts "creating 50 users and restaurants..."
 50.times do
   Restaurant.create!(
     name: Faker::Restaurant.name,
-    address: Faker::Address.full_address,
+    address: Faker::Address.street_name,
     category: Faker::Restaurant.type,
+    price_range: %w[$ $$ $$$ $$$$].sample,
     status: %w[open closed].sample,
     open_time: rand(9..11),
     close_time: rand(10..12),
