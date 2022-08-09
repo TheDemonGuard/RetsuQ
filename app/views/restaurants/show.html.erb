@@ -1,0 +1,9 @@
+<h1>show page</h1>
+<% if current_user.id == @restaurant.user_id %>
+<p>this is yours</p>
+ <%= link_to queuer_path(@restaurant) do %>
+  <p>See Queuer information</p>
+  <% end  %>
+<% else %>
+<p>This isnt yours</p>
+<% end %>
