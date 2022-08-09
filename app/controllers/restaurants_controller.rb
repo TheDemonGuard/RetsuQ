@@ -36,7 +36,16 @@ class RestaurantsController < ApplicationController
 
 
   def update
+    my_temp_params = params.require(:restaurant).permit(:name, :address, :category, :price_range, :open_time, :close_time, :status, :capacity, :total_wait_time, :time_per_person)
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.update(my_temp_params)
 
+    if @restaurant.valid?
+      redirect_to restaurant_path(@restaurant)
+    else
+      raise
+      render :edit
+    end
   end
 
 
