@@ -26,7 +26,7 @@ class RestaurantsController < ApplicationController
 
 
   def show
-    # raise
+    @restaurant = Restaurant.find(params[:id])
   end
 
 

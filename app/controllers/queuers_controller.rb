@@ -1,4 +1,8 @@
 class QueuersController < ApplicationController
+  def show
+    @queuers = Queuer.where(restaurant_id: params[:id])
+  end
+
   def new
     @queuer = Queuer.new
     @restaurant = Restaurant.find(params[:restaurant_id])
