@@ -38,6 +38,7 @@ addresses = [
     name: Faker::Restaurant.name,
     address: addresses.sample,
     category: Faker::Restaurant.type,
+    description: Faker::Restaurant.description,
     price_range: %w[$ $$ $$$ $$$$].sample,
     status: %w[open closed].sample,
     open_time: rand(9..11),

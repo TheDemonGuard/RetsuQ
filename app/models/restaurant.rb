@@ -17,4 +17,5 @@ class Restaurant < ApplicationRecord
   validates :close_time, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 24}
   validates :capacity, presence: true
   validates :time_per_person, presence: true, numericality: { only_integer: true }
+  validates :description, presence: true, length: { minimum: 50 }
 end
