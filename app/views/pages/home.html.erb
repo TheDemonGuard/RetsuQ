@@ -1,7 +1,15 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
-<% Restaurant.all.each do |restaurant| %>
+  <div style="width: 100%; height: 600px; overflow:hidden;"
+  data-controller="mapbox"
+  data-mapbox-markers-value="<%= @markers.to_json %>"
+  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+
+
+
+<% @restaurants.each do |restaurant| %>
 <ul style="max-width: 270px">
   <div class="booking-card-thumbnail"
         <% if restaurant.photo.attached? %>
@@ -17,6 +25,8 @@
   </li>
   <li><%= restaurant.total_wait_time %><br>
   minutes</li>
-  <li>JOIN QUEUE</li>
 </ul>
 <% end %>
+
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
