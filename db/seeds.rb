@@ -21,8 +21,6 @@ User.destroy_all
 
 puts "DB is now clean!"
 
-puts "creating users and restaurants..."
-
 addresses = [
   '1-4-9 Meguro, Meguro, Tokyo',
   '2-2-11 Shimomeguro, Meguro, Tokyo',
