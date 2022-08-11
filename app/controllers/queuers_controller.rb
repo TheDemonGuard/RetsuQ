@@ -1,6 +1,10 @@
 class QueuersController < ApplicationController
   def show
-    @queuers = Queuer.where(restaurant_id: params[:id])
+    # @username = current_user.email.split("@")[0]
+    # @restaurant = Restaurant.find(params[:id])
+    # @queuer = Queuer.where(restaurant_id: params[:id])
+    @queuer = Queuer.find(params[:id])
+    @restaurant = @queuer.restaurant
   end
 
   def new
@@ -20,6 +24,13 @@ class QueuersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @queuer = Queuer.find(params[:id])
+    @restaurant = @queuer.restaurant
+    @queuer.destroy
+    redirect_to restaurant_path(@restaurant)
   end
 
   private
