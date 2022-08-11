@@ -1,0 +1,89 @@
+.card-base {
+  margin: 1em;
+  border-radius: 20px 20px 0 0;
+}
+
+/* Restaurant cards (pages#home) */
+.card-restaurant {
+  min-width: 270px;
+}
+
+.card-restaurant-thumbnail {
+  width: 100%;
+  background-size: cover;
+  min-height: 170px;
+  border-radius: 20px 20px 0 0;
+}
+
+.card-restaurant-content {
+  border-radius: 0 0 20px 20px;
+  background-color: $white;
+  padding: 0.5em 1em 1em;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.171);
+}
+
+.card-restaurant-details {
+  margin-bottom: 1em;
+}
+
+.card-restaurant-details-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-restaurant-title {
+  font-weight: bold;
+}
+
+.card-restaurant-category {
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.card-restaurant-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  height: 75px;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.card-restaurant-icon-small {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  background: $black;
+  color: $white;
+  border-radius: 16px;
+  padding: 0.5em;
+  min-width: 65px;
+}
+
+.card-restaurant-icon-big {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: $yellow;
+  color: $black;
+  border-radius: 16px;
+  padding: 0.5em;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.card-restaurant-icon-number {
+  font-family: $numbers-font;
+  font-size: 20px;
+}
+
+.card-restaurant-icon-subtitle {
+  font-weight: 300;
+  text-transform: uppercase;
+}
