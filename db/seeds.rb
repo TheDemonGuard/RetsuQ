@@ -7,9 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # create 50 restaurants in DB
-
 puts "cleaning the DB..."
 puts ""
+
+puts "destroying all queuers..."
+Queuer.destroy_all
 
 puts "destroying all restaurants..."
 Restaurant.destroy_all
@@ -19,7 +21,7 @@ User.destroy_all
 
 puts "DB is now clean!"
 
-puts "creating 50 users and restaurants..."
+puts "creating users and restaurants..."
 
 addresses = [
   '1-4-9 Meguro, Meguro, Tokyo',
@@ -51,6 +53,37 @@ addresses = [
       password: "123456",
       email: Faker::Internet.email
     ).id
+  )
+end
+
+# seeds for the pitch
+pitch_seed = Restaurant.create!(
+  name: "The Gyoza Academy",
+  address: "Shibuya",
+  category: "Chinese",
+  description: "The Gyoza Academy offers a wide range of varieties – prawn, chicken, beef, vegetables, pork – with an interesting array of toppings.",
+  price_range: "$$",
+  status: "open",
+  open_time: rand(9..11),
+  close_time: rand(10..12),
+  capacity: rand(20..50),
+  total_wait_time: 0,
+  time_per_person: 3,
+  # creating a user for each restaurant
+  user_id: User.create!(
+    password: "123456",
+    email: "thegyozaacademy@real.com"
+  ).id
+)
+# creating queuers
+200.times do
+  Queuer.create!(
+    user_id: pitch_seed.user_id,
+    restaurant_id: pitch_seed.user_id,
+    size: rand(1..10),
+    status: "completed",
+    actual_wait_time: 0,
+    created_at: (rand * 15).days.ago
   )
 end
 
