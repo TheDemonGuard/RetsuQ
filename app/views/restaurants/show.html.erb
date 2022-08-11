@@ -1,9 +1,42 @@
-<h1>show page</h1>
 <% if current_user.id == @restaurant.user_id %>
 <p>this is yours</p>
 <%= link_to queuer_path(@restaurant) do %>
   <p>See Queuer information</p>
   <% end  %>
 <% else %>
-<p>This isnt yours</p>
+<div class="d-flex align-items-center justify-content-between mb-3 pt-5">
+  <div class="text-decoration-none">
+    <%= link_to "Back", root_path, class: "btn-pink" %>
+  </div>
+</div>
+
+<div class="container mb-6">
+  <% if  @restaurant.nil? == false %>
+    <div class="d-flex flex-column">
+      <div>
+      </div>
+      <div class="d-flex pb-4">
+        <div class="flex-fill mx-4">
+          <div class="card-title pt-3">
+            <h1 class="fw-bold"><%= @restaurant.name %></h1>
+          </div>
+          <div class="card-title border-bottom">
+            <p class="fs-7 fst-italic"><%= @restaurant.address %></p>
+          </div>
+          <div class="listing-show-text card-subtitle status pt-4">
+            <p class="fs-5"><%= @restaurant.category %></p>
+          </div>
+        </div>
+        <%= link_to new_restaurant_queuer_path(@restaurant), class:"text-decoration-none" do %>
+            <div>Join the Queue</div>
+          <% end %>
+        <%# <%= render "bookings/form", booking: @booking %>
+      </div>
+    </div>
+
+    <% else %>
+      No item found for ID <%= @restaurant_id %>
+  <% end %>
+</div>
+</div>
 <% end %>
