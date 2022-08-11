@@ -1,6 +1,6 @@
-<div class="container dashboard-wrapper pt-5">
+<div class="container pt-5 dashboard-wrapper">
   <div class="row">
-    <div class="dashboard-owner col-8">
+    <div class="col-8 dashboard-owner">
       <h3 class="pt-4">Dashboard</h3>
       <div class="row align-items-center">
         <div class="col dashboard-owner-options">Queue Managament</div>
@@ -13,15 +13,15 @@
         <div class="col dashboard-owner-options">Ratings</div>
       </div>
     </div>
-    <div class="live-queue col-4">
-      <div class="actions">
-        <i class="fas fa-toggle-on"></i>
-        <i class="fas fa-plus"></i>
-      </div>
-      <div class="next-queuer">
-        <p>Next Queuer: </p>
-        <p>Size: </p>
+    <div class="col-4 live-queue">
+      <div class="align-self-end show-next-queuer">
+        <p>Next Queuer: <%= @queuer.name if @queuer.present? %> </p>
+        <p>Size: <%= @queuer.size if @queuer.present? %></p>
       </div>
     </div>
+  </div>
+
+  <div class="container analytics">
+    <h3 class="pt-4">Queuer Analytics</h3>
   </div>
 </div>

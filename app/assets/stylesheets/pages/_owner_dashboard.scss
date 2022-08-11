@@ -1,0 +1,45 @@
+body {
+  background-color: white;
+}
+
+.dashboard-owner {
+  background-color: #F5F5F5;
+  height: 320px;
+  border-radius: 10px;
+
+  .dashboard-owner-options {
+    height: 100px;
+    width: 100px;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin: 8px;
+  }
+}
+
+.live-queue {
+  height: 320px;
+  background-color: white;
+
+  .show-next-queuer {
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    background-color: #F5F5F5;
+    height: 320px;
+    width: 100%;
+  }
+}
+
+.analytics {
+  background-color: #F5F5F5;
+  height: 320px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-radius: 10px;
+
+  h3 {
+    margin: 8px;
+  }
+
+}
