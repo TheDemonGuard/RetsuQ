@@ -1,4 +1,7 @@
-<h1>You made it</h1>
-<% @queuers.each do |queue| %>
-<%= queue.user_id  %>
+<% if current_user.id == @restaurant.user_id %>
+  <% @queuers.each do |queue| %>
+  <%= queue.user_id  %>
+  <% end %>
+<% else %>
+  <h1>You made it</h1>
 <% end %>
