@@ -17,6 +17,6 @@
   </li>
   <li><%= restaurant.total_wait_time %><br>
   minutes</li>
-  <li>JOIN QUEUE</li>
+  <li><%= link_to 'Join Queue', new_restaurant_queuer_path(restaurant) %></li>
 </ul>
 <% end %>
