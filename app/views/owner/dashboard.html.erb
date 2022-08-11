@@ -14,9 +14,15 @@
       </div>
     </div>
     <div class="col-4 live-queue">
-      <div class="align-self-end show-next-queuer">
-        <p>Next Queuer: <%= @queuer.name if @queuer.present? %> </p>
+      <div class="show-next-queuer">
+        <p>Next Queuer: <%= @queuer.name if @queuer.present? %></p>
         <p>Size: <%= @queuer.size if @queuer.present? %></p>
+        <div class="next-queuer-actions">
+        <div class="queuer-action-remove"> A
+        </div>
+        <div class="queuer-action-notify"> B
+        </div>
+      </div>
       </div>
     </div>
   </div>
@@ -24,6 +30,6 @@
   <div class="container analytics">
     <h3 class="pt-4">Queuer Analytics</h3>
     <div class="chart" >
-      <%= line_chart Queuer.group_by_day(:created_at).count, width: "1200px", height: "240px" %>
+      <%= line_chart Queuer.group_by_day(:created_at).count, width: "100%", height: "240px", colors: ["pink"], empty: "No data", download: true %>
     </div>
 </div>

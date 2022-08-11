@@ -19,7 +19,8 @@ body {
 
 .live-queue {
   height: 320px;
-  background-color: white;
+  flex-direction: column;
+  display: flex;
 
   .show-next-queuer {
     background-color: #F5F5F5;
@@ -27,6 +28,31 @@ body {
     background-color: #F5F5F5;
     height: 320px;
     width: 100%;
+  }
+}
+
+.next-queuer-actions {
+  flex-direction: row;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  .queuer-action-remove {
+    background-color: #E1341E;
+    height: 100px;
+    width: 80px;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin: 8px;
+  }
+
+  .queuer-action-notify {
+    background-color: #4DB25A;
+    height: 100px;
+    width: 80px;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin: 8px;
   }
 }
 
@@ -41,5 +67,4 @@ body {
   h3 {
     margin: 8px;
   }
-
 }
