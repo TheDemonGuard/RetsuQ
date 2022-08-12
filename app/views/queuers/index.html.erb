@@ -1,1 +1,33 @@
-<h1>you made it again</h1>
+<div class="row d-flex align-items-center justify-content-between mb-3">
+  <h3 class="mt-5 mb-2">My Queue</h3>
+</div>
+
+
+  <% @queuers.each_with_index do | queue, index | %>
+    <div class="queuers-card shadow">
+      <div class="queuers-card-preview"><p><%= queue.user.email %></p>
+        <p class=" ">Number of guests: <%= queue.size %></span>
+      </div>
+        <div class="queuers-card-status">
+        <% if queue.status === nil %>
+            <h3 class="">nil</h3>
+          <% elsif queue.status === "dining"  %>
+            <h3 class="">Guests are Dining</h3>
+          <% elsif queue.status === "completed"  %>
+            <h3 class="">Guests have left</h3>
+          <% else  %>
+            <h3 class="">Guests are queuing</h3>
+          <% end %>
+        </div>
+
+      <div class="queuers-card-action">
+        <% Queuer::STATUS.each do |status| %>
+          <%= link_to change_status_queuer_path(@queuers[index], status: status), method: :patch do %>
+          <div class="btn-action shadow"><p><%= status.capitalize %></p></div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+<script>
