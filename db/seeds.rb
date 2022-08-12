@@ -70,7 +70,8 @@ pitch_seed = Restaurant.create!(
   # creating a user for each restaurant
   user_id: User.create!(
     password: "123456",
-    email: "thegyozaacademy@real.com"
+    email: "thegyozaacademy@real.com",
+    role: "owner"
   ).id
 )
 # creating queuers
