@@ -3,8 +3,8 @@ class QueuersController < ApplicationController
     @queuer = Queuer.find(params[:id])
     restaurant_id = @queuer.restaurant_id
     @restaurant = Restaurant.find(restaurant_id)
-    @queuers = Queuer.where(restaurant_id: params[:id])
-    @restaurant = Restaurant.find(params[:id])
+    # @queuers = Queuer.where(restaurant_id: params[:id])
+    # @restaurant = Restaurant.find(params[:id])
   end
 
   def index
