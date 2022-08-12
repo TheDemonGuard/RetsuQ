@@ -25,5 +25,8 @@
 </div>
 
 <div class="d-flex justify-content-center">
-  <a href="" class="btn">Leave Queue</a>
+  <%= link_to "Leave the Queue #{@queuer.size}",
+            queuer_path(@queuer),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
 </div>
