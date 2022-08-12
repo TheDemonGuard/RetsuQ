@@ -1,3 +1,5 @@
+// user navbar
+
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
@@ -9,4 +11,42 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 130px;
+}
+
+// owner navbar
+.navbar-owner {
+  align-items: center;
+  background: #FFD60A;
+  width: 100%;
+  display: flex;
+}
+
+.queuers {
+  width: 80%;
+  position: relative;
+}
+
+
+.navbar-owner .navbar-collapse {
+  flex-grow: 0;
+}
+
+
+.navbar-owner .navbar-brand img {
+  width: 130px;
+  padding-left: 8px;
+}
+
+.actions {
+}
+
+.queue-status {
+  font-size: 42px;
+  padding-bottom: 4px;
+  padding-right: 24px;
+  }
+
+.add-queuer {
+  font-size: 40px;
+  padding-right: 24px;
 }
