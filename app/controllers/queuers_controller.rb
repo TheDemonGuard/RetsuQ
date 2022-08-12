@@ -1,10 +1,9 @@
 class QueuersController < ApplicationController
   def show
-    # @username = current_user.email.split("@")[0]
-    # @restaurant = Restaurant.find(params[:id])
-    # @queuer = Queuer.where(restaurant_id: params[:id])
     @queuer = Queuer.find(params[:id])
-    @restaurant = @queuer.restaurant
+    restaurant_id = @queuer.restaurant_id
+    @restaurant = Restaurant.find(restaurant_id)
+
   end
 
   def new
