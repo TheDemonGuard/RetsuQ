@@ -17,27 +17,36 @@
 .navbar-owner {
   align-items: center;
   background: #FFD60A;
+  width: 100%;
+  display: flex;
 }
+
+.queuers {
+  width: 80%;
+  position: relative;
+}
+
 
 .navbar-owner .navbar-collapse {
   flex-grow: 0;
 }
 
+
 .navbar-owner .navbar-brand img {
   width: 130px;
+  padding-left: 8px;
 }
 
 .actions {
-  padding: 0 8px;
 }
 
 .queue-status {
-  height: 100px;
-  font-size: 50px;
-  padding-top: 12px;
-  padding-right: 16px;
+  font-size: 42px;
+  padding-bottom: 4px;
+  padding-right: 24px;
   }
 
 .add-queuer {
-  font-size: 50px;
+  font-size: 40px;
+  padding-right: 24px;
 }
