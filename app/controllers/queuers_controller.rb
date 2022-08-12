@@ -1,11 +1,24 @@
 class QueuersController < ApplicationController
   def show
+    @queuers = Queuer.where(restaurant_id: params[:id])
+    @restaurant = Restaurant.find(params[:id])
+  end
+
+  def index
+    @restaurant = Restaurant.where(user_id: current_user.id)
+    @queuers = Queuer.where(restaurant_id: @restaurant)
+
     # @username = current_user.email.split("@")[0]
     # @restaurant = Restaurant.find(params[:id])
     # @queuer = Queuer.where(restaurant_id: params[:id])
+
     @queuers = Queuer.where("user_id = restaurant_id")
     @queuer = Queuer.find(params[:id])
     @restaurant = @queuer.restaurant
+
+    # @queuer = Queuer.find(params[:id])
+    # @restaurant = @queuer.restaurant
+
   end
 
   def new
@@ -20,11 +33,23 @@ class QueuersController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
     @queuer.restaurant = @restaurant
     @queuer.user_id = @user_id
+    @queuer.status = "queuing"
     if @queuer.save
       redirect_to queuer_path(@queuer)
     else
       render :new
     end
+  end
+
+  def update
+    @queuer = Queuer.find(params[:id])
+    @queuer.update(queuer_params)
+  end
+
+  def change_status
+    @queuer = Queuer.find(params[:id])
+    @queuer.update(status: params[:status])
+    redirect_to queuers_path, notice: "Status updated to #{@queuer.status}"
   end
 
   def destroy
@@ -37,6 +62,6 @@ class QueuersController < ApplicationController
   private
 
   def queuer_params
-    params.require(:queuer).permit(:size)
+    params.require(:queuer).permit(:size, :status)
   end
 end

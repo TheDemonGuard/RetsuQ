@@ -11,5 +11,10 @@ Rails.application.routes.draw do
     resources :queuers, only: [ :new, :create, :edit, :update ]
   end
 
-  resources :queuers, only: [ :show, :index, :destroy ]
+  resources :queuers do
+    resources :queuers, only: [ :show, :index, :destroy, :update ]
+    member do
+      patch :change_status
+    end
+  end
 end
