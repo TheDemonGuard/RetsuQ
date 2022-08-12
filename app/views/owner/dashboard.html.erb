@@ -1,0 +1,37 @@
+<div class="container pt-5 dashboard-wrapper">
+  <div class="row">
+    <div class="col-8 dashboard-owner">
+      <h3 class="pt-4">Dashboard</h3>
+      <div class="row align-items-center">
+        <div class="col dashboard-owner-options"><p>Queue Managament</p></div>
+        <div class="col dashboard-owner-options"><p>Queue Analytics</p></div>
+        <div class="col dashboard-owner-options"><p>Discount and Offers</p></div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col dashboard-owner-options"><p>Restaurant Details</p></div>
+        <div class="col dashboard-owner-options"><p>Queue History</p></div>
+        <div class="col dashboard-owner-options"><p>Ratings</p></div>
+      </div>
+    </div>
+    <div class="col-4 live-queue">
+      <div class="show-next-queuer">
+        <p>Next Queuer: <%= @queuer.name if @queuer.present? %></p>
+        <p>Size: <%= @queuer.size if @queuer.present? %></p>
+        <div class="next-queuer-actions">
+        <div class="queuer-action-remove">
+          <i class="fas fa-sign-out-alt"></i>
+        </div>
+        <div class="queuer-action-notify">
+          <i class="fas fa-envelope"></i>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container analytics">
+    <h3 class="pt-4">Queuer Analytics</h3>
+    <div class="chart" >
+      <%= line_chart Queuer.group_by_day(:created_at).count, width: "100%", height: "240px", colors: ["pink"], empty: "No data", download: true %>
+    </div>
+</div>
