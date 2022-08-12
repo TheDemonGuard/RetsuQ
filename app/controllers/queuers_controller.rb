@@ -3,8 +3,13 @@ class QueuersController < ApplicationController
     @queuer = Queuer.find(params[:id])
     restaurant_id = @queuer.restaurant_id
     @restaurant = Restaurant.find(restaurant_id)
-    # @queuers = Queuer.where(restaurant_id: params[:id])
-    # @restaurant = Restaurant.find(params[:id])
+    # <!-- Queue information -->
+    @queue = Queuer.where(restaurant_id: @restaurant)
+    # <!-- number of people waiting in the queue -->
+    @number_of_people = 0
+    @queue.each do |group|
+      @number_of_people += group.size
+    end
   end
 
   def index

@@ -9,11 +9,14 @@
 <div class="info-card-container">
   <div class="info-card">
   <p>Place In The Queue:</p>
+  <%= @queue.size %>
   </div>
   <div class="info-card">
+
   <p>Wait Time Remaining:</p>
   </div>
   <div class="info-card">
-  <p>People Ahead:</p>
+  <p>People In The Queue:</p>
+    <%= @number_of_people %>
   </div>
 </div>
