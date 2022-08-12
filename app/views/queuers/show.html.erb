@@ -1,7 +1,36 @@
 <% if current_user.id == @restaurant.user_id %>
-  <% @queuers.each do |queue| %>
-  <%= queue.user_id  %>
+  <h1>you made it again</h1>
+<div class="row d-flex align-items-center justify-content-between mb-3">
+  <h3 class="mt-5 mb-2">My Queue</h3>
+</div>
+
+
+  <% @queuers.each do | queue | %>
+
+    <div class="card">
+      <div class="queue-card-status status"><%= queue.user.email %></div>
+
+      <div class="queue-card-thumbnail" style="background-image: url('https://images.pexels.com/photos/209977/pexels-photo-209977.jpeg')">
+      </div>
+
+      <div class="queue-card-content p-3">
+        <h3 class="m-0 mb-1"><%= queue.status  %></h3>
+        <span class="m-0"><%= queue.size %></span>
+      </div>
+
+      <div class="queue-card-date p-3">
+        <% Queuer::STATUS.each do |status| %>
+          <%= link_to change_status_queuer_path(@queuer, status: status), method: :patch do %>
+          <%= status %>
+        <% end %>
   <% end %>
+
+      </div>
+
+    </div>
+
+  <% end %>
+
 <% else %>
   <h1>You made it</h1>
 <% end %>

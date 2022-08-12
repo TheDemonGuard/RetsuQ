@@ -1,6 +1,6 @@
 <% if current_user.id == @restaurant.user_id %>
 <p>this is yours</p>
-<%= link_to queuer_path(@restaurant) do %>
+<%= link_to queuers_path() do %>
   <p>See Queuer information</p>
   <% end  %>
 <% else %>

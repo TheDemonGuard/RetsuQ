@@ -8,3 +8,20 @@ $orange: #E67E22;
 $green: #1EDD88;
 $gray: #0E0000;
 $light-gray: #F4F4F4;
+
+.status {
+  color: white;
+
+  &.queuing {
+    background-color: orange;
+  }
+
+  &.dining {
+    background-color: #1EDD88;
+  }
+
+  &.completed {
+    background-color: red;
+  }
+
+}
