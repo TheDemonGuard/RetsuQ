@@ -1,11 +1,17 @@
 body {
   background-color: white;
+
+}
+
+p {
+  font-size: 18px;
 }
 
 .dashboard-owner {
   background-color: #F5F5F5;
   height: 320px;
   border-radius: 10px;
+
 
   .dashboard-owner-options {
     height: 100px;
@@ -14,6 +20,8 @@ body {
     border-radius: 10px;
     border: 1px solid black;
     margin: 8px;
+    text-align: center;
+    padding-top: 28px;
   }
 }
 
@@ -28,6 +36,8 @@ body {
     background-color: #F5F5F5;
     height: 320px;
     width: 100%;
+    padding-top: 8px;
+    padding-left: 8px;
   }
 }
 
@@ -36,6 +46,8 @@ body {
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  padding-top: 80px;
+  text-align: center;
 
   .queuer-action-remove {
     background-color: #E1341E;
@@ -44,6 +56,7 @@ body {
     border-radius: 10px;
     border: 1px solid black;
     margin: 8px;
+    padding-top: 24px;
   }
 
   .queuer-action-notify {
@@ -53,6 +66,11 @@ body {
     border-radius: 10px;
     border: 1px solid black;
     margin: 8px;
+    padding-top: 24px;
+  }
+
+  i {
+    font-size: 36px;
   }
 }
 
