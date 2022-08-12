@@ -11,6 +11,9 @@
 puts "cleaning the DB..."
 puts ""
 
+puts "destroying all queuers..."
+Queuer.destroy_all
+
 puts "destroying all restaurants..."
 Restaurant.destroy_all
 
@@ -19,7 +22,7 @@ User.destroy_all
 
 puts "DB is now clean!"
 
-puts "creating 50 users and restaurants..."
+puts "creating 15 users and restaurants..."
 
 addresses = [
   '1-4-9 Meguro, Meguro, Tokyo',
@@ -38,6 +41,7 @@ addresses = [
     name: Faker::Restaurant.name,
     address: addresses.sample,
     category: Faker::Restaurant.type,
+    description: Faker::Restaurant.description,
     price_range: %w[$ $$ $$$ $$$$].sample,
     status: %w[open closed].sample,
     open_time: rand(9..11),

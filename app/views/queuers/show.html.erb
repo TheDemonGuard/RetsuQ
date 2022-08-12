@@ -33,4 +33,5 @@
 
 <% else %>
   <h1>You made it</h1>
+  <%= link_to "Remove", queuer_path(@queuer), method: :delete, data: { confirm: "Are you sure?" } %>
 <% end %>

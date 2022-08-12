@@ -26,6 +26,7 @@
           <div class="listing-show-text card-subtitle status pt-4">
             <p class="fs-5"><%= @restaurant.category %></p>
           </div>
+          <%= @restaurant.description %>
         </div>
         <%= link_to new_restaurant_queuer_path(@restaurant), class:"text-decoration-none" do %>
             <div>Join the Queue</div>
