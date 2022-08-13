@@ -1,3 +1,4 @@
+/* restaurant show page */
 .restaurant-name-container {
   align-items: center;
   display: flex;
@@ -11,12 +12,14 @@
   margin-top: 10px;
 }
 
+/* restaurant show page */
 .title-container {
   text-align: center;
   margin: 30px;
   justify-content: space-evenly;
 }
 
+/* restaurant show page */
 .info-card-container {
   display: flex;
   width: 100%;
@@ -24,6 +27,7 @@
   justify-content: space-evenly ;
 }
 
+/* restaurant show page */
 .info-card {
   border: 1px solid black;
   width: 300px;
@@ -33,5 +37,4 @@
   text-align: center;
   background-color: $yellow;
   border-radius: 10px;
-
 }
