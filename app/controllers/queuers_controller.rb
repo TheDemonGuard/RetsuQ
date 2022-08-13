@@ -55,6 +55,12 @@ class QueuersController < ApplicationController
     redirect_to restaurant_path(@restaurant)
   end
 
+  def remove_queuer
+    @queuer = Queuer.find(params[:id])
+    @queuer.destroy
+    redirect_to queuers_path, notice: "Group Was Removed"
+  end
+
   private
 
   def queuer_params

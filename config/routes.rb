@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :queuers, only: [ :show, :index, :destroy, :update ]
     member do
       patch :change_status
+      delete :remove_queuer
     end
   end
 end
