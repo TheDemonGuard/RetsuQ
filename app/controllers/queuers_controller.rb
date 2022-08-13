@@ -15,6 +15,8 @@ class QueuersController < ApplicationController
   def index
     @restaurant = Restaurant.where(user_id: current_user.id)
     @queuers = Queuer.where(restaurant_id: @restaurant)
+    @queuers = @queuers.sort_by { |queue| queue.created_at }
+    @queuers.reverse!
   end
 
   def new
