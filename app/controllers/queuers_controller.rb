@@ -55,6 +55,7 @@ class QueuersController < ApplicationController
   end
 
   def change_status
+    raise
     @queuer = Queuer.find(params[:id])
     @queuer.update(status: params[:status])
     redirect_to queuers_path, notice: "Status updated to #{@queuer.status}"
