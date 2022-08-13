@@ -60,6 +60,12 @@ pitch_owner = User.create!(
   role: "owner"
 )
 
+pitch_user = User.create!(
+  password: "123456",
+  email: "user@real.com",
+  role: "user"
+)
+
 # seeds for the pitch
 pitch_seed = Restaurant.create!(
   name: "The Gyoza Academy",
