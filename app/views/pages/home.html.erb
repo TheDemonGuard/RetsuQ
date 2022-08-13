@@ -1,55 +1,57 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<section>
+  <h3>Restaurants near you</h3>
 
-  <div style="width: 100%; height: 600px; overflow:hidden;"
-  data-controller="mapbox"
-  data-mapbox-markers-value="<%= @markers.to_json %>"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    <div style="width: 100%; height: 350px; overflow:hidden;"
+    data-controller="mapbox"
+    data-mapbox-markers-value="<%= @markers.to_json %>"
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
-<!-- Flexbox wrapper for restaurant cards -->
-<div class="restaurants-wrapper">
+</section>
 
-  <% @restaurants.each do |restaurant| %>  <!--Start iteration -->
+<section>
+  <h3>Get queued up quickly</h3>
+  <!-- Flexbox wrapper for restaurant cards -->
+  <div class="restaurants-wrapper">
 
-  <div class="card-base card-restaurant" style="max-width: 270px">
-  <a href="<%=restaurant_path(restaurant)%>">
-    <div class="card-restaurant-thumbnail"
-          <% if restaurant.photo.attached? %>
-            style="height: 100px; background-image: url('<%= cl_image_path restaurant.equipment_listing.photo.key  %>')"
-          <% else %>
-            style="height: 100px; background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')"
-          <% end %>>
-    </div>
-    </a>
-    <div class="card-restaurant-content">
-
-      <div class="card-restaurant-details">
-      <span class="card-restaurant-category"><%= restaurant.category %></span>
-        <div class="card-restaurant-details-top">
-          <span class="card-restaurant-title"><%= restaurant.name %></span>
-          <span class="card-restaurant-budget"><%= restaurant.price_range %></span>
+    <% @restaurants.each do |restaurant| %>  <!--Start iteration -->
+    <div class="card-base card-restaurant" style="max-width: 270px">
+      <a href="<%=restaurant_path(restaurant)%>">
+        <div class="card-restaurant-thumbnail"
+              <% if restaurant.photo.attached? %>
+                style="height: 100px; background-image: url('<%= cl_image_path restaurant.equipment_listing.photo.key  %>')"
+              <% else %>
+                style="height: 100px; background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')"
+              <% end %>>
         </div>
+        </a>
+        <div class="card-restaurant-content">
 
+          <div class="card-restaurant-details">
+          <span class="card-restaurant-category"><%= restaurant.category %></span>
+            <div class="card-restaurant-details-top">
+              <span class="card-restaurant-title"><%= restaurant.name %></span>
+              <span class="card-restaurant-budget"><%= restaurant.price_range %></span>
+            </div>
+
+          </div>
+
+          <div class="card-restaurant-actions">
+            <div class="card-restaurant-icon-small">
+              <span class="card-restaurant-icon-number">9</span>
+              <span class="card-restaurant-icon-subtitle">waiting</span>
+            </div>
+            <div class="card-restaurant-icon-small">
+              <span class="card-restaurant-icon-number"><%= restaurant.total_wait_time %></span>
+              <span class="card-restaurant-icon-subtitle">mins</span>
+            </div>
+
+            <!-- Join Queue Button -->
+            <%= link_to 'Join Queue', new_restaurant_queuer_path(restaurant), class: "card-restaurant-icon-big" %>
+          </div>
+        </div>
       </div>
-
-      <div class="card-restaurant-actions">
-        <div class="card-restaurant-icon-small">
-          <span class="card-restaurant-icon-number">9</span>
-          <span class="card-restaurant-icon-subtitle">waiting</span>
-        </div>
-        <div class="card-restaurant-icon-small">
-          <span class="card-restaurant-icon-number"><%= restaurant.total_wait_time %></span>
-          <span class="card-restaurant-icon-subtitle">mins</span>
-        </div>
-
-        <!-- Join Queue Button -->
-        <%= link_to 'Join Queue', new_restaurant_queuer_path(restaurant), class: "card-restaurant-icon-big" %>
-      </div>
+      <% end %> <!-- End iteration -->
     </div>
-  </div>
-  <% end %> <!-- End iteration -->
-
-  </div>
-
+</section>
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
