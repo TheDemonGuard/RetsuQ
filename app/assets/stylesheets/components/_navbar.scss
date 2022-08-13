@@ -1,16 +1,22 @@
 // user navbar
 
-.navbar-lewagon {
+.navbar-main {
   justify-content: space-between;
   background: white;
+  margin-bottom: 3em;
+  background-image: asset_url("navbar-bg-right.png");
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: 275px;
+  padding: 0 1.5em;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-main .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 130px;
+.navbar-main .navbar-brand img {
+  width: 330px;
 }
 
 // owner navbar
@@ -33,7 +39,7 @@
 
 
 .navbar-owner .navbar-brand img {
-  width: 130px;
+  width: 100px;
   padding-left: 8px;
 }
 

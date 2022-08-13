@@ -1,11 +1,11 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-main">
   <%= link_to "/", class: "navbar-brand" do %>
-    <%= image_tag "RetsuQ_logo_large.png" %>
+    <%= image_tag "navbar-icon.png" %>
   <% end %>
 
   <% if user_signed_in? %>
     <div class="dropdown">
-      <button class="btn dropdown-toggle " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background: white;">
       <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><title>menu</title><g fill="none"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="#212121"></path></g></svg>    </button>
 
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
