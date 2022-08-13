@@ -15,18 +15,6 @@ class QueuersController < ApplicationController
   def index
     @restaurant = Restaurant.where(user_id: current_user.id)
     @queuers = Queuer.where(restaurant_id: @restaurant)
-
-    # @username = current_user.email.split("@")[0]
-    # @restaurant = Restaurant.find(params[:id])
-    # @queuer = Queuer.where(restaurant_id: params[:id])
-
-    # @queuers = Queuer.where("user_id = restaurant_id")
-    # @queuer = Queuer.find(params[:id])
-    # @restaurant = @queuer.restaurant
-
-    # @queuer = Queuer.find(params[:id])
-    # @restaurant = @queuer.restaurant
-
   end
 
   def new
@@ -55,7 +43,6 @@ class QueuersController < ApplicationController
   end
 
   def change_status
-    raise
     @queuer = Queuer.find(params[:id])
     @queuer.update(status: params[:status])
     redirect_to queuers_path, notice: "Status updated to #{@queuer.status}"

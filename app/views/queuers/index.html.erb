@@ -22,7 +22,7 @@
 
       <div class="queuers-card-action">
         <% Queuer::STATUS.each do |status| %>
-          <%= link_to change_status_queuer_path(@queuers[index], status: status), method: :patch do %>
+          <%= button_to change_status_queuer_path(@queuers[index], status: status), method: :patch do %>
           <div class="btn-action shadow"><p><%= status.capitalize %></p></div>
           <% end %>
         <% end %>
