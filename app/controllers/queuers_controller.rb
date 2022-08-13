@@ -1,24 +1,20 @@
 class QueuersController < ApplicationController
   def show
-    @queuers = Queuer.where(restaurant_id: params[:id])
-    @restaurant = Restaurant.find(params[:id])
+    @queuer = Queuer.find(params[:id])
+    restaurant_id = @queuer.restaurant_id
+    @restaurant = Restaurant.find(restaurant_id)
+    # <!-- Queue information -->
+    @queue = Queuer.where(restaurant_id: @restaurant)
+    # <!-- number of people waiting in the queue -->
+    @number_of_people = 0
+    @queue.each do |group|
+      @number_of_people += group.size
+    end
   end
 
   def index
     @restaurant = Restaurant.where(user_id: current_user.id)
     @queuers = Queuer.where(restaurant_id: @restaurant)
-
-    # @username = current_user.email.split("@")[0]
-    # @restaurant = Restaurant.find(params[:id])
-    # @queuer = Queuer.where(restaurant_id: params[:id])
-
-    @queuers = Queuer.where("user_id = restaurant_id")
-    @queuer = Queuer.find(params[:id])
-    @restaurant = @queuer.restaurant
-
-    # @queuer = Queuer.find(params[:id])
-    # @restaurant = @queuer.restaurant
-
   end
 
   def new
