@@ -26,6 +26,9 @@
           <div class="btn-action shadow"><p><%= status.capitalize %></p></div>
           <% end %>
         <% end %>
+          <%= button_to remove_queuer_queuer_path(@queuers[index]),method: :delete do %>
+          <div class="btn-action shadow"><p>Remove Group</p></div>
+          <% end %>
       </div>
     </div>
   <% end %>
