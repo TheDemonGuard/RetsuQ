@@ -6,13 +6,13 @@
 
   <div class="container d-flex justify-content-end actions">
     <div class="form-check form-switch queue-status">
-    <% if @restaurant.status == 'open' %>
-      <%= simple_form_for @restaurant do |f| %>
+    <% if current_user.restaurant.status == 'open' %>
+      <%= simple_form_for current_user.restaurant do |f| %>
         <%= f.input :status, as: :boolean, label: false, input_html: { class: "toggle", value: 'closed', onchange: "this.form.submit();"} %>
         <%#= f.submit wrapper: :custom_boolean_switch, class: "form-check-input" %>
       <% end %>
     <% else %>
-      <%= simple_form_for @restaurant do |f| %>
+      <%= simple_form_for current_user.restaurant do |f| %>
         <%= f.input :status, as: :boolean, label: false, input_html: { class: "toggle", value: 'open', onchange: "this.form.submit();"} %>
         <%#= f.submit wrapper: :custom_boolean_switch, class: "form-check-input" %>
       <% end %>
@@ -37,8 +37,8 @@
 
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
       <li><p class="dropdown-item"><%= current_user.email %></p></li>
-      <li><p class="dropdown-item text-decoration-none" ><%= link_to "Owner's Portal", owner_path, class: "text-decoration-none" if current_user.owner?%></p></li>
-      <li><p class="dropdown-item text-decoration-none" ><%= button_to "Sign out", destroy_user_session_path, :method => :delete, class: "text-decoration-none"%></p></li>
+      <li><p class="dropdown-item text-decoration-none" ><%= link_to "Owner's Portal", owner_path, class: "text-decoration-none" if current_user.owner? %></p></li>
+      <li><p class="dropdown-item text-decoration-none" ><%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "text-decoration-none"%></p></li>
     </ul>
   </div>
 </div>
