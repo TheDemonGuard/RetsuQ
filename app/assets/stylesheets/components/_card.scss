@@ -49,6 +49,11 @@
   min-width: 270px;
 }
 
+.card-restaurant:hover {
+  transform: scale(1.05);
+  transition: 0.1s ease-in-out;
+}
+
 .card-restaurant-thumbnail {
   width: 100%;
   background-size: cover;

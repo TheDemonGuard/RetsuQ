@@ -14,7 +14,7 @@
   <div class="restaurants-wrapper">
 
     <% @restaurants.each do |restaurant| %>  <!--Start iteration -->
-    <div class="card-base card-restaurant" style="max-width: 270px">
+    <div class="card-base card-restaurant">
       <a href="<%=restaurant_path(restaurant)%>">
         <div class="card-restaurant-thumbnail"
               <% if restaurant.photo.attached? %>
