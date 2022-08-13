@@ -21,7 +21,7 @@
 
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
       <li><p class="dropdown-item"><%= current_user.email %></p></li>
-      <li><p class="dropdown-item text-decoration-none" ><%= link_to "Owner's Portal", owner_path, class: "text-decoration-none" if current_user.owner? %></p></li>
+      <%# <li><p class="dropdown-item text-decoration-none" ><%= link_to "Owner's Portal", owner_path, class: "text-decoration-none" if current_user.owner? %></p></li> %>
       <li><p class="dropdown-item text-decoration-none" ><%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "text-decoration-none"%></p></li>
     </ul>
   </div>

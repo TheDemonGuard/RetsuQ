@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  authenticated :user, ->(user) { user.owner? } do
-    get 'owner', to: 'owner#dashboard'
-  end
+  # authenticated :user, ->(user) { user.owner? } do
+  #   get 'owner', to: 'owner#dashboard'
+  # end
 
   devise_for :users
   root to: 'pages#home'
