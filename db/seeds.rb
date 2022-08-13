@@ -54,6 +54,12 @@ addresses = [
   )
 end
 
+pitch_owner = User.create!(
+  password: "123456",
+  email: "thegyozaacademy@real.com",
+  role: "owner"
+)
+
 # seeds for the pitch
 pitch_seed = Restaurant.create!(
   name: "The Gyoza Academy",
@@ -68,17 +74,13 @@ pitch_seed = Restaurant.create!(
   total_wait_time: 0,
   time_per_person: 3,
   # creating a user for each restaurant
-  user_id: User.create!(
-    password: "123456",
-    email: "thegyozaacademy@real.com",
-    role: "owner"
-  ).id
+  user: pitch_owner
 )
 # creating queuers
 200.times do
   Queuer.create!(
-    user_id: pitch_seed.user_id,
-    restaurant_id: pitch_seed.user_id,
+    user_id: pitch_owner.id,
+    restaurant_id: pitch_seed.id,
     size: rand(1..10),
     status: "completed",
     actual_wait_time: 0,
