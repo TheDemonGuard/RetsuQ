@@ -6,24 +6,8 @@
 
   <div class="container d-flex justify-content-end actions">
     <div class="form-check form-switch queue-status">
-    <% if @restaurant.status == 'open' %>
-      <%= simple_form_for @restaurant do |f| %>
-        <%= f.input :status, as: :boolean, label: false, input_html: { class: "toggle", value: 'closed', onchange: "this.form.submit();"} %>
-        <%#= f.submit wrapper: :custom_boolean_switch, class: "form-check-input" %>
-      <% end %>
-    <% else %>
-      <%= simple_form_for @restaurant do |f| %>
-        <%= f.input :status, as: :boolean, label: false, input_html: { class: "toggle", value: 'open', onchange: "this.form.submit();"} %>
-        <%#= f.submit wrapper: :custom_boolean_switch, class: "form-check-input" %>
-      <% end %>
-    <% end %>
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked >
     </div>
-    <!--
-    <div class="alert alert-danger">By doing this action, customers won't be able to join the queue. </div>
-    <div class="form-check form-switch queue-status">
-      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" >
-    </div>-->
-
     <div class="add-queuer">
       <%= link_to new_restaurant_queuer_path(current_user.id) do %>
         <i class="fas fa-plus"></i>

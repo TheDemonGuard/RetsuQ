@@ -18,10 +18,4 @@ class Restaurant < ApplicationRecord
   validates :capacity, presence: true
   validates :time_per_person, presence: true, numericality: { only_integer: true }
   validates :description, presence: true, length: { minimum: 50 }
-
-  STATUS = ['open', 'closed']
-
-  def status_string
-    self.status = self.status == "1" ? "open" : "closed"
-  end
 end
