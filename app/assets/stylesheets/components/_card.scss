@@ -7,11 +7,12 @@
 }
 .queuers-card-preview {
   border: 1px solid transparent;
-  border-radius: 20px 0px 0 20px;
   width: 200px;
   text-transform: uppercase;
   justify-content: center;
   flex-grow: 1;
+  background: #F0F0F0;
+
 
 }
 
@@ -31,7 +32,6 @@
   display: flex;
   width: 200px;
   background: #F0F0F0;
-  border-radius: 0px 20px 20px 0px;
   flex-grow: 2;
   text-align: center;
   justify-content: space-evenly;
