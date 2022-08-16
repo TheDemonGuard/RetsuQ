@@ -38,3 +38,26 @@
   background-color: $yellow;
   border-radius: 10px;
 }
+
+.restaurant-stat-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stat-card {
+  width: 72px;
+  height: 90px;
+  background-color: $yellow;
+  border-radius: 16px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.stat-info {
+  margin-top: 2.5px;
+
+  p {
+    font-size: small;
+    font-weight: 400;
+  }
+}
