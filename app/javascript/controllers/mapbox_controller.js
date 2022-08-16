@@ -20,8 +20,8 @@ export default class extends Controller {
       style: "mapbox://styles/mapbox/streets-v10"
     })
 
-    this.#addMarkersToMap()
-    this.#fitMapToMarkers()
+    this._addMarkersToMap()
+    this._fitMapToMarkers()
 
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl }))
@@ -29,7 +29,7 @@ export default class extends Controller {
 
 
 
-  #addMarkersToMap() {
+  _addMarkersToMap() {
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window) // add this
       new mapboxgl.Marker()
@@ -39,10 +39,10 @@ export default class extends Controller {
     });
   }
 
-  #fitMapToMarkers() {
+  _fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 2000 })
   }
 
 }
