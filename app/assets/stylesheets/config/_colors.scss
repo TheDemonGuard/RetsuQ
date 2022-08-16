@@ -7,3 +7,46 @@ $yellow: #FFD60A;
 $black: #000000;
 $light-gray: #F4F4F4;
 $white: #FFFFFF;
+$queuing: #FFD166;
+$completed: #118AB2;
+$dining: #06D6A0;
+
+.queuers-card-status {
+
+  &.queuing {
+    background-color: $queuing;
+  }
+
+  &.completed {
+    background-color: $completed;
+  }
+
+  &.dining {
+    background-color: $dining;
+  }
+
+  &.remove {
+    background-color: #EF476F;
+  }
+
+}
+
+.btn-action {
+
+  &.queuing {
+    background-color: $queuing;
+  }
+
+  &.completed {
+    background-color: $completed;
+  }
+
+  &.dining {
+    background-color: $dining;
+  }
+
+  &.remove {
+    background-color: #EF476F;
+  }
+
+}
