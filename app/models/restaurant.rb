@@ -19,7 +19,8 @@ class Restaurant < ApplicationRecord
   validates :time_per_person, presence: true, numericality: { only_integer: true }
   validates :description, presence: true, length: { minimum: 50 }
 
-  STATUS = ['open', 'closed']
+  STATUS = ["Closed temporarily", "Closed entire day", "Closed outside business hours", "Open"]
+  MSG = ["Closed temporarily", "Closed entire day", "Closed outside business hours", "Open"]
 
   def status_string
     self.status = self.status == "1" ? "open" : "closed"

@@ -34,9 +34,20 @@
           </div>
           <%= @restaurant.description %>
         </div>
-        <%= link_to new_restaurant_queuer_path(@restaurant), class:"text-decoration-none" do %>
-            <div>Join the Queue</div>
+        <% case @restaurant.status %>
+        <% when Restaurant::STATUS[0] %>
+          <%= Restaurant::MSG[0] %>
+        <% when Restaurant::STATUS[1] %>
+          <%= Restaurant::MSG[1] %>
+        <% when Restaurant::STATUS[2] %>
+          <%= Restaurant::MSG[2] %> ( <%= @restaurant.open_time%> ~ <%= @restaurant.close_time %> )
+        <% when Restaurant::STATUS[3] %>
+          <%= link_to new_restaurant_queuer_path(@restaurant), class:"text-decoration-none" do %>
+              <div>Join the Queue</div>
           <% end %>
+        <% else %>
+          Invalid Restaurant STATUS (<%= @restaurant.status %>)
+        <% end %>
         <%# <%= render "bookings/form", booking: @booking %>
       </div>
     </div>
