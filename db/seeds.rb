@@ -40,7 +40,7 @@ addresses = [
     category: Faker::Restaurant.type,
     description: Faker::Restaurant.description,
     price_range: %w[$ $$ $$$ $$$$].sample,
-    status: %w[open closed].sample,
+    status: ["Closed temporarily", "Closed entire day", "Closed outside business hours", "Open"].sample,
     open_time: rand(9..11),
     close_time: rand(10..12),
     capacity: rand(20..50),
