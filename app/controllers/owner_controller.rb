@@ -1,6 +1,7 @@
 class OwnerController < ApplicationController
   def dashboard
     @restaurant = current_user.restaurant
+    @queuers = Queuer.where(restaurant_id: @restaurant)
   end
 
   def queuers
