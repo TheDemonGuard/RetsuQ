@@ -1,4 +1,5 @@
 class QueuersController < ApplicationController
+  include ActionView::RecordIdentifier # adds `dom_id`
   def show
     @queuer = Queuer.find(params[:id])
     restaurant_id = @queuer.restaurant_id
@@ -47,7 +48,8 @@ class QueuersController < ApplicationController
   def change_status
     @queuer = Queuer.find(params[:id])
     @queuer.update(status: params[:status])
-    redirect_to queuers_path, notice: "Status updated to #{@queuer.status}"
+    redirect_to queuers_path(anchor: dom_id(@queuer)), notice: "Status updated to #{@queuer.status}"
+
   end
 
   def destroy
@@ -66,6 +68,6 @@ class QueuersController < ApplicationController
   private
 
   def queuer_params
-    params.require(:queuer).permit(:size, :status)
+    params.require(:queuer).permit(:size, :status, :reservation_name)
   end
 end

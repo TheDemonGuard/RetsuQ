@@ -7,11 +7,21 @@
   </div>
 </div>
 
-
+<div id="queuers">
   <% @queuers.each_with_index do | queue, index | %>
+  <%= content_tag :div, id: dom_id(queue) do %>
     <div class="queuers-card shadow">
-      <div class="queuers-card-preview"><p><%= queue.user.email %></p>
-        <p class=" ">Number of guests: <%= queue.size %></span>
+      <div class="queuers-card-preview">
+      <div class="d-flex justify-content-between">
+        <p><%= queue.reservation_name %></p>
+        <% if queue.size === 1 %>
+          <p class=" "><%= queue.size %> Guest</p>
+        <% else %>
+          <p class=" "><%= queue.size %> Guests</p>
+          <% end %>
+      </div>
+      <p class=" "><%= queue.user.email %></p>
+
       </div>
         <div class="queuers-card-status status"><%= queue.status %></div>
 
@@ -43,7 +53,9 @@
           <% end %>
       </div>
     </div>
+    <% end %>
   <% end %>
+  </div>
 
 <script>
 

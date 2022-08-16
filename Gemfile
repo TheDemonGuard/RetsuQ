@@ -74,3 +74,4 @@ gem "geocoder"
 
 gem "chartkick"
 gem "groupdate"
+gem "turbolinks_render"
