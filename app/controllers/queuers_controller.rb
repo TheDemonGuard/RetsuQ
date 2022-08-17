@@ -75,6 +75,13 @@ class QueuersController < ApplicationController
     redirect_to queuers_path, notice: "Group Was Removed"
   end
 
+  def quick_remove
+    @queuer = Queuer.find(params[:id])
+    @queuer.update(status: "completed")
+    @queuer.destroy
+    redirect_to owner_path, notice: "Group Was Removed"
+  end
+
   private
 
   def queuer_params

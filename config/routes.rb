@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     member do
       patch :change_status
       delete :remove_queuer
+      delete :quick_remove
     end
   end
 end
