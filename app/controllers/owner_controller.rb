@@ -1,7 +1,10 @@
 class OwnerController < ApplicationController
   def dashboard
     @restaurant = current_user.restaurant
-    @queuers = Queuer.where(restaurant_id: @restaurant)
+    @queuers = Queuer.where(restaurant_id: @restaurant, status: "queuing")
+    @dining_queuers = Queuer.where(restaurant_id: @restaurant, status: "dining")
+    @queuers = @queuers += @dining_queuers
+    @queuers = @queuers.sort_by { |queue| queue.created_at }
   end
 
   def queuers
