@@ -15,9 +15,14 @@ class QueuersController < ApplicationController
 
   def index
     @restaurant = Restaurant.where(user_id: current_user.id)
-    @queuers = Queuer.where(restaurant_id: @restaurant)
+    # <!-- Active Queuers -->
+    @queuers = Queuer.where(restaurant_id: @restaurant, status: "queuing")
+    @dining_queuers = Queuer.where(restaurant_id: @restaurant, status: "dining")
+    @queuers = @queuers += @dining_queuers
     @queuers = @queuers.sort_by { |queue| queue.created_at }
-    @queuers.reverse!
+    # <!-- Total Queuers -->
+    @total_queuers = Queuer.where(restaurant_id: @restaurant)
+    @total_queuers = @total_queuers.sort_by { |queue| queue.created_at }
   end
 
   def new
@@ -49,7 +54,6 @@ class QueuersController < ApplicationController
     @queuer = Queuer.find(params[:id])
     @queuer.update(status: params[:status])
     redirect_to queuers_path(anchor: dom_id(@queuer)), notice: "Status updated to #{@queuer.status}"
-
   end
 
   def destroy
@@ -63,6 +67,12 @@ class QueuersController < ApplicationController
     @queuer = Queuer.find(params[:id])
     @queuer.destroy
     redirect_to queuers_path, notice: "Group Was Removed"
+  end
+
+  def quick_remove
+    @queuer = Queuer.find(params[:id])
+    @queuer.destroy
+    redirect_to owner_path, notice: "Group Was Removed"
   end
 
   private
