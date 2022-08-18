@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   authenticated :user, ->(user) { user.owner? } do
     get 'owner', to: 'owner#dashboard'
+    get 'owner/next_queuer', to: 'owner#next_queuer'
   end
 
   devise_for :users
