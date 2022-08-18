@@ -16,15 +16,14 @@
     <!-- Live Queue-->
     <div class="col-4 live-queue">
       <div class="show-next-queuer">
-        <% @queuers.each_with_index do | queue, index | %>
-          <% if index == 0 %>
-            <p>Name: <%= queue.reservation_name %></p>
-            <p>Next Queuer: <%= current_user.email %></p>
-            <p>Size: <%= queue.size %></p>
-          <% end %>
+        <% if @next_queuer.present? %>
+          <p>Next Queuer: <%= @next_queuer.reservation_name %></p>
+          <p>Size: <%= @next_queuer.size %></p>
+        <% else %>
+          <p>No queuers in queue</p>
         <% end %>
         <div class="next-queuer-actions">
-      </div>
+        </div>
       </div>
     </div>
   </div>
