@@ -49,6 +49,7 @@ class QueuersController < ApplicationController
     @queuer.user_id = @user_id
     @queuer.status = "queuing"
     if @queuer.save
+      QueuerMailer.with(queuer: @queuer).new_queuer(@queuer).deliver_later
       redirect_to queuer_path(@queuer)
     else
       render :new
