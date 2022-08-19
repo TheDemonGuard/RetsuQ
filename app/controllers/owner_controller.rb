@@ -13,7 +13,7 @@ class OwnerController < ApplicationController
   end
 
   def call_next_queuer
-    @next_queuer = @next_queuer = Queuer.where(restaurant_id: current_user.restaurant, status: "queuing").first
+    @next_queuer = Queuer.where(restaurant_id: current_user.restaurant, status: "queuing").first
     if @next_queuer.nil?
       redirect_to owner_path, notice: "No queuers in queue"
     else
