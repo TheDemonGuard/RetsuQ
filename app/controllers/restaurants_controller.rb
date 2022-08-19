@@ -14,7 +14,7 @@ class RestaurantsController < ApplicationController
   end
 
   def new
-    # @restaurant = Restaurant.find(params[:restaurant_id])
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @restaurant = Restaurant.new
   end
 
@@ -24,7 +24,6 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    # @restaurant.update(total_wait_time: wait_time)
     job_id =
       Rufus::Scheduler.singleton.every '5s' do
         Rails.logger.info "TEST ME time flies, it's now #{Time.now}"
@@ -39,17 +38,14 @@ class RestaurantsController < ApplicationController
 
   def update
     @restaurant = Restaurant.find(params[:id])
-
     if @restaurant.update(restaurant_params)
       redirect_back(fallback_location: "/")
     else
       render :edit
     end
-
   end
 
   def destroy
-
   end
 
   def restaurant_params
@@ -81,5 +77,4 @@ class RestaurantsController < ApplicationController
       restaurant.update(total_wait_time: wait_time)
     end
   end
-
 end
