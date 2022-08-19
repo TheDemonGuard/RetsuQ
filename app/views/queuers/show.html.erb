@@ -9,11 +9,11 @@
 <div class="info-card-container">
   <div class="info-card">
   <p>Place In The Queue:</p>
-  <%= @queue.size %>
+  <%= @position %>
   </div>
   <div class="info-card">
-
   <p>Wait Time Remaining:</p>
+  <%= @restaurant.total_wait_time %>
   </div>
   <div class="info-card">
   <p>People In The Queue:</p>

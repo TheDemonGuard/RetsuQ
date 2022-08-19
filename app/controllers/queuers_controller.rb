@@ -1,16 +1,21 @@
 class QueuersController < ApplicationController
   include ActionView::RecordIdentifier # adds `dom_id`
+  before_action :wait_time
+
   def show
     @queuer = Queuer.find(params[:id])
     restaurant_id = @queuer.restaurant_id
     @restaurant = Restaurant.find(restaurant_id)
     # <!-- Queue information -->
-    @queue = Queuer.where(restaurant_id: @restaurant)
+    @queuers = Queuer.where(restaurant_id: @restaurant, status: "queuing")
+    @queuers = @queuers.sort_by { |queue| queue.created_at }
+    @position = @queuers.find_index(@queuer) + 1
     # <!-- number of people waiting in the queue -->
     @number_of_people = 0
-    @queue.each do |group|
+    @queuers.each do |group|
       @number_of_people += group.size
     end
+    @restaurant.total_wait_time = wait_time
   end
 
   def index
@@ -38,11 +43,70 @@ class QueuersController < ApplicationController
     @queuer.restaurant = @restaurant
     @queuer.user_id = @user_id
     @queuer.status = "queuing"
+    # <!-- Changing wait time -->
     if @queuer.save
+      # @restaurant.update(total_wait_time: wait_time)
       redirect_to queuer_path(@queuer)
     else
       render :new
     end
+  end
+
+  def wait_time
+    # Rufus::Scheduler.singleton.in '5s' do
+    #   Rails.logger.info "time flies, it's now #{Time.now}"
+    # end
+    # <!-- All restaurants -->
+        Restaurant.all.each do |restaurant|
+          capacity = restaurant.capacity
+          # <!-- People who are dining -->
+          dining_queuers = Queuer.where(restaurant_id: restaurant, status: "dining")
+          diners = 0
+          dining_queuers.each do |queue|
+            diners += queue.size
+          end
+          # <!-- People who are queuing -->
+          queuers = Queuer.where(restaurant_id: restaurant, status: "queuing")
+          people = 0
+          queuers.each do |queue|
+            people += queue.size
+          end
+          if diners + people <= capacity
+            wait_time = 0
+          else
+            wait_time = (diners + people) - capacity
+            wait_time *= restaurant.time_per_person
+          end
+          restaurant.update(total_wait_time: wait_time)
+        end
+
+
+
+
+
+
+        # # <!-- People who are dining -->
+        # @restaurant = Restaurant.find(params[:restaurant_id])
+        # @dining_queuers = Queuer.where(restaurant_id: @restaurant, status: "dining")
+        # @diners = 0
+        # @dining_queuers.each do |queue|
+        #   @diners += queue.size
+        # end
+        # @capacity = @restaurant.capacity
+        # # <!-- People who are queuing -->
+        # @queuers = Queuer.where(restaurant_id: @restaurant, status: "queuing")
+        # @people = 0
+        # @queuers.each do |queue|
+        #   @people += queue.size
+        # end
+        # # <!-- Total wait time calculation -->
+        # if @diners + @people <= @capacity
+        #   wait_time = 0
+        # else
+        #   wait_time = (@diners + @people) - @capacity
+        #   wait_time *= @restaurant.time_per_person
+        # end
+        # wait_time
   end
 
   def update
@@ -53,6 +117,7 @@ class QueuersController < ApplicationController
   def change_status
     @queuer = Queuer.find(params[:id])
     @queuer.update(status: params[:status])
+
     redirect_to queuers_path(anchor: dom_id(@queuer)), notice: "Status updated to #{@queuer.status}"
   end
 
@@ -74,6 +139,11 @@ class QueuersController < ApplicationController
     @queuer.destroy
     redirect_to owner_path, notice: "Group Was Removed"
   end
+
+  def set_wait_time
+    @restaurants
+  end
+
 
   private
 
