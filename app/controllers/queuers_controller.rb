@@ -89,32 +89,6 @@ class QueuersController < ApplicationController
     redirect_to owner_path, notice: "Group Was Removed"
   end
 
-  # def wait_time
-  #   # <!-- All restaurants -->
-  #       Restaurant.all.each do |restaurant|
-  #         capacity = restaurant.capacity
-  #         # <!-- People who are dining -->
-  #         dining_queuers = Queuer.where(restaurant_id: restaurant, status: "dining")
-  #         diners = 0
-  #         dining_queuers.each do |queue|
-  #           diners += queue.size
-  #         end
-  #         # <!-- People who are queuing -->
-  #         queuers = Queuer.where(restaurant_id: restaurant, status: "queuing")
-  #         people = 0
-  #         queuers.each do |queue|
-  #           people += queue.size
-  #         end
-  #         if diners + people <= capacity
-  #           wait_time = 0
-  #         else
-  #           wait_time = (diners + people) - capacity
-  #           wait_time *= restaurant.time_per_person
-  #         end
-  #         restaurant.update(total_wait_time: wait_time)
-  #       end
-  # end
-
   private
 
   def queuer_params
