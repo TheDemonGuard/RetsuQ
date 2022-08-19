@@ -1,5 +1,6 @@
 class QueuersController < ApplicationController
   include ActionView::RecordIdentifier # adds `dom_id`
+
   def show
     @queuer = Queuer.find(params[:id])
     restaurant_id = @queuer.restaurant_id
