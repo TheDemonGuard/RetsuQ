@@ -1,6 +1,6 @@
 class QueuersController < ApplicationController
   include ActionView::RecordIdentifier # adds `dom_id`
-  before_action :wait_time
+  # before_action :wait_time
 
   def show
     @queuer = Queuer.find(params[:id])
@@ -15,7 +15,7 @@ class QueuersController < ApplicationController
     @queuers.each do |group|
       @number_of_people += group.size
     end
-    @restaurant.total_wait_time = wait_time
+    # @restaurant.total_wait_time = wait_time
   end
 
   def index
@@ -79,10 +79,6 @@ class QueuersController < ApplicationController
     @queuer = Queuer.find(params[:id])
     @queuer.destroy
     redirect_to owner_path, notice: "Group Was Removed"
-  end
-
-  def set_wait_time
-    @restaurants
   end
 
   # def wait_time
