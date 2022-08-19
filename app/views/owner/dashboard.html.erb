@@ -22,6 +22,7 @@
         <% else %>
           <p>No queuers in queue</p>
         <% end %>
+
         <div class="next-queuer-actions">
           <% if @next_queuer.present? %>
             <%= button_to remove_queuer_queuer_path(@next_queuer), method: :delete, class: "no-btn-style" do %>
