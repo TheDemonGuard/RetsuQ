@@ -9,6 +9,13 @@ class QueuerMailer < ApplicationMailer
     @queuer = queuer
     @restaurant = queuer.restaurant
 
-    mail to: @queuer.user.email, subject: "You saved a spot on RestsuQ!"
+    mail to: @queuer.user.email, subject: "You saved a spot on RetsuQ!"
+  end
+
+  def next_queuer(queuer)
+    @queuer = queuer
+    @restaurant = queuer.restaurant
+
+    mail to: @queuer.user.email, subject: "You are next on RetsuQ!" if @queuer.index.zero?
   end
 end
