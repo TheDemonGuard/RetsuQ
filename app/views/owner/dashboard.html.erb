@@ -47,6 +47,7 @@
 
   <div class="container analytics">
     <h3 class="pt-4">Queue Analytics</h3>
+    <%= select_month(Date.today) %>
     <div class="chart" >
       <%= line_chart Queuer.group_by_day(:created_at).count, width: "100%", height: "240px", colors: ["pink"], empty: "No data", download: true %>
     </div>

@@ -11,5 +11,4 @@ class OwnerController < ApplicationController
   def queuers
     @queurs = Queuer.all
   end
-  
 end
