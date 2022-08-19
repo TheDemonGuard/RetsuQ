@@ -28,6 +28,11 @@ class QueuersController < ApplicationController
     # <!-- Total Queuers -->
     @total_queuers = Queuer.where(restaurant_id: @restaurant)
     @total_queuers = @total_queuers.sort_by { |queue| queue.created_at }
+    # <!-- Number of active customers -->
+    @number_of_people = 0
+    @queuers.each do |group|
+      @number_of_people += group.size
+    end
   end
 
   def new
@@ -58,8 +63,11 @@ class QueuersController < ApplicationController
   def change_status
     @queuer = Queuer.find(params[:id])
     @queuer.update(status: params[:status])
-
-    redirect_to queuers_path(anchor: dom_id(@queuer)), notice: "Status updated to #{@queuer.status}"
+    if params[:status] == "completed"
+      redirect_to queuers_path, notice: "Status updated to #{@queuer.status}"
+    else
+      redirect_to queuers_path(anchor: dom_id(@queuer)), notice: "Status updated to #{@queuer.status}"
+    end
   end
 
   def destroy
