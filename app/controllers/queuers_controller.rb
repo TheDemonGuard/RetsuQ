@@ -5,7 +5,7 @@ class QueuersController < ApplicationController
     restaurant_id = @queuer.restaurant_id
     @restaurant = Restaurant.find(restaurant_id)
     # <!-- Queue information -->
-    @queue = Queuer.where(restaurant_id: @restaurant)
+    @queue = Queuer.where(restaurant_id: @restaurant, status: "queuing")
     # <!-- number of people waiting in the queue -->
     @number_of_people = 0
     @queue.each do |group|
