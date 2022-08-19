@@ -7,7 +7,8 @@ class PagesController < ApplicationController
     @markers = @restaurants.geocoded.map do |flat|
       {
         lat: flat.latitude,
-        lng: flat.longitude
+        lng: flat.longitude,
+        image_url: helpers.asset_url("Location_Pin_Centered.png")
       }
     end
   end
