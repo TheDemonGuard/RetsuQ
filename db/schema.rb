@@ -86,7 +86,6 @@ ActiveRecord::Schema.define(version: 2022_08_16_114812) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "admin"
     t.integer "role"
-    t.string "reservation_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
