@@ -1,0 +1,4 @@
+one:
+  reservation_name: "Joe Smith"
+  email: "joe@gmail.com"
+  size: 2
