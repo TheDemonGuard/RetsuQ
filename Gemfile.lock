@@ -98,6 +98,7 @@ GEM
       xpath (~> 3.2)
     chartkick (4.2.1)
     childprocess (4.1.0)
+    chronic (0.10.2)
     cloudinary (1.16.1)
       aws_cf_signer
       rest-client
@@ -117,10 +118,15 @@ GEM
       dotenv (= 2.8.1)
       railties (>= 3.2)
     erubi (1.10.0)
+    et-orbi (1.2.7)
+      tzinfo
     execjs (2.7.0)
     ffi (1.15.5)
     font-awesome-sass (5.6.1)
       sassc (>= 1.11)
+    fugit (1.5.3)
+      et-orbi (~> 1, >= 1.2.7)
+      raabro (~> 1.4)
     geocoder (1.8.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -174,6 +180,7 @@ GEM
       nio4r (~> 2.0)
     pundit (2.2.0)
       activesupport (>= 3.0.0)
+    raabro (1.4.0)
     racc (1.6.0)
     rack (2.2.4)
     rack-mini-profiler (2.3.4)
@@ -224,6 +231,8 @@ GEM
       netrc (~> 0.8)
     rexml (3.2.5)
     rubyzip (2.3.2)
+    rufus-scheduler (3.8.2)
+      fugit (~> 1.1, >= 1.1.6)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -283,6 +292,8 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    whenever (1.0.0)
+      chronic (>= 0.6.3)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.6.0)
@@ -315,6 +326,7 @@ DEPENDENCIES
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.6)
   redis (~> 4.0)
+  rufus-scheduler
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
   simple_form!
@@ -325,6 +337,7 @@ DEPENDENCIES
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)
+  whenever
 
 RUBY VERSION
    ruby 3.0.3p157
