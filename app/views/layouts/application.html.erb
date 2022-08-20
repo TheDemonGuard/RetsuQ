@@ -14,11 +14,10 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-[...]
   </head>
 
   <body>
-  <div class="container-fluid">
+  <div class="container-fluid p-0">
       <% if user_signed_in? && current_user.owner? %>
         <%= render 'shared/owner_navbar' %>
       <% else %>
