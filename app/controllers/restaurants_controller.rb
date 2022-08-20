@@ -23,6 +23,9 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @category = @restaurant.category
+    @recommended_restaurants = Restaurant.where(category: @category)
+    @review = Review.new
     job_id =
       Rufus::Scheduler.singleton.every '5s' do
         Rails.logger.info "TEST ME time flies, it's now #{Time.now}"
@@ -45,10 +48,6 @@ class RestaurantsController < ApplicationController
   end
 
   def destroy
-  end
-
-  def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :description, :category, :price_range, :open_time, :close_time, :status, :capacity, :total_wait_time, :time_per_person)
   end
 
   def wait_time
@@ -75,5 +74,11 @@ class RestaurantsController < ApplicationController
       end
       restaurant.update(total_wait_time: wait_time)
     end
+  end
+
+  private
+
+  def restaurant_params
+    params.require(:restaurant).permit(:name, :address, :description, :category, :price_range, :open_time, :close_time, :status, :capacity, :total_wait_time, :time_per_person)
   end
 end
