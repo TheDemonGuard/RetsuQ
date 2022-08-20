@@ -10,9 +10,6 @@ Rails.application.routes.draw do
   resources :restaurants do
     resources :queuers, only: [ :new, :create, :edit, :update ]
     resources :reviews, only: [ :new, :create, :index ]
-    member do
-      get :recommended_restaurants
-    end
   end
 
   resources :queuers do

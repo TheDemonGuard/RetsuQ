@@ -26,7 +26,6 @@ class RestaurantsController < ApplicationController
     @category = @restaurant.category
     @recommended_restaurants = Restaurant.where(category: @category)
     @review = Review.new
-    @restaurant = Restaurant.find(params[:id])
     job_id =
       Rufus::Scheduler.singleton.every '5s' do
         Rails.logger.info "TEST ME time flies, it's now #{Time.now}"
@@ -75,12 +74,6 @@ class RestaurantsController < ApplicationController
       end
       restaurant.update(total_wait_time: wait_time)
     end
-  end
-
-  def recommended_restaurants
-    @restaurant = Restaurant.find(params[:id])
-    @category = @restaurant.category
-    @recommended_restaurants = Restaurant.where(category: @category)
   end
 
   private
