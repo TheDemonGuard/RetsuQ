@@ -55,6 +55,9 @@
     <% else %>
       No item found for ID <%= @restaurant_id %>
   <% end %>
+
+  <%= render "reviews/reviews", review: @review %>
+
 </div>
 </div>
 <% end %>

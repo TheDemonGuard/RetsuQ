@@ -22,6 +22,7 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @review = Review.new
     @restaurant = Restaurant.find(params[:id])
     job_id =
       Rufus::Scheduler.singleton.every '5s' do
