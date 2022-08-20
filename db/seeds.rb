@@ -83,6 +83,13 @@ pitch_seed1 = Restaurant.create!(
   user: pitch_owner
 )
 
+  rand(5..15).times do
+    Review.create!(
+      content: Faker::Restaurant.review,
+      restaurant: pitch_seed1
+    )
+  end
+
 pitch_seed2 = Restaurant.create!(
   name: "Bamboo Gyoza",
   address: "Shibuya",
