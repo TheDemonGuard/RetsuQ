@@ -4,11 +4,12 @@ class PagesController < ApplicationController
   def home
     @restaurants = Restaurant.all
 
-    @markers = @restaurants.geocoded.map do |flat|
+    @markers = @restaurants.geocoded.map do |restaurant|
       {
-        lat: flat.latitude,
-        lng: flat.longitude,
-        image_url: helpers.asset_url("Location_Pin_Centered.png")
+        lat: restaurant.latitude,
+        lng: restaurant.longitude,
+        image_url: helpers.asset_url("Location_Pin_Centered.png"),
+        info_window: render_to_string(partial: "info_window", locals: { restaurant: restaurant })
       }
     end
   end

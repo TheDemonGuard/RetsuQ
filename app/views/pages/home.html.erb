@@ -1,19 +1,44 @@
 <section>
   <h3>Restaurants near you</h3>
 
-    <div style="width: 100%; height: 350px; overflow:hidden;"
+    <div style="width: 100%; height: 550px; overflow:hidden;"
     data-controller="mapbox"
     data-mapbox-markers-value="<%= @markers.to_json %>"
     data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 </section>
 
+
+
 <section>
   <h3>Get queued up quickly</h3>
   <!-- Flexbox wrapper for restaurant cards -->
   <div class="restaurants-wrapper">
-
+    <% msg_index = 0 %>
     <% @restaurants.each do |restaurant| %>  <!--Start iteration -->
+      <% msg_index = msg_index + 1 %>
+        <div class="modal fade" id="exampleModal<%= msg_index %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel<%= msg_index %>" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel<%= msg_index %>">Now Closed</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+               <% case restaurant.status %>
+               <% when Restaurant::STATUS[0] %>
+                  <%= Restaurant::MSG[0] %>
+                <% when Restaurant::STATUS[1] %>
+                  <%= Restaurant::MSG[1] %>
+                <% when Restaurant::STATUS[2] %>
+                   <%= Restaurant::MSG[2] %> ( <%= restaurant.open_time%> ~ <%= restaurant.close_time %> )
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
     <div class="card-base card-restaurant">
       <a href="<%=restaurant_path(restaurant)%>">
         <div class="card-restaurant-thumbnail"
@@ -48,16 +73,23 @@
             <!-- Join Queue Button -->
             <% case restaurant.status %>
             <% when Restaurant::STATUS[0] %>
-              <div class="card-restaurant-icon-big">
-                <%= Restaurant::MSG[0] %>
+              <div class="card-restaurant-icon-big-closed">
+                <div data-toggle="modal" data-target="#exampleModal<%= msg_index %>">
+                  <%= "Join Queue" %>
+                </div>
               </div>
+
             <% when Restaurant::STATUS[1] %>
-              <div class="card-restaurant-icon-big">
-                <%= Restaurant::MSG[1] %>
+              <div class="card-restaurant-icon-big-closed">
+                <div data-toggle="modal" data-target="#exampleModal<%= msg_index %>">
+                  <%= "Join Queue" %>
+                </div>
               </div>
             <% when Restaurant::STATUS[2] %>
-              <div class="card-restaurant-icon-big">
-                <%= Restaurant::MSG[2] %> ( <%= restaurant.open_time%> ~ <%= restaurant.close_time %> )
+              <div class="card-restaurant-icon-big-closed">
+                <div data-toggle="modal" data-target="#exampleModal<%= msg_index %>">
+                  <%= "Join Queue" %>
+                </div>
               </div>
             <% when Restaurant::STATUS[3] %>
               <%= link_to 'Join Queue', new_restaurant_queuer_path(restaurant), class: "card-restaurant-icon-big" %>
@@ -70,3 +102,5 @@
 </section>
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>

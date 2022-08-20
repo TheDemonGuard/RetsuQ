@@ -10,7 +10,11 @@
       <div class="row align-items-center">
         <div class="col dashboard-owner-options"><p>Restaurant Details</p></div>
         <div class="col dashboard-owner-options"><p>Queue History</p></div>
-        <div class="col dashboard-owner-options"><p>Ratings</p></div>
+        <div class="col dashboard-owner-options">
+          <p>
+            <%= link_to "Ratings", restaurant_reviews_path(@restaurant), method: :post %>
+          </p>
+        </div>
       </div>
     </div>
     <!-- Live Queue-->

@@ -12,6 +12,9 @@ require "open-uri"
 puts "cleaning the DB..."
 puts ""
 
+puts "destroying all reviews..."
+Review.destroy_all
+
 puts "destroying all queuers..."
 Queuer.destroy_all
 
@@ -483,6 +486,13 @@ pitch_seed1 = Restaurant.create!(
   user: pitch_owner
 )
 
+  rand(5..15).times do
+    Review.create!(
+      content: Faker::Restaurant.review,
+      restaurant: pitch_seed1
+    )
+  end
+
 pitch_seed2 = Restaurant.create!(
   name: "Bamboo Gyoza",
   address: "Shibuya",
@@ -510,8 +520,6 @@ pitch_seed2 = Restaurant.create!(
     created_at: (rand * 15).days.ago
   )
 end
-
-
   # creating active queuers for the pitch
 10.times do
   Queuer.create!(

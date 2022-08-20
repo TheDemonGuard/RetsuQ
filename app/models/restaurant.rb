@@ -1,6 +1,7 @@
 class Restaurant < ApplicationRecord
   belongs_to :user
   has_many :queuers
+  has_many :reviews
 
   # cloudinary settings
   has_many_attached :photos

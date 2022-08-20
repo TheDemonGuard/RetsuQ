@@ -1,0 +1,36 @@
+    <div>
+      <a href="<%=restaurant_path(restaurant)%>">
+        <div class="card-restaurant-thumbnail map"
+              <% if restaurant.photo.attached? %>
+                style="height: 100px; margin-top: 2em; background-image: url('<%= cl_image_path restaurant.equipment_listing.photo.key  %>')"
+              <% else %>
+                style="height: 100px; margin-top: 2em; background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')"
+              <% end %>>
+        </div>
+        </a>
+        <div class="card-restaurant-content px-1 pb-0" style="box-shadow: none;">
+
+          <div class="card-restaurant-details">
+          <span class="card-restaurant-category"><%= restaurant.category %></span>
+            <div class="card-restaurant-details-top">
+              <span class="card-restaurant-title"><%= restaurant.name %></span>
+              <span class="card-restaurant-budget"><%= restaurant.price_range %></span>
+            </div>
+
+          </div>
+
+          <div class="card-restaurant-actions">
+            <div class="card-restaurant-icon-small">
+              <span class="card-restaurant-icon-number"><%= restaurant.queuers.count %></span>
+              <span class="card-restaurant-icon-subtitle">waiting</span>
+            </div>
+            <div class="card-restaurant-icon-small mx-2">
+              <span class="card-restaurant-icon-number"><%= restaurant.total_wait_time %></span>
+              <span class="card-restaurant-icon-subtitle">mins</span>
+            </div>
+
+            <!-- Join Queue Button -->
+            <%= link_to 'Join Queue', new_restaurant_queuer_path(restaurant), class: "card-restaurant-icon-big" %>
+          </div>
+        </div>
+      </div>
