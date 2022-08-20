@@ -74,3 +74,6 @@ gem "geocoder"
 
 gem "chartkick"
 gem "groupdate"
+gem "turbolinks_render"
+gem 'whenever', require: false
+gem "rufus-scheduler"

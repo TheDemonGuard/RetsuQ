@@ -3,8 +3,8 @@
   <div class="row justify-content-center my-5">
     <div class="col-6">
       <%= simple_form_for [@restaurant, @queuer] do |f| %>
-        <%= f.input :username, label: false, input_html: { value: @username }  %>
-        <%= f.input :size, label: false, placeholder: "1, 2, 3..." %>
+        <%= f.input :reservation_name, label: false, input_html: { value: @username }  %>
+        <%= f.input :size, label: false, placeholder: "How many are you in your party?" %>
         <%= f.submit "Join the queue" , class: "btn btn-primary" %>
       <% end %>
 

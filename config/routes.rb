@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'reviews/new'
+  get 'reviews/create'
   authenticated :user, ->(user) { user.owner? } do
     get 'owner', to: 'owner#dashboard'
   end
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :restaurants do
     resources :queuers, only: [ :new, :create, :edit, :update ]
+    resources :reviews, only: [ :new, :create, :index ]
   end
 
   resources :queuers do
@@ -16,6 +19,7 @@ Rails.application.routes.draw do
     member do
       patch :change_status
       delete :remove_queuer
+      delete :quick_remove
     end
   end
 end

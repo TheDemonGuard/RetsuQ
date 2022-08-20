@@ -66,14 +66,14 @@ pitch_user = User.create!(
   role: "user"
 )
 
-# seeds for the pitch
-pitch_seed = Restaurant.create!(
+# Restaurant seed for the pitch
+pitch_seed1 = Restaurant.create!(
   name: "The Gyoza Academy",
   address: "Shibuya",
   category: "Chinese",
   description: "The Gyoza Academy offers a wide range of varieties – prawn, chicken, beef, vegetables, pork – with an interesting array of toppings.",
   price_range: "$$",
-  status: "open",
+  status: "Open",
   open_time: rand(9..11),
   close_time: rand(10..12),
   capacity: rand(20..50),
@@ -82,15 +82,52 @@ pitch_seed = Restaurant.create!(
   # creating a user for each restaurant
   user: pitch_owner
 )
-# creating queuers
+
+  rand(5..15).times do
+    Review.create!(
+      content: Faker::Restaurant.review,
+      restaurant: pitch_seed1
+    )
+  end
+
+pitch_seed2 = Restaurant.create!(
+  name: "Bamboo Gyoza",
+  address: "Shibuya",
+  category: "Chinese",
+  description: "The Bamboo Gyoza offers a wide range of varieties – prawn, chicken, beef, vegetables, pork – with an interesting array of toppings.",
+  price_range: "$$",
+  status: "Open",
+  open_time: rand(9..11),
+  close_time: rand(10..12),
+  capacity: rand(20..50),
+  total_wait_time: 0,
+  time_per_person: 3,
+  # creating a user for each restaurant
+  user: pitch_owner
+)
+# creating queuers in history for the pitch
 200.times do
   Queuer.create!(
+    reservation_name: Faker::Name.name,
     user_id: pitch_owner.id,
-    restaurant_id: pitch_seed.id,
+    restaurant_id: pitch_seed1.id,
     size: rand(1..10),
     status: "completed",
     actual_wait_time: 0,
     created_at: (rand * 15).days.ago
+  )
+end
+
+
+  # creating active queuers for the pitch
+10.times do
+  Queuer.create!(
+    reservation_name: Faker::Name.name,
+    user_id: pitch_owner.id,
+    restaurant_id: pitch_seed1.id,
+    size: rand(1..10),
+    status: "queuing",
+    actual_wait_time: 0
   )
 end
 

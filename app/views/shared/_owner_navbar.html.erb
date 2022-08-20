@@ -18,14 +18,9 @@
       <% end %>
     <% end %>
     </div>
-    <!--
-    <div class="alert alert-danger">By doing this action, customers won't be able to join the queue. </div>
-    <div class="form-check form-switch queue-status">
-      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" >
-    </div>-->
 
     <div class="add-queuer">
-      <%= link_to new_restaurant_queuer_path(current_user.id) do %>
+      <%= link_to new_restaurant_queuer_path(current_user.restaurant.id) do %>
         <i class="fas fa-plus"></i>
       <% end %>
     </div>
@@ -37,7 +32,7 @@
 
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
       <li><p class="dropdown-item"><%= current_user.email %></p></li>
-      <li><p class="dropdown-item text-decoration-none" ><%= link_to "Owner's Portal", owner_path, class: "text-decoration-none" if current_user.owner? %></p></li>
+      <li><p class="dropdown-item text-decoration-none" ><%= link_to "Dashboard", owner_path, class: "text-decoration-none" if current_user.owner? %></p></li>
       <li><p class="dropdown-item text-decoration-none" ><%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "text-decoration-none"%></p></li>
     </ul>
   </div>

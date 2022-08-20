@@ -37,7 +37,7 @@
 
           <div class="card-restaurant-actions">
             <div class="card-restaurant-icon-small">
-              <span class="card-restaurant-icon-number"><%= restaurant.queuers.count %></span>
+              <span class="card-restaurant-icon-number"><%= restaurant.queuers.where(status: "queuing").count %></span>
               <span class="card-restaurant-icon-subtitle">waiting</span>
             </div>
             <div class="card-restaurant-icon-small">
@@ -46,7 +46,22 @@
             </div>
 
             <!-- Join Queue Button -->
-            <%= link_to 'Join Queue', new_restaurant_queuer_path(restaurant), class: "card-restaurant-icon-big" %>
+            <% case restaurant.status %>
+            <% when Restaurant::STATUS[0] %>
+              <div class="card-restaurant-icon-big">
+                <%= Restaurant::MSG[0] %>
+              </div>
+            <% when Restaurant::STATUS[1] %>
+              <div class="card-restaurant-icon-big">
+                <%= Restaurant::MSG[1] %>
+              </div>
+            <% when Restaurant::STATUS[2] %>
+              <div class="card-restaurant-icon-big">
+                <%= Restaurant::MSG[2] %> ( <%= restaurant.open_time%> ~ <%= restaurant.close_time %> )
+              </div>
+            <% when Restaurant::STATUS[3] %>
+              <%= link_to 'Join Queue', new_restaurant_queuer_path(restaurant), class: "card-restaurant-icon-big" %>
+            <% end %>
           </div>
         </div>
       </div>
