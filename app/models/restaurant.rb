@@ -3,7 +3,7 @@ class Restaurant < ApplicationRecord
   has_many :queuers
 
   # cloudinary settings
-  has_many_attached :photo
+  has_many_attached :photos
 
   # geocoder settings
   geocoded_by :address
