@@ -22,6 +22,9 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @restaurant = Restaurant.find(params[:id])
+    @category = @restaurant.category
+    @recommended_restaurants = Restaurant.where(category: @category)
     @review = Review.new
     @restaurant = Restaurant.find(params[:id])
     job_id =
@@ -48,10 +51,6 @@ class RestaurantsController < ApplicationController
   def destroy
   end
 
-  def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :description, :category, :price_range, :open_time, :close_time, :status, :capacity, :total_wait_time, :time_per_person)
-  end
-
   def wait_time
     # <!-- All restaurants -->
     Restaurant.all.each do |restaurant|
@@ -76,5 +75,17 @@ class RestaurantsController < ApplicationController
       end
       restaurant.update(total_wait_time: wait_time)
     end
+  end
+
+  def recommended_restaurants
+    @restaurant = Restaurant.find(params[:id])
+    @category = @restaurant.category
+    @recommended_restaurants = Restaurant.where(category: @category)
+  end
+
+  private
+
+  def restaurant_params
+    params.require(:restaurant).permit(:name, :address, :description, :category, :price_range, :open_time, :close_time, :status, :capacity, :total_wait_time, :time_per_person)
   end
 end
