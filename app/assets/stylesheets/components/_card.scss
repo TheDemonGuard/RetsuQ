@@ -59,6 +59,11 @@
   background-size: cover;
   min-height: 170px;
   border-radius: 20px 20px 0 0;
+
+  &.map {
+    min-height: 100px;
+    border-radius: 10px 10px 0 0;
+  }
 }
 
 .card-restaurant-content {
@@ -70,6 +75,7 @@
 
 .card-restaurant-details {
   margin-bottom: 1em;
+  text-align: left;
 }
 
 .card-restaurant-details-top {
