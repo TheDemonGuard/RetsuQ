@@ -8,13 +8,37 @@
 
 </section>
 
+
+
 <section>
   <h3>Get queued up quickly</h3>
   <!-- Flexbox wrapper for restaurant cards -->
   <div class="restaurants-wrapper">
     <% msg_index = 0 %>
     <% @restaurants.each do |restaurant| %>  <!--Start iteration -->
-    <% msg_index = msg_index + 1 %>
+      <% msg_index = msg_index + 1 %>
+        <div class="modal fade" id="exampleModal<%= msg_index %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel<%= msg_index %>" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel<%= msg_index %>">Now Closed</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+               <% case restaurant.status %>
+               <% when Restaurant::STATUS[0] %>
+                  <%= Restaurant::MSG[0] %>
+                <% when Restaurant::STATUS[1] %>
+                  <%= Restaurant::MSG[1] %>
+                <% when Restaurant::STATUS[2] %>
+                   <%= Restaurant::MSG[2] %> ( <%= restaurant.open_time%> ~ <%= restaurant.close_time %> )
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
     <div class="card-base card-restaurant">
       <a href="<%=restaurant_path(restaurant)%>">
         <div class="card-restaurant-thumbnail"
@@ -50,74 +74,21 @@
             <% case restaurant.status %>
             <% when Restaurant::STATUS[0] %>
               <div class="card-restaurant-icon-big-closed">
-                <!-- button type="button" class="btn" data-toggle="modal" data-target="#exampleModal<%= msg_index %>">
-                  <%= "Join Queue" %>
-                </button -->
                 <div data-toggle="modal" data-target="#exampleModal<%= msg_index %>">
                   <%= "Join Queue" %>
                 </div>
               </div>
-              <div class="modal fade" id="exampleModal<%= msg_index %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Now Closed</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <%= Restaurant::MSG[0] %>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
             <% when Restaurant::STATUS[1] %>
               <div class="card-restaurant-icon-big-closed">
-                <!-- button type="button" class="btn" data-toggle="modal" data-target="#exampleModal<%= msg_index %>">
-                  <%= "Join Queue" %>
-                </button -->
                 <div data-toggle="modal" data-target="#exampleModal<%= msg_index %>">
                   <%= "Join Queue" %>
-                </div>
-              </div>
-              <div class="modal fade" id="exampleModal<%= msg_index %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Now Closed</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <%= Restaurant::MSG[1] %>
-                    </div>
-                  </div>
                 </div>
               </div>
             <% when Restaurant::STATUS[2] %>
               <div class="card-restaurant-icon-big-closed">
-                <!-- button type="button" class="btn" data-toggle="modal" data-target="#exampleModal<%= msg_index %>">
-                  <%= "Join Queue" %>
-                </button -->
                 <div data-toggle="modal" data-target="#exampleModal<%= msg_index %>">
                   <%= "Join Queue" %>
-                </div>
-              </div>
-              <div class="modal fade" id="exampleModal<%= msg_index %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Now Closed</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <%= Restaurant::MSG[2] %> ( <%= restaurant.open_time%> ~ <%= restaurant.close_time %> )
-                    </div>
-                  </div>
                 </div>
               </div>
             <% when Restaurant::STATUS[3] %>
