@@ -10,6 +10,9 @@
 puts "cleaning the DB..."
 puts ""
 
+puts "destroying all reviews..."
+Review.destroy_all
+
 puts "destroying all queuers..."
 Queuer.destroy_all
 
