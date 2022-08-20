@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'reviews/new'
-  get 'reviews/create'
   authenticated :user, ->(user) { user.owner? } do
     get 'owner', to: 'owner#dashboard'
   end
