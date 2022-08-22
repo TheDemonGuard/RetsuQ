@@ -4,7 +4,7 @@ class Restaurant < ApplicationRecord
   has_many :reviews
 
   # cloudinary settings
-  has_many_attached :photo
+  has_many_attached :photos
 
   # geocoder settings
   geocoded_by :address
