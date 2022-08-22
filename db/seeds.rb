@@ -27,6 +27,7 @@ User.destroy_all
 puts "DB is now clean!"
 
 addresses = [
+  # 20 Addresses currently in Tokyo
   '1-4-9 Meguro, Meguro, Tokyo',
   '2-2-11 Shimomeguro, Meguro, Tokyo',
   '2-12-19 Yutenji, Meguro, Tokyo',
@@ -35,7 +36,18 @@ addresses = [
   '3-10-13 Meguro, Meguro, Tokyo',
   '1-23-14 Meguro, Meguro, Tokyo 153-0063, Japan',
   '2-11-8 Meguro, Meguro, Tokyo',
-  '4-14-5 Meguro, Meguro, Tokyo 153-0063, Japan'
+  '4-14-5 Meguro, Meguro, Tokyo 153-0063, Japan',
+  "3-3, Azabudai 2-chome, Minato, Tokyo ",
+  "246-1254, Naritanishi, Suginami, Tokyo ",
+  "13-31, Konan, 2-chome, Minato, Tokyo",
+  "436-1236, Gakuen, Musashimurayama-shi, Tokyo",
+  "100-1072, Funabashi, Setagaya-ku, Tokyo",
+  "3-2-2F, KoIshikawa 5-chome, Bunkyo-ku, Tokyo",
+  "5-10, Minami Azabu 1-chome, Minato-ku, Tokyo",
+  "491-1123, Roppongi, Minato-ku, Tokyo",
+  "3-1, Akasaka 5-chome, Minato-ku, Tokyo",
+  "19-12, Kitaotsuka 1-chome, Toshima-ku, Tokyo",
+  "299-1188, Nishishinjuku Shinjuku, Shinjuku-ku, Tokyo"
 ]
 
 photos1 = URI.open("https://images.unsplash.com/photo-1607083966193-2215b910f372?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
@@ -70,6 +82,7 @@ photos29 = URI.open("https://images.unsplash.com/photo-1604624483037-489d287ae9f
 photos30 = URI.open("https://images.unsplash.com/photo-1615897431041-5511a4e2e559?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
 photos31 = URI.open("https://images.unsplash.com/photo-1617655699589-64375e5ad9a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
 photos32 = URI.open("https://images.unsplash.com/photo-1565348323129-7f04169e2148?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=690&q=80")
+photos33 = URI.open("https://images.unsplash.com/photo-1603894483390-dc12ecd2c9dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=733&q=80")
 photos34 = URI.open("https://images.unsplash.com/photo-1508955080361-a155a8773c13?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=733&q=80")
 photos35 = URI.open("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
 photos36 = URI.open("https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80")
@@ -88,10 +101,6 @@ photos48 = URI.open("https://images.unsplash.com/photo-1512132411229-c30391241dd
 photos49 = URI.open("https://images.unsplash.com/photo-1526318896980-cf78c088247c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
 photos50 = URI.open("https://images.unsplash.com/photo-1569137735645-bfb33825333b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80")
 photos51 = URI.open("https://images.unsplash.com/photo-1562436356-11574662e477?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
-photos52 = URI.open("https://images.unsplash.com/photo-1603894483390-dc12ecd2c9dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=733&q=80")
-
-require 'securerandom'
-random_string = SecureRandom.hex
 
 user1 = User.create!(
   email: Faker::Internet.email,
@@ -100,7 +109,7 @@ user1 = User.create!(
 
 restaurant1 = Restaurant.create!(
   name: Faker::Restaurant.name,
-  address: addresses.sample,
+  address: addresses[1],
   category: Faker::Restaurant.type,
   description: Faker::Restaurant.description,
   price_range: %w[$ $$ $$$ $$$$].sample,
@@ -123,7 +132,7 @@ user2 = User.create!(
 
 restaurant2 = Restaurant.create!(
   name: Faker::Restaurant.name,
-  address: addresses.sample,
+  address: addresses[2],
   category: Faker::Restaurant.type,
   description: Faker::Restaurant.description,
   price_range: %w[$ $$ $$$ $$$$].sample,
@@ -146,7 +155,7 @@ user3 = User.create!(
 
 restaurant3 = Restaurant.create!(
   name: Faker::Restaurant.name,
-  address: addresses.sample,
+  address: addresses[3],
   category: Faker::Restaurant.type,
   description: Faker::Restaurant.description,
   price_range: %w[$ $$ $$$ $$$$].sample,
@@ -160,7 +169,7 @@ restaurant3 = Restaurant.create!(
 )
 restaurant3.photos.attach(io: photos5, filename: 'user.png', content_type: 'image/png')
 restaurant3.photos.attach(io: photos6, filename: 'user.png', content_type: 'image/png')
-restaurant1.photos.attach(io: photos46, filename: 'user.png', content_type: 'image/png')
+restaurant1.photos.attach(io: photos33, filename: 'user.png', content_type: 'image/png')
 
 user4 = User.create!(
   email: Faker::Internet.email,
@@ -169,7 +178,7 @@ user4 = User.create!(
 
 restaurant4 = Restaurant.create!(
   name: Faker::Restaurant.name,
-  address: addresses.sample,
+  address: addresses[4],
   category: Faker::Restaurant.type,
   description: Faker::Restaurant.description,
   price_range: %w[$ $$ $$$ $$$$].sample,
@@ -192,7 +201,7 @@ user5 = User.create!(
 
 restaurant5 = Restaurant.create!(
   name: Faker::Restaurant.name,
-  address: addresses.sample,
+  address: addresses[5],
   category: Faker::Restaurant.type,
   description: Faker::Restaurant.description,
   price_range: %w[$ $$ $$$ $$$$].sample,
@@ -216,7 +225,7 @@ user6 = User.create!(
 
 restaurant6 = Restaurant.create!(
   name: Faker::Restaurant.name,
-  address: addresses.sample,
+  address: addresses[6],
   category: Faker::Restaurant.type,
   description: Faker::Restaurant.description,
   price_range: %w[$ $$ $$$ $$$$].sample,
@@ -239,7 +248,7 @@ user7 = User.create!(
 
 restaurant7 = Restaurant.create!(
   name: Faker::Restaurant.name,
-  address: addresses.sample,
+  address: addresses[7],
   category: Faker::Restaurant.type,
   description: Faker::Restaurant.description,
   price_range: %w[$ $$ $$$ $$$$].sample,
@@ -262,7 +271,7 @@ user8 = User.create!(
 
 restaurant8 = Restaurant.create!(
   name: Faker::Restaurant.name,
-  address: addresses.sample,
+  address: addresses[8],
   category: Faker::Restaurant.type,
   description: Faker::Restaurant.description,
   price_range: %w[$ $$ $$$ $$$$].sample,
@@ -285,7 +294,7 @@ user9 = User.create!(
 
 restaurant9 = Restaurant.create!(
   name: Faker::Restaurant.name,
-  address: addresses.sample,
+  address: addresses[9],
   category: Faker::Restaurant.type,
   description: Faker::Restaurant.description,
   price_range: %w[$ $$ $$$ $$$$].sample,
@@ -308,7 +317,7 @@ user10 = User.create!(
 
 restaurant10 = Restaurant.create!(
   name: Faker::Restaurant.name,
-  address: addresses.sample,
+  address: addresses[10],
   category: Faker::Restaurant.type,
   description: Faker::Restaurant.description,
   price_range: %w[$ $$ $$$ $$$$].sample,
@@ -331,7 +340,7 @@ user11 = User.create!(
 
 restaurant11 = Restaurant.create!(
   name: Faker::Restaurant.name,
-  address: addresses.sample,
+  address: addresses[11],
   category: Faker::Restaurant.type,
   description: Faker::Restaurant.description,
   price_range: %w[$ $$ $$$ $$$$].sample,
@@ -354,7 +363,7 @@ user12 = User.create!(
 
 restaurant12 = Restaurant.create!(
   name: Faker::Restaurant.name,
-  address: addresses.sample,
+  address: addresses[12],
   category: Faker::Restaurant.type,
   description: Faker::Restaurant.description,
   price_range: %w[$ $$ $$$ $$$$].sample,
@@ -377,7 +386,7 @@ user13 = User.create!(
 
 restaurant13 = Restaurant.create!(
   name: Faker::Restaurant.name,
-  address: addresses.sample,
+  address: addresses[13],
   category: Faker::Restaurant.type,
   description: Faker::Restaurant.description,
   price_range: %w[$ $$ $$$ $$$$].sample,
@@ -400,7 +409,7 @@ user14 = User.create!(
 
 restaurant14 = Restaurant.create!(
   name: Faker::Restaurant.name,
-  address: addresses.sample,
+  address: addresses[14],
   category: Faker::Restaurant.type,
   description: Faker::Restaurant.description,
   price_range: %w[$ $$ $$$ $$$$].sample,
@@ -423,7 +432,7 @@ user15 = User.create!(
 
 restaurant15 = Restaurant.create!(
   name: Faker::Restaurant.name,
-  address: addresses.sample,
+  address: addresses[15],
   category: Faker::Restaurant.type,
   description: Faker::Restaurant.description,
   price_range: %w[$ $$ $$$ $$$$].sample,
@@ -439,23 +448,20 @@ restaurant15.photos.attach(io: photos29, filename: 'user.png', content_type: 'im
 restaurant15.photos.attach(io: photos30, filename: 'user.png', content_type: 'image/png')
 restaurant11.photos.attach(io: photos45, filename: 'user.png', content_type: 'image/png')
 
-# 1.times do
-#   restaurant1.photos.attach(io: photos.sample, filename: random_string + ".png", content_type: 'image/png')
-#   restaurant2.photos.attach(io: photos.sample, filename: random_string + ".png", content_type: 'image/png')
-#   restaurant3.photos.attach(io: photos.sample, filename: random_string + ".png", content_type: 'image/png')
-#   restaurant4.photos.attach(io: photos.sample, filename: random_string + ".png", content_type: 'image/png')
-#   restaurant5.photos.attach(io: photos.sample, filename: random_string + ".png", content_type: 'image/png')
-#   restaurant6.photos.attach(io: photos.sample, filename: random_string + ".png", content_type: 'image/png')
-#   restaurant7.photos.attach(io: photos.sample, filename: random_string + ".png", content_type: 'image/png')
-#   restaurant8.photos.attach(io: photos.sample, filename: random_string + ".png", content_type: 'image/png')
-#   restaurant9.photos.attach(io: photos.sample, filename: random_string + ".png", content_type: 'image/png')
-#   restaurant10.photos.attach(io: photos.sample, filename: random_string + ".png", content_type: 'image/png')
-#   restaurant11.photos.attach(io: photos.sample, filename: random_string + ".png", content_type: 'image/png')
-#   restaurant12.photos.attach(io: photos.sample, filename: random_string + ".png", content_type: 'image/png')
-#   restaurant13.photos.attach(io: photos.sample, filename: random_string + ".png", content_type: 'image/png')
-#   restaurant14.photos.attach(io: photos.sample, filename: random_string + ".png", content_type: 'image/png')
-#   restaurant15.photos.attach(io: photos.sample, filename: random_string + ".png", content_type: 'image/png')
-# end
+# Adding queuers to each restaurant
+Restaurant.all.each do |restaurant|
+  if restaurant.status == "Open"
+    10.times do
+      Queuer.create!(
+        reservation_name: Faker::Name.name,
+        user_id: restaurant.user.id,
+        restaurant_id: restaurant.id,
+        size: rand(1..10),
+        status: ["queuing", "dining", "completed"].sample
+      )
+    end
+  end
+end
 
 pitch_owner = User.create!(
   password: "123456",
