@@ -4,14 +4,22 @@
   <% end %>
 
   <% if user_signed_in? %>
+    <div align="center">
+      <% if @queuer.present? %>
+          <%= link_to "Current Queue", destroy_user_session_path, class: "btn btn-outline-primary text-decoration-none"%>
+      <% else %>
+        <button class="btn btn-secondary" disabled>
+          You have not queued yet
+        </button>
+      <% end %>
+    </div>
+
     <div class="dropdown">
       <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background: white;">
       <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><title>menu</title><g fill="none"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="#212121"></path></g></svg>    </button>
-
       <ul class="dropdown-menu dropdown-menu-end nav-img" aria-labelledby="dropdownMenuButton1">
         <h3>ようこそ！</h3>
         <li><p class="dropdown-item"><%= current_user.email %></p></li>
-        <li><p class="dropdown-item text-decoration-none" ><%= link_to "Current Queue", destroy_user_session_path, class: "text-decoration-none"%></p></li>
         <li><p class="dropdown-item text-decoration-none" ><%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "text-decoration-none"%></p></li>
       </ul>
     </div>
