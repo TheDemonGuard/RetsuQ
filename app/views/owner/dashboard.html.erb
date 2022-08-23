@@ -9,16 +9,13 @@
   <div class="row">
     <div class="col-8 dashboard-owner">
       <h3 class="pt-4">Dashboard</h3>
-      <div class="row align-items-center">
-        <div class="col dashboard-owner-options"><%= image_tag "icons-queue-management.svg" %> <%= link_to "Queue Management", queuers_path %></div>
-        <div class="col dashboard-owner-options"><%= image_tag "icons-analytics.svg" %> Queue Analytics</div>
-        <div class="col dashboard-owner-options"><%= image_tag "icons-discounts.svg" %> Rewards & Discounts</div>
-      </div>
-      <div class="row align-items-center">
-        <div class="col dashboard-owner-options"><%= image_tag "icons-restaurant-profile.svg" %>  Restaurant Details</div>
-        <div class="col dashboard-owner-options"><%= image_tag "icons-queue-history.svg" %>  Queue History</div>
-        <div class="col dashboard-owner-options"><%= image_tag "icons-ratings.svg" %> <%= link_to "Reviews & Ratings", restaurant_reviews_path(@restaurant), method: :post %>
-        </div>
+      <div class="dashboard-owner-options-grid">
+        <div class="col dashboard-owner-options-item"><%= image_tag "icons-queue-management.svg" %> <%= link_to "Queue Management", queuers_path %></div>
+        <div class="col dashboard-owner-options-item"><%= image_tag "icons-analytics.svg" %> Queue Analytics</div>
+        <div class="col dashboard-owner-options-item"><%= image_tag "icons-discounts.svg" %> Rewards & Discounts</div>
+        <div class="col dashboard-owner-options-item"><%= image_tag "icons-restaurant-profile.svg" %>  Restaurant Details</div>
+        <div class="col dashboard-owner-options-item"><%= image_tag "icons-queue-history.svg" %>  Queue History</div>
+        <div class="col dashboard-owner-options-item"><%= image_tag "icons-ratings.svg" %> <%= link_to "Reviews & Ratings", restaurant_reviews_path(@restaurant), method: :post %></div>
       </div>
     </div>
     <!-- Live Queue-->
