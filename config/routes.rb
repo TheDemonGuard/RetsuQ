@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post 'twilio/sms'
+
   authenticated :user, ->(user) { user.owner? } do
     get 'owner', to: 'owner#dashboard'
   end
