@@ -19,19 +19,24 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def show
+    # Rufus::Scheduler.singleton.running_jobs.each(&:unschedule)
+    # Rufus::Scheduler.singleton.shutdown
     @restaurant = Restaurant.find(params[:id])
     @category = @restaurant.category
     @recommended_restaurants = Restaurant.where(category: @category)
     @review = Review.new
-    job_id =
-      Rufus::Scheduler.singleton.every '5s' do
-        Rails.logger.info "TEST ME time flies, it's now #{Time.now}"
-        wait_time
-      end
-    puts "TEST ME scheduled job #{job_id}"
+
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def edit
