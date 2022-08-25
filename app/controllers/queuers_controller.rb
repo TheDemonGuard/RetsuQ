@@ -15,7 +15,12 @@ class QueuersController < ApplicationController
     @queuers.each do |group|
       @number_of_people += group.size
     end
-    # @restaurant.total_wait_time = wait_time
+    @markers = [{
+      lat: @restaurant.latitude,
+      lng: @restaurant.longitude,
+      image_url: helpers.asset_url("Location_Pin_Centered_Pink.png")
+      # info_window: render_to_string(partial: "info_window", locals: { restaurant: restaurant })
+    }]
   end
 
   def index
