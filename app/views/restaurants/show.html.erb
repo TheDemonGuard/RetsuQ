@@ -1,10 +1,15 @@
 <!-- Different page if you are an owner -->
+<div data-controller="time">
+
+
+
 <% if current_user.id == @restaurant.user_id %>
 <p>this is yours</p>
 <%= link_to queuers_path() do %>
   <p>See Queuer information</p>
   <% end  %>
 <% else %>
+<p class="card-text" data-time-target="restaurant"></p>
 <!-- Default Page -->
 <div class="d-flex align-items-center justify-content-between mb-3 pt-5">
   <div class="text-decoration-none">
@@ -65,3 +70,6 @@
 </div>
 </div>
 <% end %>
+
+
+</div>
