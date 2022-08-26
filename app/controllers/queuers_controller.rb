@@ -17,13 +17,16 @@ class QueuersController < ApplicationController
     @queuers.each do |group|
       @number_of_people += group.size
     end
-    @time = @queuer.wait_time
     # <!-- wait time  -->
-    # @wait_time = (@number_of_people - @queuer.size) * @restaurant.time_per_person
-    # @restaurant.total_wait_time = wait_time
-
+    @time = @queuer.wait_time
+    # <!-- Current restaurant location  -->
+    @markers = [{
+      lat: @restaurant.latitude,
+      lng: @restaurant.longitude,
+      image_url: helpers.asset_url("Location_Pin_Centered_Pink.png")
+      # info_window: render_to_string(partial: "info_window", locals: { restaurant: restaurant })
+    }]
   end
-
 
   def index
     @restaurant = Restaurant.where(user_id: current_user.id)
