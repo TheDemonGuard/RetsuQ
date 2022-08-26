@@ -1,16 +1,18 @@
+<div data-controller="time" id="restaurant-<%= @restaurant.id %>">
+
 <div class="row">
   <div class="col-lg-6"></div>
     <div class="restaurant-stat-container col-lg-6">
       <div class="stat-card shadow">
         <div class="stat-info">
           <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><title>access_time</title><g fill="none"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z" fill="#212121"></path></g></svg>
-          <h3><%= @restaurant.total_wait_time %><p>Wait Time</p></h3>
-        </div>
+              <h3 data-time-target="wait" ><%= @restaurant.total_wait_time %><p>Mins</p></h3>
+            </div>
       </div>
       <div class="stat-card shadow">
         <div class="stat-info">
           <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><title>emoji_people</title><g fill="none"><path d="M12 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" fill="#212121"></path><path d="M15.89 8.11C15.5 7.72 14.83 7 13.53 7h-2.54C8.24 6.99 6 4.75 6 2H4c0 3.16 2.11 5.84 5 6.71V22h2v-6h2v6h2V10.05L18.95 14l1.41-1.41-4.47-4.48z" fill="#212121"></path></g></svg>
-          <h3><%= @restaurant.queuers.where(status: "queuing").count %><p>In Queue</p></h3>
+          <h3 data-time-target="customers" ><%= @restaurant.queuers.where(status: "queuing").count %><p>In Queue</p></h3>
         </div>
       </div>
       <div class="stat-card shadow">
@@ -32,4 +34,6 @@
       </div>
     </div>
   </div>
+</div>
+
 </div>

@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = [ "wait", "customers" ]
+  static targets = [ "position", "time", "people" ]
 
   connect() {
     setInterval(() => {
@@ -12,18 +12,17 @@ export default class extends Controller {
   refresh() {
     // Simple refresh:
     // window.location.reload();
-    const restaurantId = this.element.id.split("-")[1];
-    console.log(restaurantId)
-    // .split("-")[1]
+    const queuerId = this.element.id.split("-")[1];
+    console.log(queuerId)
 
-    fetch(window.location.origin + "/restaurants/" + restaurantId, {
+    fetch(window.location.origin + "/queuers/" + queuerId, {
       headers: { "Accept": "application/json" },
     })
       .then(response => response.json())
       .then((data) => {
-        this.customersTarget.innerText = data.line_size
-        this.waitTarget.innerText = data.wait_time
-
+        this.positionTarget.innerText = data.position
+        this.timeTarget.innerText = data.wait_time
+        this.peopleTarget.innerText = data.people
       })
 
   }
