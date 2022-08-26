@@ -11,7 +11,6 @@ export default class extends Controller {
     markers: Array
   }
 
-
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
 
@@ -25,9 +24,19 @@ export default class extends Controller {
 
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl }))
+
+    this.map.addControl(
+      new mapboxgl.GeolocateControl({
+      positionOptions: {
+      enableHighAccuracy: true
+      },
+      // When active the map will receive updates to the device's location as it changes.
+      trackUserLocation: true,
+      // Draw an arrow next to the location dot to indicate which direction the device is heading.
+      showUserHeading: true
+      })
+      );
   }
-
-
 
   _addMarkersToMap() {
     this.markersValue.forEach((marker) => {
