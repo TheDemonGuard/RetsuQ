@@ -19,6 +19,8 @@ class QueuersController < ApplicationController
     end
     # <!-- wait time  -->
     @time = @queuer.wait_time
+    # <!-- Estimated Dining time  -->
+    @dine_time = @queuer.estimated
     # <!-- Current restaurant location  -->
     @markers = [{
       lat: @restaurant.latitude,

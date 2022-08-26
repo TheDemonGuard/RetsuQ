@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = [ "position", "time", "people" ]
+  static targets = [ "position", "time", "people", "dine" ]
 
   connect() {
     setInterval(() => {
@@ -23,6 +23,7 @@ export default class extends Controller {
         this.positionTarget.innerText = data.position
         this.timeTarget.innerText = data.wait_time
         this.peopleTarget.innerText = data.people
+        this.dineTarget.innerText = data.estimated
       })
 
   }
