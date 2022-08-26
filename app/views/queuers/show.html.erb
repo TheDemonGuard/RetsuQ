@@ -7,7 +7,12 @@
     <h1><%= @restaurant.name  %></h1>
   </div>
   <div class="title-container">
-    <h1>You're In The Queue!</h1>
+    <div>
+      <h1>You're In The Queue!</h1>
+    </div>
+    <div>
+      <h2>Reservation Name: <%= @queuer.reservation_name.capitalize %></h2>
+    </div>
   </div>
 <div data-controller="queue-time" id="queuer-<%= @queuer.id %>">
   <div class="info-card-container">
