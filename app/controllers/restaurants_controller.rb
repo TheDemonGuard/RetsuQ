@@ -29,6 +29,8 @@ class RestaurantsController < ApplicationController
     # Rufus::Scheduler.singleton.running_jobs.each(&:unschedule)
     # Rufus::Scheduler.singleton.shutdown
     @restaurant = Restaurant.find(params[:id])
+    @restaurant.update(total_wait_time: @restaurant.wait_time)
+
     @category = @restaurant.category
     @recommended_restaurants = Restaurant.where(category: @category)
     @review = Review.new
@@ -53,32 +55,6 @@ class RestaurantsController < ApplicationController
   end
 
   def destroy
-  end
-
-  def wait_time
-    # <!-- All restaurants -->
-    Restaurant.all.each do |restaurant|
-      capacity = restaurant.capacity
-      # <!-- People who are dining -->
-      dining_queuers = Queuer.where(restaurant_id: restaurant, status: "dining")
-      diners = 0
-      dining_queuers.each do |queue|
-        diners += queue.size
-      end
-      # <!-- People who are queuing -->
-      queuers = Queuer.where(restaurant_id: restaurant, status: "queuing")
-      people = 0
-      queuers.each do |queue|
-        people += queue.size
-      end
-      if diners + people <= capacity
-        wait_time = 0
-      else
-        wait_time = (diners + people) - capacity
-        wait_time *= restaurant.time_per_person
-      end
-      restaurant.update(total_wait_time: wait_time)
-    end
   end
 
   private

@@ -1,8 +1,4 @@
 <!-- Different page if you are an owner -->
-<div data-controller="time">
-
-
-
 <% if current_user.id == @restaurant.user_id %>
 <p>this is yours</p>
 <%= link_to queuers_path() do %>
@@ -70,6 +66,3 @@
 </div>
 </div>
 <% end %>
-
-
-</div>
