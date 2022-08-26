@@ -13,7 +13,7 @@ export default class extends Controller {
     // Simple refresh:
     // window.location.reload();
     const restaurantId = this.element.id.split("-")[1];
-    console.log(restaurantId)
+    // console.log(restaurantId)
     // .split("-")[1]
 
     fetch(window.location.origin + "/restaurants/" + restaurantId, {

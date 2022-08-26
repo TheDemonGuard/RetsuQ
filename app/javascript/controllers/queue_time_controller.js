@@ -13,7 +13,7 @@ export default class extends Controller {
     // Simple refresh:
     // window.location.reload();
     const queuerId = this.element.id.split("-")[1];
-    console.log(queuerId)
+    // console.log(queuerId)
 
     fetch(window.location.origin + "/queuers/" + queuerId, {
       headers: { "Accept": "application/json" },
