@@ -1,4 +1,4 @@
-<div data-controller="time" id="queuer-<%= @queuer.id %>">
+
   <div class="restaurant-name-container shadow" <% if @restaurant.photos.attached? %>
                   style="height: 100px; background-image: url('<%= cl_image_path @restaurant.photos.first.key %>')"
                 <% else %>
@@ -9,7 +9,7 @@
   <div class="title-container">
     <h1>You're In The Queue!</h1>
   </div>
-
+<div data-controller="queue-time" id="queuer-<%= @queuer.id %>">
   <div class="info-card-container">
     <div class="info-card">
     <p>Place In The Queue:</p>
@@ -24,7 +24,7 @@
       <p data-queue-time-target="people"><%= @number_of_people %></p>
     </div>
   </div>
-
+</div>
   <div class="title-container">
     <h3>Estimated Dining Time:</h3>
   </div>
