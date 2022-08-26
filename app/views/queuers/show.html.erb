@@ -1,4 +1,4 @@
-<div data-controller="time" id="queuer-<%= @queuer.id %>">
+<div data-controller="queue-time" id="queuer-<%= @queuer.id %>">
   <div class="restaurant-name-container shadow" <% if @restaurant.photos.attached? %>
                   style="height: 100px; background-image: url('<%= cl_image_path @restaurant.photos.first.key %>')"
                 <% else %>
