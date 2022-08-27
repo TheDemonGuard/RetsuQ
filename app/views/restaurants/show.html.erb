@@ -13,6 +13,15 @@
   </div>
 </div>
 
+<div>
+  <% if @restaurant.photos.nil? %>
+    <%= "No Image available yet" %>
+  <% else %>
+    <%= cl_image_tag @restaurant.photos.first.key, height: 500, width: 1270, crop: :fill, id: "show-page-image" %>
+  <% end %>
+</div>
+
+
 <div class="container mb-6">
   <% if  @restaurant.nil? == false %>
     <div class="d-flex flex-column">
