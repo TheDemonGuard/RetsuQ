@@ -19,6 +19,28 @@
   width: 330px;
 }
 
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+
+.user-queue {
+  border-radius: 10px;
+  padding: 0.5em 1em;
+
+  &.queued {
+    background: $yellow;
+  }
+
+  &.notqueued {
+    background: $light-gray;
+  }
+
+}
+
+
+
 // owner navbar
 .navbar-owner {
   align-items: center;
