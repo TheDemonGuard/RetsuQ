@@ -24,7 +24,7 @@ class Restaurant < ApplicationRecord
   MSG = ["Closed temporarily", "Closed entire day", "Closed outside business hours", "Open"]
 
   def status_string
-    self.status = self.status == "1" ? "open" : "closed"
+    self.status = self.status == "1" ? "Open" : "Closed"
   end
 
   def line_size
