@@ -37,7 +37,7 @@ class RestaurantsController < ApplicationController
     @estimated_wait_time = @restaurant.wait_time
 
     @category = @restaurant.category
-    @recommended_restaurants = Restaurant.where(category: @category)
+    @recommended_restaurants = Restaurant.where(category: @category).excluding(@restaurant)
     @review = Review.new
 
     respond_to do |format|
