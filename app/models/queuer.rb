@@ -28,7 +28,7 @@ class Queuer < ApplicationRecord
     turn_time - 15.minutes
   end
 
-  handle_asynchronously :reminder, :run_at => Proc.new { |i| i.when_to_run }
+  #handle_asynchronously :reminder, :run_at => Proc.new { |i| i.when_to_run }
 
   def position
     queuers = self.restaurant.queuers.where(status: "queuing")
