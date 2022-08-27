@@ -17,7 +17,7 @@ class Queuer < ApplicationRecord
     message = @client.messages.create(
       :from => @twilio_number,
       :to => user.phone,
-      :body => body,
+      :body => body
     )
   end
 

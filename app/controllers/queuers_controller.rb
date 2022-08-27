@@ -90,6 +90,8 @@ class QueuersController < ApplicationController
     redirect_to owner_path, notice: "Group Was Removed"
   end
 
+  
+
   private
 
   def queuer_params
