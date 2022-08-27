@@ -4,6 +4,7 @@ export default class extends Controller {
   static targets = [ "wait", "customers" ]
 
   connect() {
+    console.log("HEllo from connect time cont")
     setInterval(() => {
       this.refresh()
     }, 5000)

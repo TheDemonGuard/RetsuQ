@@ -104,7 +104,7 @@ class QueuersController < ApplicationController
 
   private
 
-  def queuer_params
-    params.require(:queuer).permit(:size, :status, :reservation_name)
-  end
+    def queuer_params
+      params.require(:queuer).permit(:size, :status, :reservation_name)
+    end
 end
