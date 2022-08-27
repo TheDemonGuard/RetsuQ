@@ -32,4 +32,9 @@ class Queuer < ApplicationRecord
   def wait_time
     self.restaurant.time_per_person * people_ahead_in_queue
   end
+
+  def estimated
+    time = Time.now + (wait_time * 60)
+    return time.strftime("%I:%M %p")
+  end
 end
