@@ -1,6 +1,8 @@
 require 'rubygems'
 require 'rufus-scheduler'
 class RestaurantsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :show ]
+
   def create
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.user_id = current_user.id
