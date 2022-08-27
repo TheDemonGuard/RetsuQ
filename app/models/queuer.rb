@@ -34,7 +34,7 @@ class Queuer < ApplicationRecord
   end
 
   def estimated
-    time = Time.now + (wait_time * 60)
+    time = Time.zone.now  + (wait_time * 60)
     return time.strftime("%I:%M %p")
   end
 end
