@@ -1,33 +1,49 @@
-<div class="restaurant-name-container shadow">
-  <h1><%= @restaurant.name  %></h1>
-</div>
 
-<div class="title-container">
-  <h1>You're In The Queue!</h1>
-</div>
-
-<div class="info-card-container">
-  <div class="info-card">
-  <p>Place In The Queue:</p>
-  <%= @position %>
+  <div class="restaurant-name-container shadow" <% if @restaurant.photos.attached? %>
+                  style="height: 100px; background-image: url('<%= cl_image_path @restaurant.photos.first.key %>')"
+                <% else %>
+                  style="height: 100px; opacity: 50%; background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')"
+                <% end %>>
+    <h1><%= @restaurant.name  %></h1>
   </div>
-  <div class="info-card">
-  <p>Wait Time Remaining:</p>
-  <%= @restaurant.total_wait_time %>
+  <div class="title-container">
+    <div>
+      <h1>You're In The Queue!</h1>
+    </div>
+    <div>
+      <h2>Reservation Name: <%= @queuer.reservation_name.capitalize %></h2>
+    </div>
   </div>
-  <div class="info-card">
-  <p>People In The Queue:</p>
-    <%= @number_of_people %>
+<div data-controller="queue-time" id="queuer-<%= @queuer.id %>">
+  <div class="info-card-container">
+    <div class="info-card">
+    <p>Place In The Queue:</p>
+      <p data-queue-time-target="position"><%= @position %></p>
+    </div>
+    <div class="info-card" id="queuer">
+    <p>Wait Time Remaining:</p>
+      <p data-queue-time-target="time"><%= @time %></p>
+    </div>
+    <div class="info-card">
+    <p>People In The Queue:</p>
+      <p data-queue-time-target="people"><%= @number_of_people %></p>
+    </div>
+  </div>
+  <div class="title-container">
+    <h3>Estimated Dining Time:</h3>
+    <h2 data-queue-time-target="dine"><%= @dine_time %></h2>
+  </div>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <%= button_to "Leave the Queue",
+              queuer_path(@queuer),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
   </div>
 </div>
 
-<div class="title-container">
-  <h3>Estimated Dining Time:</h3>
-</div>
-
-<div class="d-flex justify-content-center">
-  <%= button_to "Leave the Queue",
-            queuer_path(@queuer),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
-</div>
+<div style="width: 100%; height: 550px; overflow:hidden;"
+    data-controller="mapbox"
+    data-mapbox-markers-value="<%= @markers.to_json %>"
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>

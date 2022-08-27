@@ -10,12 +10,24 @@ class QueuersController < ApplicationController
     @queuers = Queuer.where(restaurant_id: @restaurant, status: "queuing")
     @queuers = @queuers.sort_by { |queue| queue.created_at }
     @position = @queuers.find_index(@queuer) + 1
+    p @position
+    @queuers = @queuers.take(@position)
     # <!-- number of people waiting in the queue -->
     @number_of_people = 0
     @queuers.each do |group|
       @number_of_people += group.size
     end
-    # @restaurant.total_wait_time = wait_time
+    # <!-- wait time  -->
+    @time = @queuer.wait_time
+    # <!-- Estimated Dining time  -->
+    @dine_time = @queuer.estimated
+    # <!-- Current restaurant location  -->
+    @markers = [{
+      lat: @restaurant.latitude,
+      lng: @restaurant.longitude,
+      image_url: helpers.asset_url("Location_Pin_Centered_Pink.png")
+      # info_window: render_to_string(partial: "info_window", locals: { restaurant: restaurant })
+    }]
   end
 
   def index

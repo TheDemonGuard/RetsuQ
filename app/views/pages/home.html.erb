@@ -11,6 +11,7 @@
 
 
 <section>
+
   <h3>Get queued up quickly</h3>
   <!-- Flexbox wrapper for restaurant cards -->
   <div class="restaurants-wrapper">
@@ -59,14 +60,14 @@
             </div>
 
           </div>
-
+<div data-controller="time" id="restaurant-<%= restaurant.id %>">
           <div class="card-restaurant-actions">
             <div class="card-restaurant-icon-small">
-              <span class="card-restaurant-icon-number"><%= restaurant.queuers.where(status: "queuing").count %></span>
+              <span class="card-restaurant-icon-number" data-time-target="customers"><%= restaurant.queuers.where(status: "queuing").count %></span>
               <span class="card-restaurant-icon-subtitle">waiting</span>
             </div>
             <div class="card-restaurant-icon-small">
-              <span class="card-restaurant-icon-number"><%= restaurant.total_wait_time %></span>
+              <span class="card-restaurant-icon-number" data-time-target="wait"><%= restaurant.total_wait_time %></span>
               <span class="card-restaurant-icon-subtitle">mins</span>
             </div>
 
@@ -95,10 +96,12 @@
               <%= link_to 'Join Queue', new_restaurant_queuer_path(restaurant), class: "card-restaurant-icon-big" %>
             <% end %>
           </div>
+          </div>
         </div>
       </div>
       <% end %> <!-- End iteration -->
     </div>
+
 </section>
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">

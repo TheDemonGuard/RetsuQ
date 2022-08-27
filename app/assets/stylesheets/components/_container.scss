@@ -7,10 +7,18 @@
   justify-content: center;
   width: 1000px;
   margin: auto;
-  background-color: lightgray;
+  // background-color: lightgray;
   border-radius: 20px;
   margin-top: 10px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  // opacity: 50%;
+
+  h1 {
+    opacity: 100% !important;
+  }
 }
+
 
 /* restaurant show page */
 .title-container {

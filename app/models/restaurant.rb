@@ -26,4 +26,21 @@ class Restaurant < ApplicationRecord
   def status_string
     self.status = self.status == "1" ? "open" : "closed"
   end
+
+  def line_size
+    self.queuers.where(status: "queuing").size
+  end
+  def queue_size
+    self.queuers.where.not(status: "completed").sum(:size)
+  end
+
+  def wait_time
+    if queue_size <= self.capacity
+      wait_time = 0
+    else
+      wait_time = queue_size - capacity
+      wait_time *= self.time_per_person
+    end
+    wait_time
+  end
 end
