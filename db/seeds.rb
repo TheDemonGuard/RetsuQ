@@ -37,17 +37,25 @@ addresses = [
   '1-23-14 Meguro, Meguro, Tokyo 153-0063, Japan',
   '2-11-8 Meguro, Meguro, Tokyo',
   '4-14-5 Meguro, Meguro, Tokyo 153-0063, Japan',
-  "3-3, Azabudai 2-chome, Minato, Tokyo ",
+  "2-3-3, Azabudai , Minato, Tokyo ",
   "246-1254, Naritanishi, Suginami, Tokyo ",
-  "13-31, Konan, 2-chome, Minato, Tokyo",
+  "2-13-31, Konan, Minato, Tokyo",
   "436-1236, Gakuen, Musashimurayama-shi, Tokyo",
-  "100-1072, Funabashi, Setagaya-ku, Tokyo",
-  "3-2-2F, KoIshikawa 5-chome, Bunkyo-ku, Tokyo",
-  "5-10, Minami Azabu 1-chome, Minato-ku, Tokyo",
-  "491-1123, Roppongi, Minato-ku, Tokyo",
-  "3-1, Akasaka 5-chome, Minato-ku, Tokyo",
-  "19-12, Kitaotsuka 1-chome, Toshima-ku, Tokyo",
-  "299-1188, Nishishinjuku Shinjuku, Shinjuku-ku, Tokyo"
+  "100-1072, Funabashi, Setagaya, Tokyo",
+  "2-3-2, KoIshikawa , Bunkyo, Tokyo",
+  "1-5-10, Minami Azabu, Minato, Tokyo",
+  "491-1123, Roppongi, Minato, Tokyo",
+  "5-3-1, Akasaka, Minato, Tokyo",
+  "1-19-12, Kitaotsuka, Toshima, Tokyo",
+  "299-1188, Nishishinjuku Shinjuku, Shinjuku, Tokyo",
+  "3-7-2 Meguro, Meguro City, Tokyo 153-0063",
+  "1-5-20 Shimomeguro, Meguro City, Tokyo 153-0064",
+  "1-4-15 Meguro, Meguro City, Tokyo 153-0063",
+  "1-6-12 Meguro, Meguro City, Tokyo 153-0063",
+  "1-4-8 Meguro, Meguro City, Tokyo 153-0063",
+  "4-10-8 Meguro, Meguro City, Tokyo 153-0063",
+  "2-21 Shimomeguro, Meguro City, Tokyo 153-0064",
+  "2-7-14 Nakameguro, Meguro City, Tokyo 153-0061"
 ]
 
 photos1 = URI.open("https://images.unsplash.com/photo-1607083966193-2215b910f372?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
@@ -100,7 +108,24 @@ photos47 = URI.open("https://images.unsplash.com/photo-1565895405140-6b9830a88c1
 photos48 = URI.open("https://images.unsplash.com/photo-1512132411229-c30391241dd8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
 photos49 = URI.open("https://images.unsplash.com/photo-1526318896980-cf78c088247c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
 photos50 = URI.open("https://images.unsplash.com/photo-1569137735645-bfb33825333b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80")
-photos51 = URI.open("https://images.unsplash.com/photo-1562436356-11574662e477?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
+photos51 = URI.open("https://images.unsplash.com/photo-1571234809192-88b1c7a2521b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80")
+photos52 = URI.open("https://images.unsplash.com/photo-1494122474412-aeaf73d11da8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
+photos53 = URI.open("https://images.unsplash.com/photo-1517638851339-a711cfcf3279?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
+photos54 = URI.open("https://images.unsplash.com/photo-1621465558419-1deb2e51b530?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2916&q=80")
+photos55 = URI.open("https://images.unsplash.com/photo-1640145900690-042ee858e722?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
+photos56 = URI.open("https://images.unsplash.com/photo-1580990640889-53c555a7dfa3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
+photos57 = URI.open("https://images.unsplash.com/photo-1589918247024-c2c9da95da47?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
+photos58 = URI.open("https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80")
+photos59 = URI.open("https://images.unsplash.com/photo-1522336572468-97b06e8ef143?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1476&q=80")
+photos60 = URI.open("https://images.unsplash.com/photo-1579027989536-b7b1f875659b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
+photos61 = URI.open("https://images.unsplash.com/photo-1589793140477-0885a4d00e33?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80")
+photos62 = URI.open("https://images.unsplash.com/photo-1603418735208-86f031556a5a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1931&q=80")
+photos63 = URI.open("https://images.unsplash.com/photo-1597079307827-b7b70f63c185?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2831&q=80")
+photos64 = URI.open("https://images.unsplash.com/photo-1526199119161-4be1e3368d52?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80")
+photos65 = URI.open("https://images.unsplash.com/photo-1650546867609-c0151a0486c8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+photos66 = URI.open("https://images.unsplash.com/photo-1601313365958-2b35807578ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
+photos67 = URI.open("https://images.unsplash.com/photo-1562436356-11574662e477?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
+
 
 user1 = User.create!(
   email: Faker::Internet.email,
@@ -146,7 +171,7 @@ restaurant2 = Restaurant.create!(
 )
 restaurant2.photos.attach(io: photos3, filename: 'user.png', content_type: 'image/png')
 restaurant2.photos.attach(io: photos4, filename: 'user.png', content_type: 'image/png')
-restaurant1.photos.attach(io: photos32, filename: 'user.png', content_type: 'image/png')
+restaurant2.photos.attach(io: photos32, filename: 'user.png', content_type: 'image/png')
 
 user3 = User.create!(
   email: Faker::Internet.email,
@@ -169,7 +194,7 @@ restaurant3 = Restaurant.create!(
 )
 restaurant3.photos.attach(io: photos5, filename: 'user.png', content_type: 'image/png')
 restaurant3.photos.attach(io: photos6, filename: 'user.png', content_type: 'image/png')
-restaurant1.photos.attach(io: photos33, filename: 'user.png', content_type: 'image/png')
+restaurant3.photos.attach(io: photos33, filename: 'user.png', content_type: 'image/png')
 
 user4 = User.create!(
   email: Faker::Internet.email,
@@ -192,7 +217,7 @@ restaurant4 = Restaurant.create!(
 )
 restaurant4.photos.attach(io: photos7, filename: 'user.png', content_type: 'image/png')
 restaurant4.photos.attach(io: photos8, filename: 'user.png', content_type: 'image/png')
-restaurant1.photos.attach(io: photos34, filename: 'user.png', content_type: 'image/png')
+restaurant4.photos.attach(io: photos34, filename: 'user.png', content_type: 'image/png')
 
 user5 = User.create!(
   email: Faker::Internet.email,
@@ -216,7 +241,7 @@ restaurant5 = Restaurant.create!(
 
 restaurant5.photos.attach(io: photos9, filename: 'user.png', content_type: 'image/png')
 restaurant5.photos.attach(io: photos10, filename: 'user.png', content_type: 'image/png')
-restaurant1.photos.attach(io: photos35, filename: 'user.png', content_type: 'image/png')
+restaurant5.photos.attach(io: photos35, filename: 'user.png', content_type: 'image/png')
 
 user6 = User.create!(
   email: Faker::Internet.email,
@@ -239,7 +264,7 @@ restaurant6 = Restaurant.create!(
 )
 restaurant6.photos.attach(io: photos11, filename: 'user.png', content_type: 'image/png')
 restaurant6.photos.attach(io: photos12, filename: 'user.png', content_type: 'image/png')
-restaurant1.photos.attach(io: photos36, filename: 'user.png', content_type: 'image/png')
+restaurant6.photos.attach(io: photos36, filename: 'user.png', content_type: 'image/png')
 
 user7 = User.create!(
   email: Faker::Internet.email,
@@ -262,7 +287,7 @@ restaurant7 = Restaurant.create!(
 )
 restaurant7.photos.attach(io: photos13, filename: 'user.png', content_type: 'image/png')
 restaurant7.photos.attach(io: photos14, filename: 'user.png', content_type: 'image/png')
-restaurant1.photos.attach(io: photos37, filename: 'user.png', content_type: 'image/png')
+restaurant7.photos.attach(io: photos37, filename: 'user.png', content_type: 'image/png')
 
 user8 = User.create!(
   email: Faker::Internet.email,
@@ -285,7 +310,7 @@ restaurant8 = Restaurant.create!(
 )
 restaurant8.photos.attach(io: photos15, filename: 'user.png', content_type: 'image/png')
 restaurant8.photos.attach(io: photos16, filename: 'user.png', content_type: 'image/png')
-restaurant1.photos.attach(io: photos38, filename: 'user.png', content_type: 'image/png')
+restaurant8.photos.attach(io: photos38, filename: 'user.png', content_type: 'image/png')
 
 user9 = User.create!(
   email: Faker::Internet.email,
@@ -308,7 +333,7 @@ restaurant9 = Restaurant.create!(
 )
 restaurant9.photos.attach(io: photos17, filename: 'user.png', content_type: 'image/png')
 restaurant9.photos.attach(io: photos18, filename: 'user.png', content_type: 'image/png')
-restaurant1.photos.attach(io: photos39, filename: 'user.png', content_type: 'image/png')
+restaurant9.photos.attach(io: photos39, filename: 'user.png', content_type: 'image/png')
 
 user10 = User.create!(
   email: Faker::Internet.email,
@@ -331,7 +356,7 @@ restaurant10 = Restaurant.create!(
 )
 restaurant10.photos.attach(io: photos19, filename: 'user.png', content_type: 'image/png')
 restaurant10.photos.attach(io: photos20, filename: 'user.png', content_type: 'image/png')
-restaurant1.photos.attach(io: photos40, filename: 'user.png', content_type: 'image/png')
+restaurant10.photos.attach(io: photos40, filename: 'user.png', content_type: 'image/png')
 
 user11 = User.create!(
   email: Faker::Internet.email,
@@ -377,7 +402,7 @@ restaurant12 = Restaurant.create!(
 )
 restaurant12.photos.attach(io: photos23, filename: 'user.png', content_type: 'image/png')
 restaurant12.photos.attach(io: photos24, filename: 'user.png', content_type: 'image/png')
-restaurant11.photos.attach(io: photos42, filename: 'user.png', content_type: 'image/png')
+restaurant12.photos.attach(io: photos42, filename: 'user.png', content_type: 'image/png')
 
 user13 = User.create!(
   email: Faker::Internet.email,
@@ -400,7 +425,7 @@ restaurant13 = Restaurant.create!(
 )
 restaurant13.photos.attach(io: photos25, filename: 'user.png', content_type: 'image/png')
 restaurant13.photos.attach(io: photos26, filename: 'user.png', content_type: 'image/png')
-restaurant11.photos.attach(io: photos43, filename: 'user.png', content_type: 'image/png')
+restaurant13.photos.attach(io: photos43, filename: 'user.png', content_type: 'image/png')
 
 user14 = User.create!(
   email: Faker::Internet.email,
@@ -423,7 +448,7 @@ restaurant14 = Restaurant.create!(
 )
 restaurant14.photos.attach(io: photos27, filename: 'user.png', content_type: 'image/png')
 restaurant14.photos.attach(io: photos28, filename: 'user.png', content_type: 'image/png')
-restaurant11.photos.attach(io: photos44, filename: 'user.png', content_type: 'image/png')
+restaurant14.photos.attach(io: photos44, filename: 'user.png', content_type: 'image/png')
 
 user15 = User.create!(
   email: Faker::Internet.email,
@@ -446,7 +471,168 @@ restaurant15 = Restaurant.create!(
 )
 restaurant15.photos.attach(io: photos29, filename: 'user.png', content_type: 'image/png')
 restaurant15.photos.attach(io: photos30, filename: 'user.png', content_type: 'image/png')
-restaurant11.photos.attach(io: photos45, filename: 'user.png', content_type: 'image/png')
+restaurant15.photos.attach(io: photos45, filename: 'user.png', content_type: 'image/png')
+
+user16 = User.create!(
+  email: Faker::Internet.email,
+  password: "123456"
+)
+
+restaurant16 = Restaurant.create!(
+  name: Faker::Restaurant.name,
+  address: addresses[16],
+  category: Faker::Restaurant.type,
+  description: Faker::Restaurant.description,
+  price_range: %w[$ $$ $$$ $$$$].sample,
+  status: ["Closed temporarily", "Closed entire day", "Closed outside business hours", "Open"].sample,
+  open_time: rand(9..11),
+  close_time: rand(10..12),
+  capacity: rand(20..50),
+  total_wait_time: 0,
+  time_per_person: 3,
+  user_id: user16.id
+)
+restaurant16.photos.attach(io: photos46, filename: 'user.png', content_type: 'image/png')
+restaurant16.photos.attach(io: photos47, filename: 'user.png', content_type: 'image/png')
+restaurant16.photos.attach(io: photos48, filename: 'user.png', content_type: 'image/png')
+
+user17 = User.create!(
+  email: Faker::Internet.email,
+  password: "123456"
+)
+
+restaurant17 = Restaurant.create!(
+  name: Faker::Restaurant.name,
+  address: addresses[17],
+  category: Faker::Restaurant.type,
+  description: Faker::Restaurant.description,
+  price_range: %w[$ $$ $$$ $$$$].sample,
+  status: ["Closed temporarily", "Closed entire day", "Closed outside business hours", "Open"].sample,
+  open_time: rand(9..11),
+  close_time: rand(10..12),
+  capacity: rand(20..50),
+  total_wait_time: 0,
+  time_per_person: 3,
+  user_id: user17.id
+)
+restaurant17.photos.attach(io: photos49, filename: 'user.png', content_type: 'image/png')
+restaurant17.photos.attach(io: photos50, filename: 'user.png', content_type: 'image/png')
+restaurant17.photos.attach(io: photos51, filename: 'user.png', content_type: 'image/png')
+
+user18 = User.create!(
+  email: Faker::Internet.email,
+  password: "123456"
+)
+
+restaurant18 = Restaurant.create!(
+  name: Faker::Restaurant.name,
+  address: addresses[18],
+  category: Faker::Restaurant.type,
+  description: Faker::Restaurant.description,
+  price_range: %w[$ $$ $$$ $$$$].sample,
+  status: ["Closed temporarily", "Closed entire day", "Closed outside business hours", "Open"].sample,
+  open_time: rand(9..11),
+  close_time: rand(10..12),
+  capacity: rand(20..50),
+  total_wait_time: 0,
+  time_per_person: 3,
+  user_id: user18.id
+)
+restaurant18.photos.attach(io: photos52, filename: 'user.png', content_type: 'image/png')
+restaurant18.photos.attach(io: photos53, filename: 'user.png', content_type: 'image/png')
+restaurant18.photos.attach(io: photos54, filename: 'user.png', content_type: 'image/png')
+
+user19 = User.create!(
+  email: Faker::Internet.email,
+  password: "123456"
+)
+
+restaurant19 = Restaurant.create!(
+  name: Faker::Restaurant.name,
+  address: addresses[19],
+  category: Faker::Restaurant.type,
+  description: Faker::Restaurant.description,
+  price_range: %w[$ $$ $$$ $$$$].sample,
+  status: ["Closed temporarily", "Closed entire day", "Closed outside business hours", "Open"].sample,
+  open_time: rand(9..11),
+  close_time: rand(10..12),
+  capacity: rand(20..50),
+  total_wait_time: 0,
+  time_per_person: 3,
+  user_id: user19.id
+)
+restaurant19.photos.attach(io: photos55, filename: 'user.png', content_type: 'image/png')
+restaurant19.photos.attach(io: photos56, filename: 'user.png', content_type: 'image/png')
+restaurant19.photos.attach(io: photos57, filename: 'user.png', content_type: 'image/png')
+
+user20 = User.create!(
+  email: Faker::Internet.email,
+  password: "123456"
+)
+
+restaurant20 = Restaurant.create!(
+  name: Faker::Restaurant.name,
+  address: addresses[20],
+  category: Faker::Restaurant.type,
+  description: Faker::Restaurant.description,
+  price_range: %w[$ $$ $$$ $$$$].sample,
+  status: ["Closed temporarily", "Closed entire day", "Closed outside business hours", "Open"].sample,
+  open_time: rand(9..11),
+  close_time: rand(10..12),
+  capacity: rand(20..50),
+  total_wait_time: 0,
+  time_per_person: 3,
+  user_id: user20.id
+)
+restaurant20.photos.attach(io: photos58, filename: 'user.png', content_type: 'image/png')
+restaurant20.photos.attach(io: photos59, filename: 'user.png', content_type: 'image/png')
+restaurant20.photos.attach(io: photos60, filename: 'user.png', content_type: 'image/png')
+
+user21 = User.create!(
+  email: Faker::Internet.email,
+  password: "123456"
+)
+
+restaurant21 = Restaurant.create!(
+  name: Faker::Restaurant.name,
+  address: addresses[21],
+  category: Faker::Restaurant.type,
+  description: Faker::Restaurant.description,
+  price_range: %w[$ $$ $$$ $$$$].sample,
+  status: ["Closed temporarily", "Closed entire day", "Closed outside business hours", "Open"].sample,
+  open_time: rand(9..11),
+  close_time: rand(10..12),
+  capacity: rand(20..50),
+  total_wait_time: 0,
+  time_per_person: 3,
+  user_id: user21.id
+)
+restaurant21.photos.attach(io: photos61, filename: 'user.png', content_type: 'image/png')
+restaurant21.photos.attach(io: photos62, filename: 'user.png', content_type: 'image/png')
+restaurant21.photos.attach(io: photos63, filename: 'user.png', content_type: 'image/png')
+
+user22 = User.create!(
+  email: Faker::Internet.email,
+  password: "123456"
+)
+
+restaurant22 = Restaurant.create!(
+  name: Faker::Restaurant.name,
+  address: addresses[22],
+  category: Faker::Restaurant.type,
+  description: Faker::Restaurant.description,
+  price_range: %w[$ $$ $$$ $$$$].sample,
+  status: ["Closed temporarily", "Closed entire day", "Closed outside business hours", "Open"].sample,
+  open_time: rand(9..11),
+  close_time: rand(10..12),
+  capacity: rand(20..50),
+  total_wait_time: 0,
+  time_per_person: 3,
+  user_id: user22.id
+)
+restaurant22.photos.attach(io: photos64, filename: 'user.png', content_type: 'image/png')
+restaurant22.photos.attach(io: photos65, filename: 'user.png', content_type: 'image/png')
+restaurant22.photos.attach(io: photos66, filename: 'user.png', content_type: 'image/png')
 
 # Adding queuers to each restaurant
 Restaurant.all.each do |restaurant|
@@ -538,4 +724,4 @@ end
   )
 end
 
-puts "DONE! You now have 15 Users and 15 Restaurants in the DB..."
+puts "DONE! You now have 22 Users and 22 Restaurants in the DB..."
