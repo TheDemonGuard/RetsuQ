@@ -1,32 +1,28 @@
 <!-- Different page if you are an owner -->
 <% if current_user&.id == @restaurant.user_id %>
-<p>this is yours</p>
-<%= link_to queuers_path() do %>
-  <p>See Queuer information</p>
+  <p>this is yours</p>
+  <%= link_to queuers_path() do %>
+    <p>See Queuer information</p>
   <% end  %>
 <% else %>
-<p class="card-text" data-time-target="restaurant"></p>
-<!-- Default Page -->
-<div class="d-flex align-items-center justify-content-between mb-3 pt-5">
-  <div class="text-decoration-none">
-    <%= link_to "Back", root_path, class: "btn-pink" %>
-  </div>
-</div>
-
-<div>
+  <div>
   <% if @restaurant.photos.nil? %>
     <%= "No Image available yet" %>
   <% else %>
     <%= cl_image_tag @restaurant.photos.first.key, height: 500, width: 1270, crop: :fill, id: "show-page-image" %>
   <% end %>
-</div>
-
+  </div>
+  <p class="card-text" data-time-target="restaurant"></p>
+  <!-- Default Page -->
+  <div class="d-flex align-items-center justify-content-between mb-3 pt-5">
+    <div class="text-decoration-none">
+      <%= link_to "Back", root_path, class: "btn btn-primary" %>
+    </div>
+  </div>
 
 <div class="container mb-6">
   <% if  @restaurant.nil? == false %>
     <div class="d-flex flex-column">
-      <div>
-      </div>
       <div class="d-flex pb-4">
         <div class="flex-fill mx-4">
           <div class="card-title pt-3">
@@ -52,9 +48,44 @@
         <% when Restaurant::STATUS[2] %>
           <%= Restaurant::MSG[2] %> ( <%= @restaurant.open_time%> ~ <%= @restaurant.close_time %> )
         <% when Restaurant::STATUS[3] %>
-          <%= link_to new_restaurant_queuer_path(@restaurant), class:"text-decoration-none" do %>
-              <div>Join the Queue</div>
-          <% end %>
+           <!-- Button trigger modal -->
+            <div class="col">
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Join Queue
+              </button>
+            </div>
+          </div>
+          <!-- Modal -->
+          <div class="new-queuer-modal modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header bg-info">
+                  <h5 class="modal-title" id="exampleModalLabel">Join the Queue</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="row pb-4">
+                    <div class="col stat-info">
+                      <p>Est. waiting Time</p>
+                      <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><title>access_time</title><g fill="none"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z" fill="#212121"></path></g></svg>
+                        <%= @restaurant.total_wait_time %> mins
+                      </div>
+                    </div>
+                    <div class="col stat-info">
+                      <p>In front of you </p>
+                      <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><title>emoji_people</title><g fill="none"><path d="M12 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" fill="#212121"></path><path d="M15.89 8.11C15.5 7.72 14.83 7 13.53 7h-2.54C8.24 6.99 6 4.75 6 2H4c0 3.16 2.11 5.84 5 6.71V22h2v-6h2v6h2V10.05L18.95 14l1.41-1.41-4.47-4.48z" fill="#212121"></path></g></svg>
+                        <%= @restaurant.queuers.where(status: "queuing", created_at: (Time.now - 12*60*60)..Time.now).count %>
+                      </div>
+                    </div>
+                  </div>
+                  <%= render "queuers/form", restaurant: @restaurant, queuer: @queuer %>
+                </div>
+              </div>
+            </div>
+          </div>
+
         <% else %>
           Invalid Restaurant STATUS (<%= @restaurant.status %>)
         <% end %>

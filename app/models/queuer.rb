@@ -3,6 +3,7 @@ class Queuer < ApplicationRecord
   belongs_to :restaurant
 
   STATUS = ['queuing', 'dining', 'completed']
+  validates :reservation_name, presence: true
   validates :size, presence: true, numericality: { only_integer: true }
 
   def position

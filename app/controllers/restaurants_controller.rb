@@ -33,6 +33,9 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @restaurant.update(total_wait_time: @restaurant.wait_time)
 
+    @queuer = Queuer.new # for simple form in the  modal on show page
+    @estimated_wait_time = @restaurant.wait_time
+
     @category = @restaurant.category
     @recommended_restaurants = Restaurant.where(category: @category)
     @review = Review.new
