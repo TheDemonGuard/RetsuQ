@@ -23,8 +23,5 @@ class PagesController < ApplicationController
     else
       @queuer = nil
     end
-    p "------------------------------------------"
-    p @queuer
-    p "------------------------------------------"
   end
 end

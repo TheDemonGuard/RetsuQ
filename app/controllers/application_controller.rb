@@ -10,8 +10,5 @@ class ApplicationController < ActionController::Base
     else
       @queuer = nil
     end
-    p "------------------------------------------"
-    p @queuer
-    p "------------------------------------------"
   end
 end

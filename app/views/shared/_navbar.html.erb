@@ -6,7 +6,6 @@
   <div class="navbar-right">
     <% if user_signed_in? %>
     <div text-align="center">
-      <% # if current_user.queuer.present? %>
       <% if @queuer.present? && @queuer.restaurant.present? %>
           <%= link_to "Current Queue", queuers_path(@user), class: "user-queue queued"%>
       <% else %>
