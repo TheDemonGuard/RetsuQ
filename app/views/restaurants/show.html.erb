@@ -5,13 +5,28 @@
     <p>See Queuer information</p>
   <% end  %>
 <% else %>
-  <div>
-  <% if @restaurant.photos.nil? %>
+<% if @restaurant.photos.nil? %>
     <%= "No Image available yet" %>
   <% else %>
-    <%= cl_image_tag @restaurant.photos.first.key, height: 500, width: 1270, crop: :fill, id: "show-page-image" %>
-  <% end %>
+  <!-- Carousel -->
+  <div class="carousel mt-2">
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+      <%= @restaurant.photos.each_with_index do |photo, index|  %>
+          <div class="swiper-slide"><img src="<%= cl_image_path photo.key, height: 600, width: 1270, crop: :fill, id: "show-page-image" %>" alt=""></div>
+        <% end %>
+      </div>
+    </div>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {});
+    </script>
   </div>
+  <% end %>
+
   <p class="card-text" data-time-target="restaurant"></p>
   <!-- Default Page -->
   <div class="d-flex align-items-center justify-content-between mb-3 pt-5">
@@ -32,33 +47,22 @@
               <p class="fs-7 fst-italic"><%= @restaurant.address %></p>
               <p class="fs-7 fst-italic"><%= @restaurant.price_range %></p>
             </div>
-              <!-- Restaurant Categories and information cards -->
-            <%= render "category" %>
 
-            <div class="listing-show-text card-subtitle status pt-4">
-              <p class="fs-5"><%= @restaurant.category %></p>
+              <!-- Restaurant Categories and information cards -->
+            <div class="row">
+              <div class="col-lg-0"></div>
+              <div class="col-lg-5">
+                <div><%= render "category" %></div>
+              </div>
+              <div class="col-lg-7">
+                <div class="listing-show-text card-subtitle status pt-4">
+                  <p class="fs-5 justify-content-end"><%= @restaurant.category %></p>
+                </div>
+                <%= @restaurant.description %>
+              </div>
             </div>
-            <%= @restaurant.description %>
+            </div>
           </div>
-          <% case @restaurant.status %>
-          <% when Restaurant::STATUS[0] %>
-            <%= Restaurant::MSG[0] %>
-          <% when Restaurant::STATUS[1] %>
-            <%= Restaurant::MSG[1] %>
-          <% when Restaurant::STATUS[2] %>
-            <%= Restaurant::MSG[2] %> ( <%= @restaurant.open_time%> ~ <%= @restaurant.close_time %> )
-          <% when Restaurant::STATUS[3] %>
-          <!-- Button trigger modal -->
-            <div class="col">
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Join Queue
-              </button>
-            </div>
-            <%= render "shared/modal" %>
-          <% else %>
-            Invalid Restaurant STATUS (<%= @restaurant.status %>)
-          <% end %>
-          <%# <%= render "bookings/form", booking: @booking %>
         </div>
       </div>
 
