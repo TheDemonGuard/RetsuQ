@@ -38,6 +38,13 @@
 
       <!-- Join Queue Button -->
       <%= link_to 'Join Queue', new_restaurant_queuer_path(restaurant), class: "card-restaurant-icon-big", data: { restaurant_card_target: "join" } %>
+      <!-- Button trigger modal -->
+      <div class="col">
+        <button type="button" class="card-restaurant-icon-big" data-restaurant_card_target="join" data-bs-toggle="modal" data-bs-target="#restaurant-modal-<%= restaurant.id %>">
+          Join Queue
+        </button>
+      </div>
+      <%= render "shared/modal", restaurant: @restaurant, modal_id: "restaurant-modal-#{restaurant.id}" %>
     </div>
     </div>
   </div>
