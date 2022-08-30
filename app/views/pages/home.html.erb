@@ -20,6 +20,7 @@
 
 <section>
   <h3>Restaurants in Tokyo</h3>
+  <h4><%= Time.now %></h4>
   <!-- Flexbox wrapper for restaurant cards -->
   <div class="restaurants-wrapper">
     <% msg_index = 0 %>
@@ -34,16 +35,6 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">
-               <% case restaurant.status %>
-               <% when Restaurant::STATUS[0] %>
-                  <%= Restaurant::MSG[0] %>
-                <% when Restaurant::STATUS[1] %>
-                  <%= Restaurant::MSG[1] %>
-                <% when Restaurant::STATUS[2] %>
-                   <%= Restaurant::MSG[2] %> ( <%= restaurant.open_time%> ~ <%= restaurant.close_time %> )
-                <% end %>
-              </div>
             </div>
           </div>
         </div>
@@ -53,7 +44,3 @@
     </div>
 
 </section>
-<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
-<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>

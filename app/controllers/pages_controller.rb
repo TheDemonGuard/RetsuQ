@@ -4,6 +4,7 @@ class PagesController < ApplicationController
 
   def home
     @restaurants = Restaurant.all
+
     if params[:lat]
       # params[:dist] = 1000 (for demo from Osaka)
       @near_restaurants = Restaurant.near([params[:lat], params[:long]], params[:dist])
@@ -17,11 +18,11 @@ class PagesController < ApplicationController
         }
       end
     end
-
     respond_to do |format|
       format.html
       format.json
     end
+
   end
 
   def get_queuer
