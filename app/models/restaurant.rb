@@ -28,7 +28,7 @@ class Restaurant < ApplicationRecord
   end
 
   def current_status
-    current_time = 9
+    current_time = Time.now.hour
     @status = ""
     if current_time >= self.open_time && current_time < self.close_time
       @status = "Open"
