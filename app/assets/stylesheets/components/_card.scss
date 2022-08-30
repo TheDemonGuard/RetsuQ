@@ -60,10 +60,23 @@
   min-height: 170px;
   border-radius: 20px 20px 0 0;
   background-repeat: no-repeat;
-  &.map {
-    min-height: 100px;
-    border-radius: 10px 10px 0 0;
+  & .overlay {
+    background: #000000b3;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & .card-restaurant-status {
+      opacity: 1;
+      color: white;
+      text-align: center;
+    }
   }
+
+
 }
 
 .card-restaurant-content {
@@ -114,6 +127,14 @@
   border-radius: 16px;
   padding: 0.5em;
   min-width: 65px;
+  margin-left: 4px;
+  max-width: 78px;
+  text-align: center;
+
+  &.closed {
+    background: #88888888;
+    color: #585858;
+  }
 }
 
 .card-restaurant-icon-big {
@@ -128,20 +149,13 @@
   padding: 0.5em;
   font-weight: bold;
   text-decoration: none;
-}
+  max-width: 78px;
+  text-align: center;
 
-.card-restaurant-icon-big-closed {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  background: #88888888;
-  color: #585858;
-  border-radius: 16px;
-  padding: 0.5em;
-  font-weight: bold;
-  text-decoration: none;
+  &.closed {
+    background: #88888888;
+    color: #585858;
+  }
 }
 
 .card-restaurant-icon-number {

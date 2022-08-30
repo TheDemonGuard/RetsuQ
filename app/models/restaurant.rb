@@ -27,6 +27,19 @@ class Restaurant < ApplicationRecord
     self.status = self.status == "1" ? "open" : "closed"
   end
 
+  def current_status
+    current_time = Time.now.hour
+    @status = ""
+    if current_time >= self.open_time && current_time < self.close_time
+      @status = "Open"
+    elsif self.open_time - 0.5 >= current_time && current_time != (20..24)
+      @status = "Opening Soon at #{self.open_time} AM"
+    else
+      @status = "Closed"
+    end
+    @status
+  end
+
   def line_size
     self.queuers.where(status: "queuing").size
   end
