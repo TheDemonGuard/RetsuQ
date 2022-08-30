@@ -67,7 +67,13 @@
                   <%= Restaurant::MSG[2] %> ( <%= @restaurant.open_time%> ~ <%= @restaurant.close_time %> )
                 </div>
               <% when Restaurant::STATUS[3] %>
-                <%= link_to 'Join Queue', new_restaurant_queuer_path(@restaurant), class: "join-btn" %>
+                <!-- Button trigger modal -->
+                <div class="col">
+                  <button type="button" class="join-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Join Queue
+                  </button>
+                </div>
+                <%= render "shared/modal" %>
               <% end %>
             </div>
     </div>

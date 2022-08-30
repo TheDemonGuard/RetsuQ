@@ -31,6 +31,10 @@
         <span class="card-restaurant-icon-number" data-time-target="wait"><%= restaurant.total_wait_time %></span>
         <span class="card-restaurant-icon-subtitle">mins</span>
       </div>
+      <!-- Queue Closed Disabled Btn -->
+      <div class="card-restaurant-icon-big closed" data-restaurant-card-target="closed">
+        Queue Closed
+      </div>
 
       <!-- Join Queue Button -->
       <%= link_to 'Join Queue', new_restaurant_queuer_path(restaurant), class: "card-restaurant-icon-big", data: { restaurant_card_target: "join" } %>
