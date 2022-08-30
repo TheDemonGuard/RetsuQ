@@ -59,4 +59,6 @@ class Restaurant < ApplicationRecord
     end
     wait_time
   end
+
+  
 end

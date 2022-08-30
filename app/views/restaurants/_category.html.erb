@@ -69,11 +69,11 @@
               <% when Restaurant::STATUS[3] %>
                 <!-- Button trigger modal -->
                 <div class="col">
-                  <button type="button" class="join-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <button type="button" class="join-btn" data-bs-toggle="modal" data-bs-target="#restaurant-modal-<%= @restaurant.id %>">
                     Join Queue
                   </button>
                 </div>
-                <%= render "shared/modal" %>
+                <%= render "shared/modal", restaurant: @restaurant, modal_id: "restaurant-modal-#{@restaurant.id}" %>
               <% end %>
             </div>
     </div>

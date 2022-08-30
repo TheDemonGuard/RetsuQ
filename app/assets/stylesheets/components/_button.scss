@@ -111,3 +111,32 @@ transform: scale(1.05);
   text-decoration: none;
   font-size: large;
 }
+
+#home-page-join-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  border-radius: 16px;
+  padding: 0.5em;
+  margin-left: 4px;
+  text-align: center;
+
+  max-width: 78px;
+  height: 75px;
+  min-width: 65px;
+  background: $yellow;
+  color: $black;
+  border-radius: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+}
+
+button#home-page-join-btn:disabled {
+  opacity: 40%;
+  cursor:none;
+  pointer-events: none;
+}

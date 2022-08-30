@@ -25,7 +25,8 @@
   <!-- Flexbox wrapper for restaurant cards -->
   <div class="restaurants-wrapper">
     <% @restaurants.each do |restaurant| %>  <!--Start iteration -->
-        <%= render "restaurant_card", restaurant: restaurant %>
-        <% end %>
-    </div>
+      <%= render "restaurant_card", restaurant: restaurant %>
+      <%= render "shared/modal", restaurant: restaurant, modal_id: "restaurant-modal-#{restaurant.id}" %>
+    <% end %>
+
 </section>
