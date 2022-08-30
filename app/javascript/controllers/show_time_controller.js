@@ -4,6 +4,7 @@ export default class extends Controller {
   static targets = [ "wait", "customers" ]
 
   connect() {
+    // console.log("HEllo from connect time cont")
     setInterval(() => {
       this.refresh()
     }, 5000)
@@ -13,7 +14,7 @@ export default class extends Controller {
     // Simple refresh:
     // window.location.reload();
     const restaurantId = this.element.id.split("-")[1];
-    // console.log(restaurantId)
+    console.log(restaurantId)
     // .split("-")[1]
 
     fetch(window.location.origin + "/restaurants/" + restaurantId, {
@@ -21,8 +22,8 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
-        this.customersTarget.innerText = data.line_size
-        this.waitTarget.innerText = data.wait_time
+        this.customersTarget.innerHTML = `${data.line_size}<p>In Queue</p>`
+        this.waitTarget.innerHTML = `${data.wait_time}<p>Mins</p>`
 
       })
 

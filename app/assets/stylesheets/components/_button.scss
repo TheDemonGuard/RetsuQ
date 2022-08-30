@@ -61,3 +61,52 @@ a.signup:hover {
 transform: scale(1.05);
   transition: 0.1s ease-in-out;
 }
+
+.join-btn-container {
+  width: 200px;
+  height: 90px;
+  border-radius: 16px;
+
+}
+
+.join-btn {
+  width: 200px;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: $yellow;
+  color: $black;
+  border-radius: 16px;
+  padding: 0.5em;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.join-btn:hover {
+  background: $black;
+  color: white;
+  transform: scale(1.05);
+  transition: 0.1s ease-in-out;
+
+}
+
+.invalid-btn {
+  width: 200px;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background: $light-gray;
+  color: $black;
+  border-radius: 16px;
+  padding: 0.5em;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: large;
+}
