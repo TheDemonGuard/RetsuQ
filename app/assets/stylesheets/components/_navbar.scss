@@ -9,6 +9,12 @@
   background-position: center right;
   background-size: 275px;
   padding: 0 1.5em;
+
+  @media (max-width: 680px)  {
+        justify-content: space-evenly;
+        background-image: none;
+        // Other styles here
+  }
 }
 
 .navbar-main .navbar-collapse {
