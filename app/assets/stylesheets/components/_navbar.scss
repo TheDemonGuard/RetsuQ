@@ -53,6 +53,21 @@
   background: #FFD60A;
   width: 100%;
   display: flex;
+  @media (max-width: 576px)  {
+    .form-switch {
+      padding-left: 0px !important;
+    }
+    .form-check {
+      margin-bottom: 0px !important;
+    }
+    .queue-status {
+      padding-bottom: 0px !important;
+      padding-right: 0px !important;
+    }
+    .add-queuer {
+      padding-right: 5px !important;
+    }
+  }
 }
 
 .queuers {

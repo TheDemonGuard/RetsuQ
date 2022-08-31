@@ -20,8 +20,8 @@ class Restaurant < ApplicationRecord
   validates :time_per_person, presence: true, numericality: { only_integer: true }
   validates :description, presence: true, length: { minimum: 50 }
 
-  STATUS = ["Closed temporarily", "Closed entire day", "Closed outside business hours", "Open"]
-  MSG = ["Closed temporarily", "Closed entire day", "Closed outside business hours", "Open"]
+  STATUS = ["Open", "Opening soon", "Closed"]
+  MSG = ["Open", "Opening soon", "Closed"]
 
   def status_string
     self.status = self.status == "1" ? "open" : "closed"
@@ -29,11 +29,14 @@ class Restaurant < ApplicationRecord
 
   def current_status
     current_time = Time.now.hour
+    current_wait_time = wait_time() / 60
     @status = ""
-    if current_time >= self.open_time && current_time < self.close_time
+    if current_time >= self.open_time && current_time + current_wait_time + 0.5 < self.close_time
       @status = "Open"
     elsif self.open_time - 0.5 >= current_time && current_time != (20..24)
       @status = "Opening Soon at #{self.open_time} AM"
+    elsif (current_time + current_wait_time) == self.close_time
+      @status = "Queue full till closing"
     else
       @status = "Closed"
     end
