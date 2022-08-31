@@ -27,7 +27,7 @@
         <span class="card-restaurant-icon-number" data-time-target="customers"><%= restaurant.queuers.where(status: "queuing").count %></span>
         <span class="card-restaurant-icon-subtitle">waiting</span>
       </div>
-      <div class="card-restaurant-icon-small" data-restaurant-card-target="wait">
+      <div class="card-restaurant-icon-small card-restaurant-icon-small-right" data-restaurant-card-target="wait">
         <span class="card-restaurant-icon-number" data-time-target="wait"><%= restaurant.total_wait_time %></span>
         <span class="card-restaurant-icon-subtitle">mins</span>
       </div>
