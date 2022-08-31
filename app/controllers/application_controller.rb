@@ -2,6 +2,14 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :get_queuer
 
+  def after_sign_in_path_for(resource)
+    if current_user.role == "owner"
+      owner_path
+    else
+      root_path
+    end
+  end
+
   def get_queuer
     # @user_id = current_user.id
     # raise
