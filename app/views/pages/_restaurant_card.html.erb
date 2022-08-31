@@ -33,7 +33,11 @@
       </div>
 
       <!-- Join Queue Button -->
-      <%= link_to 'Join Queue', new_restaurant_queuer_path(restaurant), class: "card-restaurant-icon-big", data: { restaurant_card_target: "join" } %>
+      <div class="">
+        <button type="button" id="home-page-join-btn" class="card-restaurant-icon-big" data-restaurant_card_target="join" data-bs-toggle="modal" data-bs-target="#restaurant-modal-<%= restaurant.id %>" disabled="<% restaurant.current_status == 'Closed' ? 'disabled' : '' %>">
+          Join Queue
+        </button>
+      </div>
     </div>
     </div>
   </div>
