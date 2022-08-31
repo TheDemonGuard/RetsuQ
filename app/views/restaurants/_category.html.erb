@@ -51,25 +51,7 @@
                 <h3 data-show-time-target="customers" ><%= @restaurant.queuers.where(status: "queuing").count %><p>In Queue</p></h3>
               </div>
             </div>
-
-            <div class="join-btn-container shadow">
-              <% case @restaurant.status %>
-              <% when Restaurant::STATUS[0] %>
-                <div class="invalid-btn">
-                  <%= Restaurant::MSG[0] %>
-                </div>
-              <% when Restaurant::STATUS[1] %>
-                <div class="invalid-btn">
-                  <%= Restaurant::MSG[1] %>
-                </div>
-              <% when Restaurant::STATUS[2] %>
-                <div class="invalid-btn">
-                  <%= Restaurant::MSG[2] %> ( <%= @restaurant.open_time%> ~ <%= @restaurant.close_time %> )
-                </div>
-              <% when Restaurant::STATUS[3] %>
-                <%= link_to 'Join Queue', new_restaurant_queuer_path(@restaurant), class: "join-btn" %>
-              <% end %>
-            </div>
+            <%= link_to 'Join Queue', new_restaurant_queuer_path(@restaurant), class: "card-restaurant-icon-big", data: { restaurant_card_target: "join" } %>
     </div>
   </div>
 </div>

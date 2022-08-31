@@ -31,29 +31,7 @@
       </div>
 
       <!-- Join Queue Button -->
-      <% case restaurant.status %>
-      <% when Restaurant::STATUS[0] %>
-        <div class="card-restaurant-icon-big-closed">
-          <div data-toggle="modal" data-target="#exampleModal<%= msg_index %>">
-            <%= "Join Queue" %>
-          </div>
-        </div>
-
-      <% when Restaurant::STATUS[1] %>
-        <div class="card-restaurant-icon-big-closed">
-          <div data-toggle="modal" data-target="#exampleModal<%= msg_index %>">
-            <%= "Join Queue" %>
-          </div>
-        </div>
-      <% when Restaurant::STATUS[2] %>
-        <div class="card-restaurant-icon-big-closed">
-          <div data-toggle="modal" data-target="#exampleModal<%= msg_index %>">
-            <%= "Join Queue" %>
-          </div>
-        </div>
-      <% when Restaurant::STATUS[3] %>
-        <%= link_to 'Join Queue', new_restaurant_queuer_path(restaurant), class: "card-restaurant-icon-big" %>
-      <% end %>
+      <%= link_to 'Join Queue', new_restaurant_queuer_path(restaurant), class: "card-restaurant-icon-big", data: { restaurant_card_target: "join" } %>
     </div>
     </div>
   </div>
