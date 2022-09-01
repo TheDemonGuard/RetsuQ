@@ -64,15 +64,13 @@ transform: scale(1.05);
 }
 
 .join-btn-container {
-  width: 200px;
-  height: 90px;
+  height: 100%;
   border-radius: 16px;
 
 }
 
 .join-btn {
-  width: 200px;
-  height: 90px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -96,8 +94,7 @@ transform: scale(1.05);
 }
 
 .invalid-btn {
-  width: 200px;
-  height: 90px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -105,7 +102,7 @@ transform: scale(1.05);
   text-align: center;
 
   background: $light-gray;
-  color: $black;
+  color: $medium-gray;
   border-radius: 16px;
   padding: 0.5em;
   font-weight: bold;
@@ -152,4 +149,13 @@ button#home-page-join-btn:disabled {
   opacity: 40%;
   cursor:none;
   pointer-events: none;
+}
+
+.button-back {
+  text-transform: uppercase;
+  border-radius: 10px;
+  justify-self: flex-end;
+  background-color: white;
+  border: 1px solid black;
+  color: black;
 }

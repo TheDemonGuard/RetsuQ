@@ -5,6 +5,7 @@
     <p>See Queuer information</p>
   <% end  %>
 <% else %>
+
 <% if @restaurant.photos.nil? %>
     <%= "No Image available yet" %>
   <% else %>
@@ -14,7 +15,7 @@
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
       <%= @restaurant.photos.each_with_index do |photo, index|  %>
-          <div class="swiper-slide"><img src="<%= cl_image_path photo.key, height: 600, width: 1270, crop: :fill, id: "show-page-image" %>" alt=""></div>
+          <div class="swiper-slide"><img src="<%= cl_image_path photo.key, height: 600, width: 1140, crop: :fill, id: "show-page-image" %>" alt=""></div>
         <% end %>
       </div>
     </div>
@@ -27,53 +28,60 @@
   </div>
   <% end %>
 
+<% if  @restaurant.nil? %>
+    <div class="mb-3 mt-2">
+      <div class="text-decoration-none">
+        <%= link_to "Back", root_path, class: "btn button-back" %>
+      </div>
+  </div>
+  <% end %>
+
   <p class="card-text" data-time-target="restaurant"></p>
   <!-- Default Page -->
-  <div class="d-flex align-items-center justify-content-between mb-3 pt-5">
-    <div class="text-decoration-none">
-      <%= link_to "Back", root_path, class: "btn btn-primary" %>
-    </div>
-  </div>
-
-  <div class="container mb-6">
     <% if  @restaurant.nil? == false %>
       <div class="d-flex flex-column">
         <div class="d-flex pb-4">
-          <div class="flex-fill mx-4">
-            <div class="card-title pt-3">
-              <h1 class="fw-bold"><%= @restaurant.name %></h1>
+          <div class="flex-fill">
+            <div class="restaurant-title pt-3">
+              <div>
+                <h1 class="fw-bold"><%= @restaurant.name %></h1>
+                <p class="card-restaurant-icon-subtitle"><%= @restaurant.category %></p>
+              </div>
+              <div class="text-decoration-none">
+                <%= link_to "Back", root_path, class: "btn button-back" %>
+              </div>
             </div>
             <div class="card-title border-bottom d-flex justify-content-between">
               <p class="fs-7 fst-italic"><%= @restaurant.address %></p>
             </div>
 
             <!-- Restaurant Categories and information cards -->
-            <div class="row">
+            <div class="row d-flex justify-content-between row mt-4">
               <div class="col-lg-0"></div>
               <div class="col-lg-5">
                 <div><%= render "category" %></div>
               </div>
-              <div class="col-lg-7">
-                <div class="listing-show-text card-subtitle status pt-4">
-                  <p class="fs-5 justify-content-end"><%= @restaurant.category %></p>
-                </div>
-                <%= @restaurant.description %>
+              <div class="col-lg-6">
+                <h3 style="text-transform: uppercase;">About Us</h3>
+                <p><%= @restaurant.description %></p>
+
               </div>
             </div>
             </div>
           </div>
         </div>
-      </div>
+
 
       <% else %>
         No item found for ID <%= @restaurant_id %>
     <% end %>
 
+    <!-- Reviews  -->
+    <%= render "reviews/reviews", restaurant: @restaurant, review: @review %>
+
     <!-- Recommended Restaurants  -->
     <%= render "restaurants/recommended_restaurants" %>
 
-    <!-- Reviews  -->
-    <%= render "reviews/reviews", restaurant: @restaurant, review: @review %>
 
   </div>
 <% end %>

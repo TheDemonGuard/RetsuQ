@@ -1,12 +1,15 @@
 <% if restaurant.reviews.count == 0 %>
   <h2 class="fw-bold">Reviews for <%= restaurant.name %></h2>
   <p class="pt-3 fst-italic">No reviews yet</p>
+
   <!--- Review Form -->
-  <h2 class="fw-bold">Be the first one to leave a review for <%= restaurant.name %></h2>
-  <%= simple_form_for [restaurant, review] do |f| %>
-    <%= f.input :content, as: :text, label: false %>
-    <%= f.submit 'Submit', class: "btn btn-primary" %>
-  <% end %>
+
+    <h3 class="fw-bold">Be the first one to leave a review for <%= restaurant.name %></h3>
+    <%= simple_form_for [restaurant, review] do |f| %>
+      <%= f.input :content, as: :text, label: false %>
+      <%= f.submit 'Submit', class: "btn btn-primary" %>
+    <% end %>
+  </div>
 <% else %>
   <!--- Review Form -->
   <% if current_user.role != "owner" %>
@@ -16,15 +19,20 @@
       <%= f.submit 'Submit', class: "btn btn-primary" %>
     <% end %>
   <% else %>
-    <h2 class="fw-bold mt-4">Your Reviews</h2>
+    <h3 class="mt-4" style="text-transform: uppercase;">Your Reviews</h3>
   <% end %>
   <!--- Review List -->
-  <% restaurant.reviews.order(created_at: :desc).each do |review| %>
-    <div>
-      <p id="reviews" class="pt-3 fst-italic"><i class="fas fa-quote-left fas-2x"></i>
-        <%= review.content %>
-        <span class="fw-lighter"><%= review.created_at.time.to_formatted_s(:db) %></span>
-      </p>
-    </div>
+  <div class="row mt-4">
+  <% restaurant.reviews.order(created_at: :desc).last(8).each do |review| %>
+      <%if review.content.length < 300 %>
+        <div class="col-sm-4">
+        <p class="reviews" class="pt-3 fst-italic"><i class="fas fa-quote-left fas-2x"></i>
+          <%= review.content %>
+          <span class="fw-lighter"><%= review.created_at.time.to_formatted_s(:db) %></span>
+        </p>
+      </div>
+      <% end %>
+
   <% end %>
+  </div>
 <% end %>
