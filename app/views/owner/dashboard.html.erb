@@ -8,12 +8,12 @@
 <div class="container pt-5 dashboard-wrapper">
   <div class="row">
     <div class="col-8 dashboard-owner">
-      <h3 class="pt-4">Dashboard</h3>
+      <h3 class="pt-2">Dashboard</h3>
       <div class="dashboard-owner-options-grid">
         <div class="dashboard-owner-options-item"><%= image_tag "icons-queue-management.svg" %> <%= link_to "Queue Management", queuers_path %></div>
         <div class="dashboard-owner-options-item"><%= image_tag "icons-analytics.svg" %> Queue Analytics</div>
         <div class="dashboard-owner-options-item"><%= image_tag "icons-discounts.svg" %> Rewards & Discounts</div>
-        <div class="dashboard-owner-options-item"><%= image_tag "icons-restaurant-profile.svg" %>  Restaurant Details</div>
+        <div class="dashboard-owner-options-item"><%= image_tag "icons-restaurant-profile.svg" %>  <%= link_to "Restaurant Details", edit_restaurant_path(@restaurant) %> </div>
         <div class="dashboard-owner-options-item"><%= image_tag "icons-queue-history.svg" %>  Queue History</div>
         <div class="dashboard-owner-options-item"><%= image_tag "icons-ratings.svg" %> <%= link_to "Reviews & Ratings", restaurant_reviews_path(@restaurant) %></div>
       </div>
@@ -23,7 +23,7 @@
       <div class="show-next-queuer">
         <% if @next_queuer.present? %>
           <p>Next Queuer: <%= @next_queuer.reservation_name %></p>
-          <p>Size: <%= @next_queuer.size %></p>
+          <p><%= @next_queuer.size %> Guests in Queue</p>
         <% else %>
           <p>No queuers in queue</p>
         <% end %>
@@ -52,7 +52,6 @@
 
   <div class="container analytics">
     <h3 class="pt-4">Queue Analytics</h3>
-    <%= select_month(Date.today) %>
     <div class="chart" >
       <%= line_chart Queuer.group_by_day(:created_at).count, width: "100%", height: "240px", colors: ["pink"], empty: "No data", download: true %>
     </div>

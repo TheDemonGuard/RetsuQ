@@ -877,6 +877,7 @@ Restaurant.all.each do |restaurant|
     end
   end
 end
+
 Restaurant.all.each do |restaurant|
   rand(5..15).times do
     Review.create!(
@@ -959,6 +960,16 @@ end
     status: "queuing",
     actual_wait_time: 0
   )
+end
+
+5.times do
+  user = User.create!(
+  email: Faker::Internet.safe_email,
+  password: '123123', # needs to be 6 digits,
+  # add any additional attributes you have on your model
+)
+file = URI.open('https://thispersondoesnotexist.com/image')
+user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
 end
 
 puts "DONE! You now have 30 Users and 30 Restaurants in the DB..."

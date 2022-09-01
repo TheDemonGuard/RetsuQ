@@ -26,6 +26,13 @@
     height: auto;
     margin-right: 1.2em;
   }
+  a {
+    text-decoration: none;
+  }
+
+  .dashboard-owner-options-item:hover {
+    background-color: #dddddd;
+  }
 }
 
 .live-queue {

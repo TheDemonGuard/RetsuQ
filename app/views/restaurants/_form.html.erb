@@ -1,23 +1,14 @@
-<%= form_for(restaurant) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <%= f.label :category %>
-  <%= f.text_field :category %>
-  <%= f.label :price_range %>
-  <%= f.text_field :price_range %>
-  <%= f.label :open_time %>
-  <%= f.number_field :open_time %>
-  <%= f.label :close_time %>
-  <%= f.number_field :close_time %>
-  <%= f.label :status %>
-  <%= f.text_field :status %>
-  <%= f.label :capacity %>
-  <%= f.number_field :capacity %>
-  <%= f.label :total_wait_time %>
-  <%= f.number_field :total_wait_time %>
-  <%= f.label :time_per_person %>
-  <%= f.number_field :time_per_person %>
-  <%= f.submit %>
-<% end %>
+<%= simple_form_for(restaurant) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :category %>
+  <%= f.input :price_range %>
+  <%= f.input :open_time %>
+  <%= f.input :close_time %>
+  <%= f.input :status %>
+  <%= f.input :capacity %>
+  <%= f.input :total_wait_time %>
+  <%= f.input :time_per_person %>
+  <%= f.submit class: "btn btn-primary" %>
+  <%= link_to "Back", owner_path, class: "btn btn-light" %>
+  <% end %>
