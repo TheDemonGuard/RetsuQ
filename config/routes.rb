@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :users
+
   authenticated :user, ->(user) { user.owner? } do
     get 'owner', to: 'owner#dashboard'
   end
 
-  devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 

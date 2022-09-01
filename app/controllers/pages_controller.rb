@@ -4,6 +4,7 @@ class PagesController < ApplicationController
 
   def home
     @restaurants = Restaurant.all
+    @queuer = Queuer.new
 
     if params[:lat]
       # params[:dist] = 1000 (for demo from Osaka)

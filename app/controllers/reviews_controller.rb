@@ -16,7 +16,9 @@ class ReviewsController < ApplicationController
   end
 
   def index
-    @reviews = Review.all
+    @review = Review.new
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @reviews = @restaurant.reviews
   end
 
   private

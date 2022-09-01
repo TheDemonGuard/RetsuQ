@@ -1,13 +1,11 @@
 class OwnerController < ApplicationController
   def dashboard
     @restaurant = current_user.restaurant
-    @queuers = Queuer.where(restaurant_id: @restaurant, status: "queueing")
+    @queuers = Queuer.where(restaurant_id: @restaurant, status: "queuing")
     @next_queuer = Queuer.where(restaurant_id: current_user.restaurant, status: "queuing").first
     if @next_queuer.nil?
       # redirect_to owner_path, notice: "No queuers in queue"
       root_path
-    else
-      redirect_to owner_path
     end
   end
 
