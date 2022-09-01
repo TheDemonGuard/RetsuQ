@@ -1,0 +1,16 @@
+.queuers-tableheaders {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3em;
+  padding: 0 8px;
+
+  h2 {
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  svg {
+    width: 4em;
+    height: auto;
+  }
+}
