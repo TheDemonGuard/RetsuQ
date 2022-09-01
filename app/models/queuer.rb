@@ -3,6 +3,7 @@ class Queuer < ApplicationRecord
   belongs_to :restaurant
 
   STATUS = ['queuing', 'dining', 'completed']
+  validates :reservation_name, presence: true
   validates :size, presence: true, numericality: { only_integer: true }
 
   after_create :reminder
@@ -59,7 +60,7 @@ class Queuer < ApplicationRecord
   end
 
   def estimated
-    time = Time.now + (wait_time * 60)
+    time = Time.zone.now  + (wait_time * 60)
     return time.strftime("%I:%M %p")
   end
 

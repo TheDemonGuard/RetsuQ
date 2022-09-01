@@ -12,7 +12,7 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-import "controllers"
+import "../controllers"
 import "bootstrap"
 import "chartkick/chart.js"
 
@@ -20,5 +20,12 @@ import { Application } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
 
 const application = Application.start()
-const context = require.context("./controllers", true, /\.js$/)
+const context = require.context("../controllers", true, /\.js$/)
 application.load(definitionsFromContext(context))
+
+// var myModal = document.getElementById('myModal')
+// var myInput = document.getElementById('myInput')
+
+// myModal.addEventListener('shown.bs.modal', function () {
+//   myInput.focus()
+// })

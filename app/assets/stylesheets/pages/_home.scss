@@ -1,7 +1,16 @@
 // Specific CSS for your home-page
 
 .restaurants-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  margin: auto;
+  // display: flex;
+  // flex-wrap: wrap;
+  // margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 5em 3em;
+
+  @media screen and (max-width: $large) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2em;
+  }
 }

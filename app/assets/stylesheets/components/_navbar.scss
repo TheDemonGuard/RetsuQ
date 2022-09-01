@@ -9,6 +9,12 @@
   background-position: center right;
   background-size: 275px;
   padding: 0 1.5em;
+
+  @media (max-width: 680px)  {
+        justify-content: space-evenly;
+        background-image: none;
+        // Other styles here
+  }
 }
 
 .navbar-main .navbar-collapse {
@@ -19,12 +25,49 @@
   width: 330px;
 }
 
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+
+.user-queue {
+  border-radius: 10px;
+  padding: 0.5em 1em;
+
+  &.queued {
+    background: $yellow;
+  }
+
+  &.notqueued {
+    background: $light-gray;
+  }
+
+}
+
+
+
 // owner navbar
 .navbar-owner {
   align-items: center;
   background: #FFD60A;
   width: 100%;
   display: flex;
+  @media (max-width: 576px)  {
+    .form-switch {
+      padding-left: 0px !important;
+    }
+    .form-check {
+      margin-bottom: 0px !important;
+    }
+    .queue-status {
+      padding-bottom: 0px !important;
+      padding-right: 0px !important;
+    }
+    .add-queuer {
+      padding-right: 5px !important;
+    }
+  }
 }
 
 .queuers {

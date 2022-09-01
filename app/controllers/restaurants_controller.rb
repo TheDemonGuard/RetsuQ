@@ -1,6 +1,8 @@
 require 'rubygems'
 require 'rufus-scheduler'
 class RestaurantsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :show ]
+
   def create
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.user_id = current_user.id
@@ -31,8 +33,11 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @restaurant.update(total_wait_time: @restaurant.wait_time)
 
+    @queuer = Queuer.new # for simple form in the  modal on show page
+    @estimated_wait_time = @restaurant.wait_time
+
     @category = @restaurant.category
-    @recommended_restaurants = Restaurant.where(category: @category)
+    @recommended_restaurants = Restaurant.where(category: @category).excluding(@restaurant)
     @review = Review.new
 
     respond_to do |format|
