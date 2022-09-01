@@ -1,7 +1,7 @@
 <section>
   <h3>Search on Map</h3>
 
-    <div style="width: 100%; height: 550px; overflow:hidden;"
+    <div style="width: 100%; height: 550px; overflow:hidden; border-radius: 10px ;"
     data-controller="mapbox"
     data-mapbox-markers-value="<%= @markers.to_json %>"
     data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
@@ -23,7 +23,7 @@
   <h4><%= Time.now %></h4>
   <!-- Flexbox wrapper for restaurant cards -->
   <div class="restaurants-wrapper">
-     <% @restaurants.each do |restaurant| %>  <!--Start iteration -->
+    <% @restaurants.each do |restaurant| %>  <!--Start iteration -->
       <%= render "restaurant_card", restaurant: restaurant %>
       <%= render "shared/modal", restaurant: restaurant, modal_id: "restaurant-modal-#{restaurant.id}" %>
     <% end %>

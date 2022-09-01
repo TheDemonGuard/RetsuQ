@@ -10,6 +10,7 @@
     vertical-align: middle;
     font-size: 14px;
     font-weight: bold;
+    margin: 0;
     margin-top: 6px!important;
   }
 }
@@ -111,7 +112,7 @@ transform: scale(1.05);
 }
 
 .leave-btn {
-  width: 250px;
+  width: 150px;
   height: 60px;
   display: flex;
   flex-direction: column;
