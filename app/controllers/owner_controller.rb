@@ -7,7 +7,8 @@ class OwnerController < ApplicationController
       # redirect_to owner_path, notice: "No queuers in queue"
       root_path
     else
-      redirect_to owner_path
+      # redirect_to owner_path
+      root_path
     end
   end
 
