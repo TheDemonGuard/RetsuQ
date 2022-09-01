@@ -129,3 +129,26 @@ transform: scale(1.05);
   border: 1px solid transparent;
   margin-bottom: 1em;
 }
+
+#home-page-join-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  border-radius: 16px;
+  text-align: center;
+
+  background: $yellow;
+  color: $black;
+  border-radius: 16px;
+  font-weight: bold;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+}
+
+button#home-page-join-btn:disabled {
+  opacity: 40%;
+  cursor:none;
+  pointer-events: none;
+}
