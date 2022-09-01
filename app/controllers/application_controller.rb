@@ -19,4 +19,11 @@ class ApplicationController < ActionController::Base
       @queuer = nil
     end
   end
+
+
+  # def default_url_options
+  #   { host: ENV["DOMAIN"] || "localhost:3000" }
+  # end
+
+  # run heroku config:set DOMAIN=www.my_product.com after
 end
