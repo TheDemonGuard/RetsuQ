@@ -43,6 +43,11 @@ ActiveRecord::Schema.define(version: 2022_09_01_112858) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "callbacks", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "queuers", force: :cascade do |t|
     t.integer "size"
     t.string "status"
@@ -97,6 +102,7 @@ ActiveRecord::Schema.define(version: 2022_09_01_112858) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "admin"
     t.integer "role"
+    t.string "reservation_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
