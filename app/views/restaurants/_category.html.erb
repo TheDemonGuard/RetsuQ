@@ -53,7 +53,7 @@
             </div>
 
             <div class="join-btn-container shadow">
-              <% case @restaurant.status %>
+              <% case @restaurant.current_status %>
               <% when Restaurant::STATUS[0] %>
                 <div class="invalid-btn">
                   <!-- Button trigger modal -->
@@ -74,6 +74,7 @@
                   <%= Restaurant::MSG[2] %> ( <%= @restaurant.open_time%> ~ <%= @restaurant.close_time %> )
                 </div>
               <% when Restaurant::STATUS[3] %>
+              <% else %>
               <% end %>
             </div>
     </div>

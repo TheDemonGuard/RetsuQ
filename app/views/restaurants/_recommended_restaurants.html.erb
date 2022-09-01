@@ -36,7 +36,7 @@
             </div>
 
             <!-- Join Queue Button -->
-            <% case restaurant.status %>
+            <% case restaurant.current_status %>
             <% when Restaurant::STATUS[0] %>
               <div class="card-restaurant-icon-big">
                 <%= Restaurant::MSG[0] %>
@@ -51,6 +51,7 @@
               </div>
             <% when Restaurant::STATUS[3] %>
               <%= link_to 'Join Queue', new_restaurant_queuer_path(restaurant), class: "card-restaurant-icon-big" %>
+            <% else %>
             <% end %>
           </div>
         </div>
