@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_20_012920) do
+ActiveRecord::Schema.define(version: 2022_09_01_112858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,7 +82,9 @@ ActiveRecord::Schema.define(version: 2022_08_20_012920) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "rating"
+    t.bigint "user_id"
     t.index ["restaurant_id"], name: "index_reviews_on_restaurant_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -105,4 +107,5 @@ ActiveRecord::Schema.define(version: 2022_08_20_012920) do
   add_foreign_key "queuers", "users"
   add_foreign_key "restaurants", "users"
   add_foreign_key "reviews", "restaurants"
+  add_foreign_key "reviews", "users"
 end
