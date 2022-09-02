@@ -8,6 +8,7 @@
 
 </section>
 
+<!-- >
 <section data-controller="nearrestaurants">
   <h3>Restaurants near you</h3>
   <label for="restaurantRange" class="form-label">Max. distance from your location:</label>
@@ -15,12 +16,11 @@
 
   <div class="restaurants-wrapper" data-nearrestaurants-target="nearyou">
   </div>
-
 </section>
+-->
 
 <section>
   <h3>Restaurants in Tokyo</h3>
-  <h4><%= Time.now %></h4>
   <!-- Flexbox wrapper for restaurant cards -->
   <div class="restaurants-wrapper">
     <% @restaurants.each do |restaurant| %>  <!--Start iteration -->
