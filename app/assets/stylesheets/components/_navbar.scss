@@ -1,6 +1,7 @@
 // user navbar
 
 .navbar-main {
+  width: 100%;
   justify-content: space-between;
   background: white;
   margin-bottom: 3em;
@@ -8,10 +9,10 @@
   background-repeat: no-repeat;
   background-position: center right;
   background-size: 275px;
-  padding: 0 1.5em;
+  padding: 0 1.5em 1em;
 
   @media (max-width: 680px)  {
-        justify-content: space-evenly;
+        padding: 0;
         background-image: none;
         // Other styles here
   }
@@ -21,15 +22,35 @@
   flex-grow: 0;
 }
 
+.navbar-main .navbar-brand {
+  @media (max-width: 680px)  {
+    margin-right: 0;
+    padding-top: 0;
+    margin: auto;
+}
+}
+
 .navbar-main .navbar-brand img {
   width: 330px;
+  @media (max-width: 680px)  {
+    max-height: 80px;
+    width: auto;
+    margin: auto;
+    // Other styles here
+}
 }
 
 .navbar-right {
   display: flex;
   align-items: center;
+
+  @media (max-width: 680px)  {
+  width: 100%;
+  justify-content: space-around;
+  margin-top: 10px;
 }
 
+}
 
 .user-queue {
   border-radius: 10px;
@@ -44,15 +65,20 @@
   }
 
 }
-
-
-
 // owner navbar
 .navbar-owner {
   align-items: center;
   background: #FFD60A;
   width: 100%;
   display: flex;
+  justify-content: space-between;
+  padding: 1em;
+
+  .navbar-right {
+    align-items: normal;
+    padding-top: 9px;
+  }
+
   @media (max-width: 576px)  {
     .form-switch {
       padding-left: 0px !important;
@@ -98,4 +124,12 @@
 .add-queuer {
   font-size: 40px;
   padding-right: 24px;
+}
+
+.dropdown-item.menu-username:hover {
+  background: none;
+}
+
+.dropdown-item a:active {
+  color:white;
 }

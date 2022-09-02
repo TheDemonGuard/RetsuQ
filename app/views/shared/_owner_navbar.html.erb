@@ -4,7 +4,7 @@
     <%= image_tag "RetsuQ_logo_large.png" %>
   <% end %>
 
-  <div class="container d-flex justify-content-end actions">
+  <div class="navbar-right">
     <div class="form-check form-switch queue-status">
     <% if current_user.restaurant.status == 'open' %>
       <%= simple_form_for current_user.restaurant do |f| %>
@@ -25,16 +25,15 @@
       <% end %>
     </div>
 
+    <div class="dropdown">
+      <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><title>menu</title><g fill="none"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="#212121"></path></g></svg></button>
 
-  <div class="dropdown">
-    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><title>menu</title><g fill="none"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="#212121"></path></g></svg></button>
-
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-      <li><p class="dropdown-item"><%= current_user.email %></p></li>
-      <li><p class="dropdown-item text-decoration-none" ><%= link_to "Dashboard", owner_path, class: "text-decoration-none" if current_user.owner? %></p></li>
-      <li><p class="dropdown-item text-decoration-none" ><%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "text-decoration-none"%></p></li>
-    </ul>
-  </div>
-  </div>
-</div>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+        <li><p class="dropdown-item menu-username"><%= current_user.email %></p></li>
+        <li><p class="dropdown-item text-decoration-none" ><%= link_to "Dashboard", owner_path, class: "text-decoration-none" if current_user.owner? %></p></li>
+        <li><p class="dropdown-item text-decoration-none" ><%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "text-decoration-none"%></p></li>
+      </ul>
+    </div>
+    </div>
+    </div>
