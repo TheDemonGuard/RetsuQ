@@ -835,6 +835,7 @@ restaurant29 = Restaurant.create!(
   total_wait_time: 0,
   time_per_person: 3,
   user_id: user29.id
+
 )
 restaurant29.photos.attach(io: photos29, filename: 'user.png', content_type: 'image/png')
 restaurant29.photos.attach(io: photos106, filename: 'user.png', content_type: 'image/png')
@@ -890,12 +891,14 @@ end
 pitch_owner = User.create!(
   password: "123456",
   email: "thegyozaacademy@real.com",
+  phone: "+819038186033",
   role: "owner"
 )
 
 pitch_user = User.create!(
   password: "123456",
   email: "user@real.com",
+  phone: "+817084322979",
   role: "user"
 )
 

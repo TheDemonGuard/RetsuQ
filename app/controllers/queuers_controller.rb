@@ -94,6 +94,12 @@ class QueuersController < ApplicationController
     redirect_to owner_path, notice: "Group Was Removed"
   end
 
+  def notify
+    @queuer = Queuer.find(params[:id])
+    @queuer.reminder
+    redirect_to owner_path, notice: "Notification sent!"
+  end
+
   private
 
     def queuer_params

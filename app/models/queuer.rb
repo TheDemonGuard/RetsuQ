@@ -6,10 +6,11 @@ class Queuer < ApplicationRecord
   validates :reservation_name, presence: true
   validates :size, presence: true, numericality: { only_integer: true }
 
-  after_create :reminder
+  # after_create :reminder
 
   # Notify our queuer X minutes before their
   def reminder
+    return unless user.phone.present?
     @twilio_number = ENV['TWILIO_NUMBER']
     account_sid = ENV['TWILIO_ACCOUNT_SID']
     @client = Twilio::REST::Client.new account_sid, ENV['TWILIO_AUTH_TOKEN']

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  post 'twilio/sms'
 
   devise_for :users
 
@@ -12,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :restaurants do
     resources :queuers, only: [ :new, :create, :edit, :update ]
+
     resources :reviews, only: [ :new, :create, :index ]
   end
 
@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       patch :change_status
       delete :remove_queuer
       delete :quick_remove
+      get :notify
     end
   end
 end
