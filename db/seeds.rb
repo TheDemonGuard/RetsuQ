@@ -918,9 +918,16 @@ pitch_seed1 = Restaurant.create!(
   # creating a user for each restaurant
   user: pitch_owner
 )
-pitch_photo = URI.open("https://images.unsplash.com/photo-1622888633849-0a44e9fab3e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2094&q=80")
+pitch_photo1 = URI.open("https://images.unsplash.com/photo-1622888633849-0a44e9fab3e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2094&q=80")
+pitch_photo2 = URI.open("https://images.unsplash.com/photo-1588182728399-e8f2df121744?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80")
+pitch_photo3 = URI.open("https://images.unsplash.com/photo-1571865705992-762a1f078b3c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1829&q=80")
+pitch_photo4 = URI.open("https://images.unsplash.com/photo-1633805232927-8d6aca1cd206?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
 
-pitch_seed1.photos.attach(io: pitch_photo, filename: 'user.png', content_type: 'image/png')
+pitch_seed1.photos.attach(io: pitch_photo1, filename: 'user.png', content_type: 'image/png')
+pitch_seed1.photos.attach(io: pitch_photo2, filename: 'user.png', content_type: 'image/png')
+pitch_seed1.photos.attach(io: pitch_photo3, filename: 'user.png', content_type: 'image/png')
+pitch_seed1.photos.attach(io: pitch_photo4, filename: 'user.png', content_type: 'image/png')
+
 
   rand(5..15).times do
     Review.create!(
@@ -966,13 +973,24 @@ Queuer.create!(
   )
 end
   # creating active queuers for the pitch
-10.times do
+5.times do
   Queuer.create!(
     reservation_name: Faker::Name.name,
     user_id: pitch_user.id,
     restaurant_id: pitch_seed1.id,
-    size: rand(1..10),
+    size: rand(1..8),
     status: "queuing",
+    actual_wait_time: 0
+  )
+end
+
+5.times do
+  Queuer.create!(
+    reservation_name: Faker::Name.name,
+    user_id: pitch_user.id,
+    restaurant_id: pitch_seed1.id,
+    size: rand(1..8),
+    status: "dining",
     actual_wait_time: 0
   )
 end
