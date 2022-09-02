@@ -24,7 +24,7 @@ class Restaurant < ApplicationRecord
   MSG = ["Open", "Opening soon", "Closed"]
 
   def status_string
-    self.status = self.status == "1" ? "open" : "closed"
+    self.status = self.status == "1" ? "Open" : "Closed"
   end
 
   def current_status

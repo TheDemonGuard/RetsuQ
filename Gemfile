@@ -79,3 +79,6 @@ gem 'whenever', require: false
 gem "rufus-scheduler"
 gem 'bootstrap', '~> 5.2.0'
 gem 'jquery-rails'
+
+# Use Twilion for SMS
+gem 'twilio-ruby'

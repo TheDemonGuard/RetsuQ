@@ -835,6 +835,7 @@ restaurant29 = Restaurant.create!(
   total_wait_time: 0,
   time_per_person: 3,
   user_id: user29.id
+
 )
 restaurant29.photos.attach(io: photos29, filename: 'user.png', content_type: 'image/png')
 restaurant29.photos.attach(io: photos106, filename: 'user.png', content_type: 'image/png')
@@ -890,12 +891,14 @@ end
 pitch_owner = User.create!(
   password: "123456",
   email: "thegyozaacademy@real.com",
+  phone: "+819038186033",
   role: "owner"
 )
 
 pitch_user = User.create!(
   password: "123456",
   email: "user@real.com",
+  phone: "+817084322979",
   role: "user"
 )
 
@@ -939,10 +942,19 @@ pitch_seed2 = Restaurant.create!(
   user: pitch_owner
 )
 # creating queuers in history for the pitch
+Queuer.create!(
+  reservation_name: Faker::Name.name,
+  user_id: pitch_user.id,
+  restaurant_id: pitch_seed1.id,
+  size: 2,
+  status: "queuing",
+  actual_wait_time: 0
+)
+
 200.times do
   Queuer.create!(
     reservation_name: Faker::Name.name,
-    user_id: pitch_owner.id,
+    user_id: pitch_user.id,
     restaurant_id: pitch_seed1.id,
     size: rand(1..10),
     status: "completed",
@@ -954,7 +966,7 @@ end
 10.times do
   Queuer.create!(
     reservation_name: Faker::Name.name,
-    user_id: pitch_owner.id,
+    user_id: pitch_user.id,
     restaurant_id: pitch_seed1.id,
     size: rand(1..10),
     status: "queuing",
@@ -966,6 +978,7 @@ end
   user = User.create!(
   email: Faker::Internet.safe_email,
   password: '123123', # needs to be 6 digits,
+  phone: "+817084322979"
   # add any additional attributes you have on your model
 )
 file = URI.open('https://thispersondoesnotexist.com/image')

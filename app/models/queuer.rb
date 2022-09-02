@@ -6,6 +6,32 @@ class Queuer < ApplicationRecord
   validates :reservation_name, presence: true
   validates :size, presence: true, numericality: { only_integer: true }
 
+  # after_create :reminder
+
+  # Notify our queuer X minutes before their
+  def reminder(time = Time.now)
+    return unless user.phone.present?
+    @twilio_number = ENV['TWILIO_NUMBER']
+    account_sid = ENV['TWILIO_ACCOUNT_SID']
+    @client = Twilio::REST::Client.new account_sid, ENV['TWILIO_AUTH_TOKEN']
+    time_str = time.localtime.strftime("%I:%M%p on %b. %d, %Y")
+    body = "Hi #{reservation_name}. Just a reminder that your turn is coming up at #{time_str}."
+    message = @client.messages.create(
+      :from => @twilio_number,
+      :to => user.phone,
+      :body => body
+    )
+  end
+
+  def when_to_run
+    # wait time is should be in minutes
+    wait_time = wait_time.minutes
+    turn_time = Time.now + wait_time
+    turn_time - 15.minutes
+  end
+
+  #handle_asynchronously :reminder, :run_at => Proc.new { |i| i.when_to_run }
+
   def position
     queuers = self.restaurant.queuers.where(status: "queuing")
     queuers = queuers.sort_by { |queue| queue.created_at }
@@ -38,4 +64,5 @@ class Queuer < ApplicationRecord
     time = Time.zone.now  + (wait_time * 60)
     return time.strftime("%I:%M %p")
   end
+
 end
