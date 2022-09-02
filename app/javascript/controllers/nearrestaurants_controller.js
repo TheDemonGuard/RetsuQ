@@ -25,7 +25,19 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
-        this.nearyouTarget.innerHTML = data.restaurants
+        console.log(`data.restaurants.length ${data.restaurants.length}.`);
+        console.log(`data.restaurants ${data.restaurants}.`);
+        console.log(`Array.isArray(data.restaurants) ${Array.isArray(data.restaurants)}.`);
+
+        console.log(`data ${data}.`);
+        if ( Array.isArray(data.restaurants) == false )
+        {
+          this.nearyouTarget.innerHTML = ""
+        }
+        else
+        {
+          this.nearyouTarget.innerHTML = data.restaurants
+        }
       })
   }
 }

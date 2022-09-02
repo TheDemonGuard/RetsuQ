@@ -22,8 +22,8 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
-        this.customersTarget.innerHTML = `${data.line_size}<p>In Queue</p>`
-        this.waitTarget.innerHTML = `${data.wait_time}<p>Mins</p>`
+        this.customersTarget.innerHTML = data.line_size
+        this.waitTarget.innerHTML = data.wait_time
 
       })
 
