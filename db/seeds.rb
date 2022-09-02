@@ -918,6 +918,9 @@ pitch_seed1 = Restaurant.create!(
   # creating a user for each restaurant
   user: pitch_owner
 )
+pitch_photo = URI.open("https://images.unsplash.com/photo-1622888633849-0a44e9fab3e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2094&q=80")
+
+pitch_seed1.photos.attach(io: pitch_photo, filename: 'user.png', content_type: 'image/png')
 
   rand(5..15).times do
     Review.create!(
