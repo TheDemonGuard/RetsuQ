@@ -9,10 +9,9 @@ module MetaTagsHelper
     content_for?(:meta_description) ? content_for(:meta_description) : DEFAULT_META["meta_description"]
   end
 
-  # ! change when we have domain
-  # def meta_url
-  #   content_for?(:meta_url) ? content_for(:meta_url) : DEFAULT_META["meta_url"]
-  # end
+  def meta_url
+    content_for?(:meta_url) ? content_for(:meta_url) : DEFAULT_META["meta_url"]
+  end
 
   def meta_image
     meta_image = (content_for?(:meta_image) ? content_for(:meta_image) : DEFAULT_META["meta_image"])

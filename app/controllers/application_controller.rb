@@ -11,8 +11,6 @@ class ApplicationController < ActionController::Base
   end
 
   def get_queuer
-    # @user_id = current_user.id
-    # raise
     if current_user.present?
       @queuer = Queuer.find_by(user: current_user)
     else
@@ -20,10 +18,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
-  # def default_url_options
-  #   { host: ENV["DOMAIN"] || "localhost:3000" }
-  # end
-
-  # run heroku config:set DOMAIN=www.my_product.com after
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
 end

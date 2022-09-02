@@ -1,3 +1,7 @@
+<!-- app/views/offers/show.html.erb -->
+<% content_for :meta_title, "#{DEFAULT_META["meta_title"]} for #{@restaurant.name}" %>
+<% content_for :meta_description, @restaurant.category %>
+
 <!-- Different page if you are an owner -->
 <% if current_user&.id == @restaurant.user_id %>
   <p>this is yours</p>
