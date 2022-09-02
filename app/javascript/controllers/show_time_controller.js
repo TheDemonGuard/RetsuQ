@@ -6,7 +6,7 @@ export default class extends Controller {
   connect() {
     // console.log("HEllo from connect time cont")
     setInterval(() => {
-      this.refresh()
+      // this.refresh()
     }, 5000)
   }
 
