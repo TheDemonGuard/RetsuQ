@@ -988,7 +988,15 @@ end
     user_id: pitch_user.id,
     restaurant_id: pitch_seed1.id,
     size: 1,
-    status: "queuing"
+    status: "dining"
+  )
+
+  Queuer.create!(
+    reservation_name: Faker::Name.name,
+    user_id: pitch_user.id,
+    restaurant_id: pitch_seed1.id,
+    size: 1,
+    status: "dining"
   )
 
 
