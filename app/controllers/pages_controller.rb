@@ -30,9 +30,9 @@ class PagesController < ApplicationController
     # @user_id = current_user.id
     # raise
     if current_user.present?
-      @queuer = Queuer.find_by(user: current_user)
+      @Aqueuer = Queuer.find_by(user: current_user)
     else
-      @queuer = nil
+      @Aqueuer = nil
     end
   end
 end
