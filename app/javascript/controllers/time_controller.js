@@ -5,7 +5,7 @@ export default class extends Controller {
 
   connect() {
     setInterval(() => {
-      this.refresh()
+      // this.refresh()
     }, 5000)
   }
 
