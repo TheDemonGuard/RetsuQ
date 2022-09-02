@@ -22,17 +22,25 @@ class QueuersController < ApplicationController
     @restaurant = Restaurant.where(user_id: current_user.id)
     # <!-- Active Queuers -->
     @queuers = Queuer.where(restaurant_id: @restaurant, status: "queuing")
-    @queuers = @queuers.sort_by { |queue| queue.created_at }
+    @queuers = @queuers.order(created_at: :asc)
     @number_of_queuers = @queuers.size
+    @number_of_queuers = 0
+    @queuers.each do |group|
+      @number_of_queuers += group.size
+    end
     # <!-- Active Diners -->
     @dining_queuers = Queuer.where(restaurant_id: @restaurant, status: "dining")
-    @number_of_diners = @dining_queuers.size
+    @diners = @dining_queuers.size
+    @number_of_diners = 0
+    @dining_queuers.each do |group|
+      @number_of_diners += group.size
+    end
 
-    @all_queuers = @queuers += @dining_queuers
-    @all_queuers = @queuers.sort_by { |queue| queue.created_at }
+    @all_queuers = @queuers + @dining_queuers
+    @all_queuers = @queuers.order(created_at: :asc)
     # <!-- Total Queuers -->
     @total_queuers = Queuer.where(restaurant_id: @restaurant)
-    @total_queuers = @total_queuers.sort_by { |queue| queue.created_at }
+    @total_queuers = @total_queuers.order(created_at: :asc)
     # <!-- Number of active customers -->
     @number_of_people = 0
     @queuers.each do |group|
