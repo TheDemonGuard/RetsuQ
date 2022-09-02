@@ -9,13 +9,13 @@ class Queuer < ApplicationRecord
   # after_create :reminder
 
   # Notify our queuer X minutes before their
-  def reminder
+  def reminder(time = Time.now)
     return unless user.phone.present?
     @twilio_number = ENV['TWILIO_NUMBER']
     account_sid = ENV['TWILIO_ACCOUNT_SID']
     @client = Twilio::REST::Client.new account_sid, ENV['TWILIO_AUTH_TOKEN']
-    time_str = ((self.created_at).localtime).strftime("%I:%M%p on %b. %d, %Y")
-    body = "Hi #{self.created_at}. Just a reminder that your turn is coming up at #{time_str}."
+    time_str = time.localtime.strftime("%I:%M%p on %b. %d, %Y")
+    body = "Hi #{reservation_name}. Just a reminder that your turn is coming up at #{time_str}."
     message = @client.messages.create(
       :from => @twilio_number,
       :to => user.phone,

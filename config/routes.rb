@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       patch :change_status
       delete :remove_queuer
       delete :quick_remove
-      get :notify
+      post :notify
     end
   end
 end
