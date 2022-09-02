@@ -22,6 +22,7 @@ class QueuersController < ApplicationController
     @restaurant = Restaurant.where(user_id: current_user.id)
     # <!-- Active Queuers -->
     @queuers = Queuer.where(restaurant_id: @restaurant, status: "queuing")
+    @queuers = @queuers.sort_by { |queue| queue.created_at }
     @number_of_queuers = @queuers.size
     # <!-- Active Diners -->
     @dining_queuers = Queuer.where(restaurant_id: @restaurant, status: "dining")
