@@ -97,7 +97,7 @@ class QueuersController < ApplicationController
   def notify
     @queuer = Queuer.find(params[:id])
     @queuer.reminder
-    redirect_to owner_path, notice: "Notification sent!"
+    redirect_to request.referrer, notice: "Notification sent!"
   end
 
   private
