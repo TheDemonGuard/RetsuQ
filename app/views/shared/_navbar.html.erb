@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-main shadow sticky-top">
+<div class="navbar navbar-expand-sm navbar-light navbar-main sticky-top">
   <%= link_to "/", class: "navbar-brand" do %>
     <%= image_tag "navbar-icon.png" %>
   <% end %>
@@ -20,7 +20,7 @@
       <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><title>menu</title><g fill="none"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="#212121"></path></g></svg>    </button>
       <ul class="dropdown-menu dropdown-menu-end nav-img" aria-labelledby="dropdownMenuButton1">
         <h3>ようこそ！</h3>
-        <li><p class="dropdown-item"><%= current_user.email %></p></li>
+        <li><p class="dropdown-item menu-username"><%= current_user.email %></p></li>
         <li><p class="dropdown-item text-decoration-none" ><%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "text-decoration-none"%></p></li>
       </ul>
     </div>

@@ -66,12 +66,14 @@ transform: scale(1.05);
 
 .join-btn-container {
   height: 100%;
+  width: 100%;
   border-radius: 16px;
 
 }
 
 .join-btn {
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -96,6 +98,7 @@ transform: scale(1.05);
 
 .invalid-btn {
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
