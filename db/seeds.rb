@@ -978,11 +978,19 @@ end
     reservation_name: Faker::Name.name,
     user_id: pitch_user.id,
     restaurant_id: pitch_seed1.id,
-    size: rand(1..8),
-    status: "queuing",
-    actual_wait_time: 0
+    size: rand(5..8),
+    status: "queuing"
   )
 end
+
+  Queuer.create!(
+    reservation_name: Faker::Name.name,
+    user_id: pitch_user.id,
+    restaurant_id: pitch_seed1.id,
+    size: 1,
+    status: "queuing"
+  )
+
 
 5.times do
   Queuer.create!(
@@ -990,8 +998,7 @@ end
     user_id: pitch_user.id,
     restaurant_id: pitch_seed1.id,
     size: rand(1..8),
-    status: "dining",
-    actual_wait_time: 0
+    status: "dining"
   )
 end
 
